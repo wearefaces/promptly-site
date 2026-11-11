@@ -3,10 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pricing — Promptly</title>
-  <meta name="description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59, or Lifetime at $149 for the first 300 buyers.">
+  <title>Pricing — Promptly for Mac</title>
+  <meta name="description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Pricing — Promptly for Mac">
+  <meta property="og:description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/pricing.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Promptly for Mac">
+  <meta name="twitter:description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Promptly",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS",
+  "description": "A Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt, with your own library one click away.",
+  "url": "https://wearefaces.github.io/promptly-site/",
+  "image": "https://wearefaces.github.io/promptly-site/og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Pro Monthly",
+      "price": "7.00",
+      "priceCurrency": "USD",
+      "description": "Billed monthly. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Yearly",
+      "price": "59.00",
+      "priceCurrency": "USD",
+      "description": "Billed yearly, $4.92 per month equivalent. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Lifetime",
+      "price": "149.00",
+      "priceCurrency": "USD",
+      "description": "One-time purchase, first 300 buyers."
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -71,18 +126,19 @@
 
     <section class="page-section" style="padding-top:0">
       <div class="wrap">
-        <div class="billing-bar">
+                        <div class="billing-bar">
           <div class="billing-toggle" role="group" aria-label="Billing period">
-            <button type="button" data-billing="monthly" aria-pressed="false">Monthly</button>
+            <button type="button" data-billing="monthly" aria-pressed="false" tabindex="-1">Monthly</button>
             <button type="button" data-billing="yearly" class="is-on" aria-pressed="true">Yearly <span class="save-chip">Save $25</span></button>
           </div>
         </div>
 
         <div class="plan-cards">
-          <article class="plan-card" data-plan="monthly">
-            <h2 class="plan-name">Pro Monthly</h2>
-            <p class="price">$7 <span>/ month</span></p>
-            <p class="note">Cancel any time</p>
+          <article class="plan-card" data-plan="pro" aria-live="polite">
+            <p class="plan-flag" data-billing-show="yearly">Save $25</p>
+            <h2 class="plan-name" data-billing-field="name">Pro Yearly</h2>
+            <p class="price"><span data-billing-field="price">$59</span> <span data-billing-field="period">/ year</span></p>
+            <p class="note" data-billing-field="note">$4.92/mo · Save $25</p>
 
               <ul class="plan-features">
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited prompts and contexts</li>
@@ -92,23 +148,7 @@
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 14-day free trial, cancel anytime</li>
               </ul>
 
-            <a class="btn" href="#waitlist" data-cta="trial" data-plan="monthly">Join waitlist</a>
-          </article>
-          <article class="plan-card" data-plan="yearly">
-            <p class="plan-flag">Save $25</p>
-            <h2 class="plan-name">Pro Yearly</h2>
-            <p class="price">$59 <span>/ year</span></p>
-            <p class="note">$4.92/mo · Save $25</p>
-
-              <ul class="plan-features">
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited prompts and contexts</li>
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Desktop-app routing for ChatGPT and Claude</li>
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Discover and connected libraries</li>
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Smart suggestions in the popup</li>
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 14-day free trial, cancel anytime</li>
-              </ul>
-
-            <a class="btn" href="#waitlist" data-cta="trial" data-plan="yearly">Join waitlist</a>
+            <a class="btn" href="#waitlist" data-cta="trial" data-billing-cta data-plan="yearly">Join waitlist</a>
           </article>
           <article class="plan-card plan-card-lifetime" data-plan="lifetime">
             <p class="plan-flag">First 300 buyers</p>
@@ -121,7 +161,7 @@
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Desktop-app routing for ChatGPT and Claude</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Discover and connected libraries</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Smart suggestions in the popup</li>
-                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 14-day free trial, cancel anytime</li>
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pay once, keep Promptly</li>
               </ul>
 
             <a class="btn" href="#waitlist" data-cta="buy" data-plan="lifetime">Join waitlist</a>
@@ -166,7 +206,7 @@
                 <th scope="row">14-day free trial, cancel anytime</th>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
-                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td>—<span class="visually-hidden">No</span></td>
               </tr>
               <tr>
                 <th scope="row">Unlimited prompts and contexts</th>
@@ -208,7 +248,7 @@
       <div class="wrap">
         <div class="pricing-faq-head">
           <h2 class="display-md">Frequently asked questions</h2>
-          <p class="lede">Have other questions? <a href="mailto:hello@example.com" data-contact>Contact</a>.</p>
+          <p class="lede">Have other questions? <a href="terms.html#contact" data-contact>Contact us after purchase</a>.</p>
         </div>
         <div class="faq-grid">
           <div class="faq-list">
@@ -301,8 +341,8 @@
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
           <a href="pricing.html">Pricing</a>
-          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
-          <a href="mailto:hello@example.com" data-contact>Contact</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="terms.html#contact" data-contact>Contact</a>
         </nav>
       </div>
     </div>

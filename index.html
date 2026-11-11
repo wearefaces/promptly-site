@@ -4,9 +4,64 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promptly — AI prompts next to your cursor (Mac)</title>
-  <meta name="description" content="Promptly turns any text you select on your Mac into a ready-to-send AI prompt — with your own prompt library one click away.">
+  <meta name="description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Promptly — AI prompts next to your cursor (Mac)">
+  <meta property="og:description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Promptly — AI prompts next to your cursor (Mac)">
+  <meta name="twitter:description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Promptly",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS",
+  "description": "A Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt, with your own library one click away.",
+  "url": "https://wearefaces.github.io/promptly-site/",
+  "image": "https://wearefaces.github.io/promptly-site/og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Pro Monthly",
+      "price": "7.00",
+      "priceCurrency": "USD",
+      "description": "Billed monthly. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Yearly",
+      "price": "59.00",
+      "priceCurrency": "USD",
+      "description": "Billed yearly, $4.92 per month equivalent. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Lifetime",
+      "price": "149.00",
+      "priceCurrency": "USD",
+      "description": "One-time purchase, first 300 buyers."
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -283,7 +338,7 @@
       </div>
     </section>
 
-    <section class="section" id="pricing" style="padding-top:0">
+    <section class="section" id="pricing" data-billing-root data-billing="yearly" style="padding-top:0">
       <div class="wrap">
         <div class="section-head center" data-reveal>
           <p class="badge" data-when="waitlist">Early pricing · coming soon</p>
@@ -294,19 +349,20 @@
           <p class="lede" data-when="checkout" hidden>A 14-day free trial, cancel anytime. Pro Monthly, Pro Yearly, or Lifetime for the first 300 buyers.</p>
         </div>
         <div data-reveal>
-          <p class="trial"><strong>14-day free trial</strong>, cancel anytime.</p>
-          <div class="plans">
-            <article class="plan">
-              <div class="name">Pro Monthly</div>
-              <div class="price">$7 <span>/ month</span></div>
-              <p class="note">Cancel any time</p>
-              <a class="btn btn-sm" href="pricing.html" data-cta="trial" data-plan="monthly">Join waitlist</a>
-            </article>
-            <article class="plan">
-              <div class="name">Pro Yearly</div>
-              <div class="price">$59 <span>/ year</span></div>
-              <p class="note">$4.92/mo · Save $25</p>
-              <a class="btn btn-sm" href="pricing.html" data-cta="trial" data-plan="yearly">Join waitlist</a>
+          <p class="trial"><strong>14-day free trial</strong>, cancel anytime, on monthly and yearly plans.</p>
+          <div class="billing-bar">
+            <div class="billing-toggle" role="group" aria-label="Billing period">
+              <button type="button" data-billing="monthly" aria-pressed="false" tabindex="-1">Monthly</button>
+              <button type="button" data-billing="yearly" class="is-on" aria-pressed="true">Yearly <span class="save-chip">Save $25</span></button>
+            </div>
+          </div>
+          <div class="plans plans-billing">
+            <article class="plan" data-plan="pro" aria-live="polite">
+              <p class="plan-flag" data-billing-show="yearly">Save $25</p>
+              <div class="name" data-billing-field="name">Pro Yearly</div>
+              <div class="price"><span data-billing-field="price">$59</span> <span data-billing-field="period">/ year</span></div>
+              <p class="note" data-billing-field="note">$4.92/mo · Save $25</p>
+              <a class="btn btn-sm" href="pricing.html" data-cta="trial" data-billing-cta data-plan="yearly">Join waitlist</a>
             </article>
             <article class="plan">
               <div class="name">Lifetime</div>
@@ -383,8 +439,8 @@
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
           <a href="pricing.html">Pricing</a>
-          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
-          <a href="mailto:hello@example.com" data-contact>Contact</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="terms.html#contact" data-contact>Contact</a>
         </nav>
       </div>
     </div>

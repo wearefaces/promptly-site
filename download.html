@@ -3,10 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download — Promptly</title>
+  <title>Download Promptly for Mac</title>
   <meta name="description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/download.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Download Promptly for Mac">
+  <meta property="og:description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/download.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Download Promptly for Mac">
+  <meta name="twitter:description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Promptly",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS",
+  "description": "A Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt, with your own library one click away.",
+  "url": "https://wearefaces.github.io/promptly-site/",
+  "image": "https://wearefaces.github.io/promptly-site/og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Pro Monthly",
+      "price": "7.00",
+      "priceCurrency": "USD",
+      "description": "Billed monthly. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Yearly",
+      "price": "59.00",
+      "priceCurrency": "USD",
+      "description": "Billed yearly, $4.92 per month equivalent. 14-day free trial, cancel anytime."
+    },
+    {
+      "@type": "Offer",
+      "name": "Lifetime",
+      "price": "149.00",
+      "priceCurrency": "USD",
+      "description": "One-time purchase, first 300 buyers."
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -58,7 +113,11 @@
     <div class="page-hero">
       <div class="wrap">
         <h1>Download</h1>
-        <p class="lede">The download isn't available yet. Join the waitlist, and use these steps when you have Promptly on your Mac.</p>
+                <p class="lede" data-when="no-download">The download isn't available yet. Join the waitlist, and use these steps when you have Promptly on your Mac.</p>
+        <p class="lede" data-when="download" hidden>Download Promptly for Mac, then use these steps to grant Accessibility access.</p>
+        <p style="margin:20px 0 0">
+          <a class="btn" href="#waitlist" data-cta="download">Join waitlist</a>
+        </p>
       </div>
     </div>
     <div class="page-section">
@@ -128,8 +187,8 @@
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
           <a href="pricing.html">Pricing</a>
-          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
-          <a href="mailto:hello@example.com" data-contact>Contact</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="terms.html#contact" data-contact>Contact</a>
         </nav>
       </div>
     </div>
