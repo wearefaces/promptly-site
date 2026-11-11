@@ -506,18 +506,54 @@ h3, .h3 {
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 8px 30px rgba(20, 30, 40, 0.08);
 }
-.frost input {
+.frost .waitlist-fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+}
+.frost input,
+.frost input[type="email"],
+.frost.waitlist input[type="email"] {
+  appearance: none;
+  -webkit-appearance: none;
   flex: 1;
   min-width: 0;
+  margin: 0;
+  padding: 0;
   border: 0;
+  border-radius: 0;
+  box-shadow: none;
   background: transparent;
-  color: var(--text);
+  background-color: transparent;
+  color: #141414;
+  -webkit-text-fill-color: #141414;
+  caret-color: #141414;
   font: inherit;
-  font-size: 15px;
+  font-size: 16px; /* 16px avoids iOS zoom on focus */
+  line-height: 1.3;
   outline: none;
   height: 44px;
+  color-scheme: light;
 }
-.frost input::placeholder { color: var(--secondary); }
+.frost input::placeholder,
+.frost input[type="email"]::placeholder,
+.frost.waitlist input[type="email"]::placeholder {
+  color: #3a3a3a;
+  -webkit-text-fill-color: #3a3a3a;
+  opacity: 1;
+}
+.frost input:-webkit-autofill,
+.frost input[type="email"]:-webkit-autofill,
+.frost.waitlist input[type="email"]:-webkit-autofill {
+  -webkit-text-fill-color: #141414;
+  caret-color: #141414;
+  box-shadow: 0 0 0 44px rgba(255,255,255,0.01) inset;
+  transition: background-color 9999s ease-out;
+}
 .frost-go {
   width: 44px;
   height: 44px;
@@ -563,9 +599,19 @@ h3, .h3 {
 /* The hero photo is a light sky — keep ink text in both color schemes for contrast */
 .hero,
 .hero .display,
-.frost input,
 .frost-thanks {
   color: #141414;
+}
+.frost input,
+.frost input[type="email"],
+.frost.waitlist input[type="email"] {
+  color: #141414;
+  -webkit-text-fill-color: #141414;
+}
+.hero-actions .btn,
+.hero-actions .btn-ghost,
+.header-actions .btn {
+  -webkit-text-fill-color: currentColor;
 }
 .hero .lede { color: #2a2a2a; opacity: 1; }
 .hero .eyebrow,
@@ -1094,7 +1140,10 @@ kbd, .key {
   gap: 8px;
   width: min(100%, 440px);
 }
-.waitlist input[type="email"] {
+/* Footer only — do not apply to the light hero .frost waitlist (white-on-white). */
+.site-footer .waitlist input[type="email"] {
+  appearance: none;
+  -webkit-appearance: none;
   flex: 1;
   min-width: 0;
   height: 44px;
@@ -1103,11 +1152,16 @@ kbd, .key {
   border: 1px solid rgba(255,255,255,0.4);
   background: rgba(255,255,255,0.18);
   color: #fff;
+  -webkit-text-fill-color: #fff;
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   backdrop-filter: blur(10px);
 }
-.waitlist input[type="email"]::placeholder { color: rgba(255,255,255,0.7); }
+.site-footer .waitlist input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.82);
+  -webkit-text-fill-color: rgba(255,255,255,0.82);
+  opacity: 1;
+}
 .waitlist-thanks {
   margin: 0;
   font-size: 15px;
@@ -1124,11 +1178,25 @@ kbd, .key {
 
 /* On-canvas waitlist (pricing/download) */
 .on-canvas .waitlist input[type="email"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--text);
-  border-color: var(--border-strong);
+  -webkit-text-fill-color: var(--text);
+  font: inherit;
+  font-size: 16px;
 }
-.on-canvas .waitlist input[type="email"]::placeholder { color: var(--muted); }
+.on-canvas .waitlist input[type="email"]::placeholder {
+  color: #5c5c5c;
+  -webkit-text-fill-color: #5c5c5c;
+  opacity: 1;
+}
 .on-canvas .waitlist-thanks {
   background: var(--surface);
   color: var(--text);
@@ -1334,11 +1402,21 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 720px) {
   .wrap, .wrap-wide, .product-stage { width: calc(100% - 32px); }
   .nav { display: none; }
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; flex-shrink: 0; }
+  .header-inner { gap: 8px; overflow: hidden; }
+  .header-actions { gap: 6px; min-width: 0; }
   .header-actions .btn-ghost { display: none; }
+  .header-actions .btn-sm {
+    padding: 0 12px;
+    max-width: 46vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .site-header .save-chip { display: none; }
   .hero-copy { padding: 48px 16px 0; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions .btn { min-width: 220px; }
+  .frost { width: 100%; max-width: 100%; }
   .frost, .waitlist-fields { flex-direction: row; width: 100%; }
   .section { padding: 80px 0; }
   .mac-body { min-height: 0; padding: 20px 16px 24px; }
