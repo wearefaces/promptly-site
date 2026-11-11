@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promptly — AI prompts next to your cursor (Mac)</title>
+  <meta name="description" content="Promptly turns any text you select on your Mac into a ready-to-send AI prompt — with your own prompt library one click away.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header home-header">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm btn-ghost" href="#how-it-works">See how it works</a>
+        <a class="btn btn-sm" href="#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+            <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">A menu bar app for Mac</p>
+        <h1 class="display">Select text.<br>Ask any AI.</h1>
+        <form class="frost waitlist" action="#" method="post" id="waitlist">
+          <div class="waitlist-fields" style="width:100%;display:contents">
+            <label for="email-hero" class="visually-hidden">Email</label>
+            <input id="email-hero" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+            <button type="submit" class="frost-go" aria-label="Join waitlist">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5V3.5M3.5 8 8 3.5 12.5 8"/></svg>
+            </button>
+          </div>
+        </form>
+        <p class="frost-thanks waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+        <p class="lede">Promptly turns any text you select on your Mac into a ready-to-send AI prompt — with your own prompt library one click away.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#waitlist" data-cta="primary">Join waitlist</a>
+          <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+        <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. Requires macOS 26 or later, Apple silicon.</p>
+      </div>
+      <figure class="product-stage">
+        <div class="mac-window">
+          <div class="mac-chrome" aria-hidden="true">
+            <span class="mac-dots"><i></i><i></i><i></i></span>
+            Notes
+          </div>
+          <div class="mac-body">
+            <div class="doc-mock">
+              <p class="doc-kicker">Q3 summary</p>
+              <p>Team,</p>
+              <p><mark class="sel">The quarterly report shows a 12% increase in recurring revenue, driven mainly by mid-market accounts.</mark></p>
+              <p class="doc-close-mobile">Let's discuss this in the Monday meeting.</p>
+              <p class="doc-close-mobile">Thanks,</p>
+            </div>
+            <img class="popup-shot" src="app-popup-full.webp" width="612" height="271" alt="Promptly Full popup next to the selected text, with Favorites prompts and an Ask ChatGPT button.">
+
+          </div>
+        </div>
+        <figcaption class="visually-hidden">The Promptly Full popup appearing next to selected text, with Suggested, Favorites and Library tabs, a grid of prompts, and an Ask ChatGPT button.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section photo-band photo-band-red" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <h2 class="display-md">How it works</h2>
+          <p class="lede">Three steps, from any app on your Mac.</p>
+        </div>
+        <div class="card-row" data-reveal>
+          <article>
+            <div class="sky-card step-card">
+              <div class="inner">
+                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">1</p>
+              </div>
+            </div>
+            <div class="card-caption">
+              <h3>Select text</h3>
+              <p>In any app — browser, Mail, Slack, Word, or a code editor.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card step-card">
+              <div class="inner">
+                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">2</p>
+              </div>
+            </div>
+            <div class="card-caption">
+              <h3>Pick a prompt</h3>
+              <p>The Promptly popup appears next to your cursor, with your library one click away.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card step-card">
+              <div class="inner">
+                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">3</p>
+              </div>
+            </div>
+            <div class="card-caption">
+              <h3>Ask your AI</h3>
+              <p>Promptly opens ChatGPT, Claude, Copilot or another service with the prompt and your text already filled in.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="built-for">
+      <div class="wrap">
+        <div class="split" data-reveal>
+          <h2 class="display-md">Built for the Mac you already use.</h2>
+          <div>
+            <p class="lede" style="margin-bottom:32px">Promptly is a menu bar app — no Dock icon. Your library stays on your Mac. You don't need an account to use it.</p>
+            <ul class="cred">
+              <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.2 3.2 4.8 6.6l-.8 2.4 2.4-.8 3.4-3.4A1.2 1.2 0 0 0 8.2 3.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+                <div>
+                  <h3>Stored locally</h3>
+                  <p>Your library is stored on your Mac, in a local file you can back up or share.</p>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="2.2"/><path d="M5 15c0-2.2 2.2-3.5 5-3.5s5 1.3 5 3.5"/></svg></span>
+                <div>
+                  <h3>No account required</h3>
+                  <p>You don't need an account or a sign-in to use Promptly.</p>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M12 6l4 4-4 4"/></svg></span>
+                <div>
+                  <h3>You choose when text is sent</h3>
+                  <p>Promptly sends text only to the AI service you choose, when you click Ask.</p>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="9" width="9" height="6.5" rx="1.2"/><path d="M7.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/></svg></span>
+                <div>
+                  <h3>Tokens stay in Keychain</h3>
+                  <p>Workspace tokens for Slack and Microsoft 365 are kept in the macOS Keychain.</p>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M10 2.5v2.5M10 15v2.5M2.5 10H5M15 10h2.5"/></svg></span>
+                <div>
+                  <h3>On-device quality checks</h3>
+                  <p>AI quality checks can run fully on-device with Apple Intelligence.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <h2 class="display-md">A popup, a library, and a path to the AI you already use.</h2>
+        </div>
+        <div class="card-row" data-reveal>
+          <article>
+            <div class="sky-card card-blue">
+              <img class="app-shot app-shot-bar" src="app-popup-minimal.webp" width="540" height="51" alt="Promptly Minimal bar with selected text, favorite prompt icons, Copy, expand and Ask.">
+            </div>
+            <div class="card-caption">
+              <h3>The popup</h3>
+              <p>Appears next to your cursor when you select text. Choose Full or Minimal, and switch any time. It never covers the selection, and flips at the screen edges.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card card-red">
+              <img class="app-shot app-shot-settings" src="app-settings-ai.webp" width="960" height="694" alt="Settings, AI Services: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot and Custom.">
+            </div>
+            <div class="card-caption">
+              <h3>Send to any AI</h3>
+              <p>If a supported desktop app is installed, Promptly opens it and pastes automatically. Otherwise it opens the browser, or copies to the clipboard.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card card-sage">
+              <img class="app-shot" src="app-library.webp" width="1100" height="700" alt="Promptly Library with prompts such as Summarize this email, Fix grammar and Explain code, each with a quality score.">
+            </div>
+            <div class="card-caption">
+              <h3>Prompt and context library</h3>
+              <p>Save prompts and contexts, organise them with categories, and star favorites so they show first in the popup.</p>
+            </div>
+          </article>
+        </div>
+        <div class="card-row" style="margin-top:36px" data-reveal>
+          <article>
+            <div class="sky-card card-blue card-blue-alt">
+              <img class="app-shot app-shot-editor" src="app-editor.webp" width="612" height="500" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context.">
+            </div>
+            <div class="card-caption">
+              <h3>Prompt quality score</h3>
+              <p>An instant 0–100 score with a colour indicator, plus Check and Improve with AI. Runs on-device when Apple Intelligence is on. The instant score currently understands English prompts best.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card card-red card-red-alt">
+              <img class="app-shot" src="app-discover.webp" width="1100" height="700" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer.">
+            </div>
+            <div class="card-caption">
+              <h3>Discover prompts</h3>
+              <p>Browse connected libraries such as prompts.chat. Copy, Ask, or Save a prompt into a category in one click.</p>
+            </div>
+          </article>
+          <article>
+            <div class="sky-card card-sage card-sage-alt">
+              <div class="source-pills">
+                <span>prompts.chat</span>
+                <span>Starter library</span>
+                <span>JSON or CSV URL</span>
+                <span>Slack</span>
+                <span>Microsoft 365</span>
+              </div>
+            </div>
+            <div class="card-caption">
+              <h3>Team sources</h3>
+              <p>Connect a shared JSON or CSV URL, Slack, or Microsoft 365. Tokens are stored in the macOS Keychain.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shortcuts" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <h2 class="display-md">Keyboard shortcuts</h2>
+          <p class="lede">The ones you'll use every day, plus the rest in Settings.</p>
+        </div>
+        <div class="shortcuts" data-reveal>
+          <div class="shortcut"><span class="label">Ask the AI service</span><span class="keycaps"><kbd>⌘</kbd><kbd>↩</kbd></span></div>
+          <div class="shortcut"><span class="label">Copy prompt + text</span><span class="keycaps"><kbd>⌥</kbd><kbd>click</kbd></span></div>
+          <div class="shortcut"><span class="label">Settings</span><span class="keycaps"><kbd>⌘</kbd><kbd>,</kbd></span></div>
+          <div class="shortcut"><span class="label">Close</span><span class="keycaps"><kbd>esc</kbd></span></div>
+          <div class="shortcut"><span class="label">New prompt or context</span><span class="keycaps"><kbd>⌘</kbd><kbd>N</kbd></span></div>
+          <div class="shortcut"><span class="label">Search library</span><span class="keycaps"><kbd>⌘</kbd><kbd>F</kbd></span></div>
+          <div class="shortcut"><span class="label">Edit</span><span class="keycaps"><kbd>double-click</kbd></span></div>
+          <div class="shortcut"><span class="label">Delete selected</span><span class="keycaps"><kbd>⌫</kbd></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <p class="badge" data-when="waitlist">Early pricing · coming soon</p>
+          <p class="badge" data-when="checkout" hidden>Early pricing</p>
+          <h2 class="display-md" data-when="waitlist">Simple plans, when checkout is ready</h2>
+          <h2 class="display-md" data-when="checkout" hidden>Simple plans</h2>
+          <p class="lede" data-when="waitlist">Payments are not live yet. Join the waitlist and we'll write when you can download Promptly.</p>
+          <p class="lede" data-when="checkout" hidden>A 14-day free trial, cancel anytime. Pro Monthly, Pro Yearly, or Lifetime for the first 300 buyers.</p>
+        </div>
+        <div data-reveal>
+          <p class="trial"><strong>14-day free trial</strong>, cancel anytime.</p>
+          <div class="plans">
+            <article class="plan">
+              <div class="name">Pro Monthly</div>
+              <div class="price">$7 <span>/ month</span></div>
+              <p class="note">Cancel any time</p>
+              <a class="btn btn-sm" href="pricing.html" data-cta="trial" data-plan="monthly">Join waitlist</a>
+            </article>
+            <article class="plan">
+              <div class="name">Pro Yearly</div>
+              <div class="price">$59 <span>/ year</span></div>
+              <p class="note">$4.92/mo · Save $25</p>
+              <a class="btn btn-sm" href="pricing.html" data-cta="trial" data-plan="yearly">Join waitlist</a>
+            </article>
+            <article class="plan">
+              <div class="name">Lifetime</div>
+              <div class="price">$149 <span>one-time</span></div>
+              <p class="note">First 300 buyers</p>
+              <a class="btn btn-sm" href="pricing.html" data-cta="buy" data-plan="lifetime">Join waitlist</a>
+            </article>
+          </div>
+          <p class="includes"><strong>Pro includes</strong> unlimited prompts and contexts, desktop-app routing for ChatGPT and Claude, Discover and connected libraries, and smart suggestions in the popup. <a href="pricing.html">Compare plans</a></p>
+          <p class="soon">Shared workspaces with members are coming soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <h2 class="display-md">Questions</h2>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details><summary>Does it work in every app?</summary><p>It works wherever you can select text. Most apps expose the selection directly; in others Promptly briefly uses copy to read it.</p></details>
+          <details><summary>Which AI does it use?</summary><p>The one you choose: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot, or your own URL.</p></details>
+          <details><summary>Do I need an API key?</summary><p>No. Promptly opens the AI service you already use.</p></details>
+          <details><summary>Where are my prompts stored?</summary><p>On your Mac, in a local file you can back up or share.</p></details>
+          <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
+          <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
+          <details><summary>What happens after the trial?</summary><p>It's a 14-day free trial, cancel anytime. Cancel before the trial ends if you don't want to continue on the plan you chose.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>An earlier Windows version exists; the new design is Mac-first.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+        
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-home-footer" class="visually-hidden">Email</label>
+              <input id="email-home-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="pricing.html">Pricing</a>
+          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
+          <a href="mailto:hello@example.com" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="waitlist.js" defer></script>
+</body>
+</html>

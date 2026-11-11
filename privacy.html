@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — Promptly</title>
+  <meta name="description" content="Promptly stores your library locally on your Mac. No account is required. Text is sent only to the AI service you choose, when you click Ask.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html" aria-current="page">Privacy</a>
+          <a href="download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm" href="index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+            <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html" aria-current="page">Privacy</a>
+          <a href="download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Privacy</h1>
+        <p class="lede">A plain-language account of where your prompts and text go.</p>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap prose">
+        <h2>Your library stays on your Mac</h2>
+        <p>Your prompts and contexts are stored locally on your Mac, in <code>~/Library/Application Support/Promptly/library.json</code>. You can back up that file or share it. An earlier Windows version uses the same library file format, so library files are portable between them.</p>
+        <h2>No account is required</h2>
+        <p>You don't need an account or a sign-in to use Promptly.</p>
+        <h2>You choose when text is sent</h2>
+        <p>Promptly sends text only to the AI service you choose, when you click Ask.</p>
+        <h2>Workspace tokens</h2>
+        <p>If you connect Slack or Microsoft 365, those workspace tokens are kept in the macOS Keychain.</p>
+        <h2>On-device quality checks</h2>
+        <p>AI quality checks can run fully on-device with Apple Intelligence, when it is turned on. In that case, no data leaves your Mac for the check. If Apple Intelligence is not turned on, the request opens in your chosen AI service instead.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+        
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-privacy-footer" class="visually-hidden">Email</label>
+              <input id="email-privacy-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="pricing.html">Pricing</a>
+          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
+          <a href="mailto:hello@example.com" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="waitlist.js" defer></script>
+</body>
+</html>

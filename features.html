@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features — Promptly</title>
+  <meta name="description" content="Everything in Promptly: the popup, any AI service, your prompt library, quality score, Discover, and shared sources.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="features.html" aria-current="page">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm" href="index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+            <a href="features.html" aria-current="page">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Features</h1>
+        <p class="lede">The complete list. Promptly is a macOS menu bar app — it appears next to the text you select, with your prompt library one click away.</p>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap split-groups">
+        <section class="group-card" id="popup">
+          <h2>The popup</h2>
+          <p>The core experience, next to your cursor.</p>
+          <ul>
+            <li>Appears automatically next to the cursor when you select text anywhere on the Mac.</li>
+            <li>Opens below and to the right of the cursor so it never covers the selection, and flips at screen edges.</li>
+            <li>Two styles, Full and Minimal, that you can switch any time with the expand or minimize button.</li>
+            <li>Full includes editable selected text, a character count, tabs (Suggested, Favorites, Library), a grid of prompts with coloured icons, and a bottom bar with Copy, Discover, an AI-service picker, a more menu, minimize, and a large “Ask &lt;service&gt;” button (⌘↩).</li>
+            <li>Minimal is a slim bar: the selected text, up to 4 favorite prompts as coloured icons, Copy, expand, and Ask.</li>
+            <li>Suggested shows prompts suggested automatically from what you selected.</li>
+            <li>Favorites shows your starred prompts. You choose how many show (2–12).</li>
+            <li>Library opens the full Library window.</li>
+            <li>Click a prompt to send it with your text; Option-click copies the prompt and text instead.</li>
+            <li>Selected text is editable before sending.</li>
+            <li>Auto-hide after a set time (2–30 seconds, default 5). Hovering keeps it open. Auto-hide can be turned off.</li>
+            <li>Distance from the cursor is adjustable (8–80 pt).</li>
+            <li>You can also open it manually from the menu bar icon.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="ai">
+          <h2>Send to any AI</h2>
+          <p>Nine services, plus your own URL.</p>
+          <ul>
+            <li>ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, and Custom URL.</li>
+            <li>If the ChatGPT, Claude, Perplexity or Microsoft 365 Copilot desktop app is installed, Promptly opens it and pastes the prompt automatically.</li>
+            <li>Otherwise it opens the service in the browser with the prompt pre-filled, or copies it to the clipboard where the service doesn't accept pre-filled text.</li>
+            <li>Custom GPT link support for ChatGPT.</li>
+            <li>Custom URL with a {text} placeholder — works with internal or company AI tools.</li>
+            <li>Every service URL can be overridden in Settings.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="library">
+          <h2>Prompt and context library</h2>
+          <p>Your prompts, stored on your Mac.</p>
+          <ul>
+            <li>Save prompts (reusable instructions) and contexts (background info the AI should know).</li>
+            <li>Categories with icons: create, rename, delete, and filter by category.</li>
+            <li>Favorites (star) are shown first in the popup.</li>
+            <li>Sort by Recent, A–Z, or Most used.</li>
+            <li>Search (⌘F), New (⌘N), double-click to edit, and delete with ⌫.</li>
+            <li>Most used view — a ranking of your prompts by use, with usage bars.</li>
+            <li>Library window sections: Prompts, Favorites, Contexts, Discover, Most used, and Sources.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="score">
+          <h2>Prompt quality score</h2>
+          <p>A check on the prompt before you send it.</p>
+          <ul>
+            <li>Every prompt gets an instant quality score (0–100) with a colour indicator: Great, Good, or Needs work.</li>
+            <li>Scored on a clear task, role, context, output format, constraints, and a reference to the input.</li>
+            <li>Shows the top tip to improve the prompt.</li>
+            <li>Check — an AI review with a score and up to 3 concrete suggestions.</li>
+            <li>Improve with AI — rewrites the prompt; you choose “Use this” or “Discard”.</li>
+            <li>Runs on-device with Apple Intelligence when it is turned on (private, no data leaves the Mac). Otherwise the request opens in your chosen AI service.</li>
+            <li>The instant score currently understands English prompts best.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="discover">
+          <h2>Discover prompts</h2>
+          <p>Browse prompts from connected libraries.</p>
+          <ul>
+            <li>Browse and search top prompts from connected libraries (for example prompts.chat).</li>
+            <li>Sort by Top or New, and filter by library.</li>
+            <li>Copy, Ask, or Save a prompt into a category in one click. Promptly suggests a matching category, or creates one.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="sources">
+          <h2>Sources and connections</h2>
+          <p>Shared libraries, stored tokens in the Keychain.</p>
+          <ul>
+            <li>prompts.chat — a public prompt library.</li>
+            <li>Starter library — bundled sample prompts.</li>
+            <li>Custom JSON or CSV URL — host your team's prompt library anywhere.</li>
+            <li>Slack — connect a workspace to pull shared prompts.</li>
+            <li>Microsoft 365 — sign in with a device-code flow and use prompts shared in SharePoint or OneDrive.</li>
+            <li>Tokens are stored in the macOS Keychain.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="settings">
+          <h2>Settings</h2>
+          <p>Everything you can adjust.</p>
+          <ul>
+            <li>Account: name, email, and profile photo.</li>
+            <li>Billing: plan selection (see Pricing).</li>
+            <li>General: popup style, auto-hide, hide-after time, distance from the cursor, show favorites, click sounds on or off, and library data location (Show in Finder).</li>
+            <li>AI: choose a service, desktop app on or off, and web addresses.</li>
+            <li>Sources: manage connected libraries.</li>
+            <li>Shortcuts: a list of keyboard shortcuts.</li>
+            <li>Permissions: live Accessibility status and step-by-step setup.</li>
+            <li>Appearance: System, Light, or Dark.</li>
+            <li>Help menu: What's new (coming soon), Help (coming soon), Report a problem (a bug-report form that prepares an email with the app version, macOS version, screen and theme), and Keyboard shortcuts.</li>
+          </ul>
+        </section>
+        <section class="group-card" id="shortcuts">
+          <h2>Keyboard shortcuts</h2>
+          <p>From the app.</p>
+          <table class="table">
+            <thead><tr><th>Action</th><th>Keys</th></tr></thead>
+            <tbody>
+              <tr><td>Ask the AI service</td><td><span class="keycaps"><kbd>⌘</kbd><kbd>↩</kbd></span></td></tr>
+              <tr><td>Copy prompt + text</td><td><span class="keycaps"><kbd>⌥</kbd><kbd>click</kbd></span></td></tr>
+              <tr><td>Settings</td><td><span class="keycaps"><kbd>⌘</kbd><kbd>,</kbd></span></td></tr>
+              <tr><td>Close</td><td><span class="keycaps"><kbd>esc</kbd></span></td></tr>
+              <tr><td>New prompt or context</td><td><span class="keycaps"><kbd>⌘</kbd><kbd>N</kbd></span></td></tr>
+              <tr><td>Search library</td><td><span class="keycaps"><kbd>⌘</kbd><kbd>F</kbd></span></td></tr>
+              <tr><td>Edit</td><td><span class="keycaps"><kbd>double-click</kbd></span></td></tr>
+              <tr><td>Delete selected</td><td><span class="keycaps"><kbd>⌫</kbd></span></td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+        
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-features-footer" class="visually-hidden">Email</label>
+              <input id="email-features-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="pricing.html">Pricing</a>
+          <!-- TODO: replace hello@example.com with the real contact email when the owner provides it (or set CONTACT_EMAIL in config.js) -->
+          <a href="mailto:hello@example.com" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="waitlist.js" defer></script>
+</body>
+</html>
