@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261112-logos">
+  <link rel="stylesheet" href="styles.css?v=20261112-all">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -89,7 +89,6 @@
         <a href="features.html">Features</a>
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
-          <a href="privacy.html">Privacy</a>
           <a href="download.html">Download</a>
       </nav>
       <div class="header-actions">
@@ -105,7 +104,6 @@
             <a href="features.html">Features</a>
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
-          <a href="privacy.html">Privacy</a>
           <a href="download.html">Download</a>
           </nav>
         </details>
@@ -212,6 +210,106 @@
           <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M19.785 0v7.272H22.5V17.62h-2.935V24l-7.037-6.194v6.145h-1.091v-6.152L4.392 24v-6.465H1.5V7.188h2.884V0l7.053 6.494V.19h1.09v6.49L19.786 0zm-7.257 9.044v7.319l5.946 5.234V14.44l-5.946-5.397zm-1.099-.08l-5.946 5.398v7.235l5.946-5.234V8.965zm8.136 7.58h1.844V8.349H13.46l6.105 5.54v2.655zm-8.982-8.28H2.59v8.195h1.8v-2.576l6.192-5.62zM5.475 2.476v4.71h5.115l-5.115-4.71zm13.219 0l-5.115 4.71h5.115v-4.71z"/></svg></li>
           <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M16.295 5.29l-0.242 0.986h-2.32c-1.721 0-3.22 1.197-3.638 2.902l-2.101 8.593H3.798c-2.44 0-4.229-2.342-3.637-4.761l2.106-8.612c0.557-2.274 2.556-3.87 4.85-3.87h5.54c2.44 0 4.23 2.343 3.638 4.761"/><path d="M7.752 18.758l0.242-0.986h2.321c1.72 0 3.22-1.197 3.637-2.903l2.102-8.593h4.196c2.439 0 4.228 2.343 3.637 4.762l-2.107 8.611c-0.556 2.274-2.555 3.87-4.85 3.87h-5.54c-2.44 0-4.229-2.342-3.638-4.761"/></svg></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section impact-home" id="time-back" data-impact data-reveal>
+      <div class="wrap-wide">
+        <div class="impact-head">
+          <p class="impact-badge">Demo figures</p>
+          <h2 class="display-md">The time you get back</h2>
+          <p class="lede">An illustrative forecast, not measured results. Change the number of asks to see how the model adds up.</p>
+        </div>
+      <div class="impact-panel">
+        <div class="impact-control">
+          <label for="impact-asks-home">Asks per workday</label>
+          <input id="impact-asks-home" data-impact-asks type="range" min="5" max="40" step="1" value="15">
+          <output class="impact-asks-out" for="impact-asks-home" data-impact-asks-out>15</output>
+        </div>
+        <p class="visually-hidden" data-impact-live aria-live="polite"></p>
+        <div class="impact-stats">
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-ask>35</span><span class="impact-stat-unit">sec</span></span>
+            <span class="impact-stat-label">saved per ask</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-day>8.8</span><span class="impact-stat-unit">min</span></span>
+            <span class="impact-stat-label">back each workday</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-week>44</span><span class="impact-stat-unit">min</span></span>
+            <span class="impact-stat-label">back each week</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-year>33.5</span><span class="impact-stat-unit" data-unit-year>hours</span></span>
+            <span class="impact-stat-label">back each year</span>
+          </div>
+        </div>
+        <div class="impact-chart-wrap">
+          <div class="impact-chart-caption">
+            <h3>Hours back over a year</h3>
+            <p>Cumulative, at <span data-asks-word>15</span> asks a day</p>
+          </div>
+          <svg class="impact-chart" data-impact-chart viewBox="0 0 640 268" role="img" aria-hidden="true" focusable="false">
+            <g class="grid" data-impact-yticks>
+              <line x1="48" x2="604" y1="228.0" y2="228.0" /><text x="40" y="232.0" text-anchor="end">0</text>
+              <line x1="48" x2="604" y1="176.5" y2="176.5" /><text x="40" y="180.5" text-anchor="end">12.5</text>
+              <line x1="48" x2="604" y1="125.0" y2="125.0" /><text x="40" y="129.0" text-anchor="end">25</text>
+              <line x1="48" x2="604" y1="73.5" y2="73.5" /><text x="40" y="77.5" text-anchor="end">37.5</text>
+              <line x1="48" x2="604" y1="22.0" y2="22.0" /><text x="40" y="26.0" text-anchor="end">50</text>
+            </g>
+            <path class="area" data-impact-area d="M48.0 228.0 L48.0 216.5 L98.5 205.0 L149.1 193.5 L199.6 181.9 L250.2 170.4 L300.7 158.9 L351.3 147.4 L401.8 135.9 L452.4 124.4 L502.9 112.8 L553.5 101.3 L604.0 89.8 L604.0 228.0 Z"/>
+            <path class="line" data-impact-line d="M48.0 216.5L98.5 205.0L149.1 193.5L199.6 181.9L250.2 170.4L300.7 158.9L351.3 147.4L401.8 135.9L452.4 124.4L502.9 112.8L553.5 101.3L604.0 89.8"/>
+            <circle class="dot" data-impact-dot cx="604.0" cy="89.8" r="4.5"/>
+            <text class="end-label" data-impact-end x="604.0" y="77.8">33.5 h</text>
+            <g class="months">
+              <text x="48.0" y="256" text-anchor="middle">Jan</text>
+              <text x="98.5" y="256" text-anchor="middle">Feb</text>
+              <text x="149.1" y="256" text-anchor="middle">Mar</text>
+              <text x="199.6" y="256" text-anchor="middle">Apr</text>
+              <text x="250.2" y="256" text-anchor="middle">May</text>
+              <text x="300.7" y="256" text-anchor="middle">Jun</text>
+              <text x="351.3" y="256" text-anchor="middle">Jul</text>
+              <text x="401.8" y="256" text-anchor="middle">Aug</text>
+              <text x="452.4" y="256" text-anchor="middle">Sep</text>
+              <text x="502.9" y="256" text-anchor="middle">Oct</text>
+              <text x="553.5" y="256" text-anchor="middle">Nov</text>
+              <text x="604.0" y="256" text-anchor="middle">Dec</text>
+            </g>
+          </svg>
+        </div>
+        <div class="impact-compare">
+          <div class="impact-bar-row">
+            <div>
+              <p>Manual path</p>
+              <div class="impact-bar-track"><div class="impact-bar-fill is-manual"></div></div>
+            </div>
+            <span class="impact-bar-time">40 sec</span>
+          </div>
+          <div class="impact-bar-row">
+            <div>
+              <p>With Promptly</p>
+              <div class="impact-bar-track"><div class="impact-bar-fill is-promptly"></div></div>
+            </div>
+            <span class="impact-bar-time">5 sec</span>
+          </div>
+        </div>
+        <p class="impact-note"><strong>How this is calculated.</strong> These are demo figures — an illustrative forecast, not measured customer results. The model compares a typical manual path (copy the text, switch to the AI app, find a prompt, paste both, and send) at <strong>40 seconds</strong>, with Promptly’s path (select the text, click a prompt, press Ask) at <strong>5 seconds</strong>. That’s 35 seconds back on every ask. The yearly figure uses 230 workdays. A team of 5 at the same pace: <strong><span data-val-team>168</span> hours</strong> a year. We’ll replace this with real usage data when we have it.</p>
+      </div>
+      <div class="impact-uses">
+        <article class="impact-use">
+          <h3>Writing</h3>
+          <p>Select a paragraph in Mail or Pages, apply a rewrite prompt, and send it to ChatGPT or Claude without leaving the document.</p>
+        </article>
+        <article class="impact-use">
+          <h3>Support</h3>
+          <p>Select a customer message, pick your reply prompt, and open the AI you already use with the text already filled in.</p>
+        </article>
+        <article class="impact-use">
+          <h3>Code</h3>
+          <p>Select an error or a function, click a debug prompt, and send it on — no copy, switch, and paste in between.</p>
+        </article>
+      </div>
       </div>
     </section>
 
@@ -354,6 +452,62 @@
       </div>
     </section>
 
+    <section class="section" id="testimonials">
+      <div class="wrap">
+        <div class="section-head center" data-reveal>
+          <h2 class="display-md">What people say</h2>
+          <p class="lede">Placeholder quotes for now. Real names, photos and text will replace these.</p>
+        </div>
+        <div class="quotes" data-reveal>
+          <figure class="quote-card is-placeholder">
+            <svg class="quote-mark" width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M0 24V13.2C0 5.9 3.9 1.2 11.2 0l1.2 3.4C8.1 4.6 6 7.4 6 12h5.2V24H0Zm15.6 0V13.2C15.6 5.9 19.5 1.2 26.8 0L28 3.4c-4.3 1.2-6.4 4-6.4 8.6H27V24H15.6Z"/></svg>
+            <blockquote>
+              <p>Your quote goes here. A few sentences about how Promptly fits into daily work — we’ll replace this with the real text.</p>
+            </blockquote>
+            <figcaption>
+              <span class="quote-photo" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M5 19.2C6.3 16.8 8.9 15 12 15s5.7 1.8 7 4.2"/><rect x="3" y="3" width="18" height="18" rx="9" opacity="0"/></svg>
+              </span>
+              <span class="quote-who">
+                <cite>Full name</cite>
+                <span class="quote-role">Role, Company</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="quote-card is-placeholder">
+            <svg class="quote-mark" width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M0 24V13.2C0 5.9 3.9 1.2 11.2 0l1.2 3.4C8.1 4.6 6 7.4 6 12h5.2V24H0Zm15.6 0V13.2C15.6 5.9 19.5 1.2 26.8 0L28 3.4c-4.3 1.2-6.4 4-6.4 8.6H27V24H15.6Z"/></svg>
+            <blockquote>
+              <p>Second quote. What this person noticed after using Promptly, in their own words.</p>
+            </blockquote>
+            <figcaption>
+              <span class="quote-photo" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M5 19.2C6.3 16.8 8.9 15 12 15s5.7 1.8 7 4.2"/></svg>
+              </span>
+              <span class="quote-who">
+                <cite>Full name</cite>
+                <span class="quote-role">Role, Company</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="quote-card is-placeholder">
+            <svg class="quote-mark" width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M0 24V13.2C0 5.9 3.9 1.2 11.2 0l1.2 3.4C8.1 4.6 6 7.4 6 12h5.2V24H0Zm15.6 0V13.2C15.6 5.9 19.5 1.2 26.8 0L28 3.4c-4.3 1.2-6.4 4-6.4 8.6H27V24H15.6Z"/></svg>
+            <blockquote>
+              <p>Third quote. A short comment on a feature or the everyday workflow.</p>
+            </blockquote>
+            <figcaption>
+              <span class="quote-photo" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M5 19.2C6.3 16.8 8.9 15 12 15s5.7 1.8 7 4.2"/></svg>
+              </span>
+              <span class="quote-who">
+                <cite>Full name</cite>
+                <span class="quote-role">Role, Company</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="pricing" data-billing-root data-billing="yearly">
       <div class="wrap">
         <div class="section-head center" data-reveal>
@@ -471,6 +625,7 @@
   </footer>
   <script src="config.js"></script>
   <script src="waitlist.js" defer></script>
+  <script src="impact.js?v=20261112-all" defer></script>
   <script src="consent.js" defer></script>
 </body>
 </html>

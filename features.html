@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261112-logos">
+  <link rel="stylesheet" href="styles.css?v=20261112-all">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -89,7 +89,6 @@
         <a href="features.html" aria-current="page">Features</a>
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
-          <a href="privacy.html">Privacy</a>
           <a href="download.html">Download</a>
       </nav>
       <div class="header-actions">
@@ -104,7 +103,6 @@
             <a href="features.html" aria-current="page">Features</a>
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
-          <a href="privacy.html">Privacy</a>
           <a href="download.html">Download</a>
           </nav>
         </details>
@@ -113,79 +111,239 @@
   </header>
   <main id="main">
     <div class="page-hero">
-      <div class="wrap">
+      <div class="wrap-wide">
         <h1>Features</h1>
         <p class="lede">The complete list. Promptly is a macOS menu bar app — it appears next to the text you select, with your prompt library one click away.</p>
       </div>
     </div>
-    <div class="page-section">
-      <div class="wrap split-groups">
-        <section class="group-card" id="popup">
-          <h2>The popup</h2>
-          <p>The core experience, next to your cursor.</p>
-          <ul>
-            <li>Appears automatically next to the cursor when you select text anywhere on the Mac.</li>
-            <li>Opens below and to the right of the cursor so it never covers the selection, and flips at screen edges.</li>
-            <li>Two styles, Full and Minimal, that you can switch any time with the expand or minimize button.</li>
-            <li>Full includes editable selected text, a character count, tabs (Suggested, Favorites, Library), a grid of prompts with coloured icons, and a bottom bar with Copy, Discover, an AI-service picker, a more menu, minimize, and a large “Ask &lt;service&gt;” button (⌘↩).</li>
-            <li>Minimal is a slim bar: the selected text, up to 4 favorite prompts as coloured icons, Copy, expand, and Ask.</li>
-            <li>Suggested shows prompts suggested automatically from what you selected.</li>
-            <li>Favorites shows your starred prompts. You choose how many show (2–12).</li>
-            <li>Library opens the full Library window.</li>
-            <li>Click a prompt to send it with your text; Option-click copies the prompt and text instead.</li>
-            <li>Selected text is editable before sending.</li>
-            <li>Auto-hide after a set time (2–30 seconds, default 5). Hovering keeps it open. Auto-hide can be turned off.</li>
-            <li>Distance from the cursor is adjustable (8–80 pt).</li>
-            <li>You can also open it manually from the menu bar icon.</li>
-          </ul>
+    <section class="impact" id="time-back" data-impact data-reveal>
+      <div class="wrap-wide">
+        <div class="impact-head">
+          <p class="impact-badge">Demo figures</p>
+          <h2>The time you get back</h2>
+          <p class="lede">An illustrative forecast, not measured results. Change the number of asks to see how the model adds up.</p>
+        </div>
+      <div class="impact-panel">
+        <div class="impact-control">
+          <label for="impact-asks-features">Asks per workday</label>
+          <input id="impact-asks-features" data-impact-asks type="range" min="5" max="40" step="1" value="15">
+          <output class="impact-asks-out" for="impact-asks-features" data-impact-asks-out>15</output>
+        </div>
+        <p class="visually-hidden" data-impact-live aria-live="polite"></p>
+        <div class="impact-stats">
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-ask>35</span><span class="impact-stat-unit">sec</span></span>
+            <span class="impact-stat-label">saved per ask</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-day>8.8</span><span class="impact-stat-unit">min</span></span>
+            <span class="impact-stat-label">back each workday</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-week>44</span><span class="impact-stat-unit">min</span></span>
+            <span class="impact-stat-label">back each week</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-stat-value"><span data-val-year>33.5</span><span class="impact-stat-unit" data-unit-year>hours</span></span>
+            <span class="impact-stat-label">back each year</span>
+          </div>
+        </div>
+        <div class="impact-chart-wrap">
+          <div class="impact-chart-caption">
+            <h3>Hours back over a year</h3>
+            <p>Cumulative, at <span data-asks-word>15</span> asks a day</p>
+          </div>
+          <svg class="impact-chart" data-impact-chart viewBox="0 0 640 268" role="img" aria-hidden="true" focusable="false">
+            <g class="grid" data-impact-yticks>
+              <line x1="48" x2="604" y1="228.0" y2="228.0" /><text x="40" y="232.0" text-anchor="end">0</text>
+              <line x1="48" x2="604" y1="176.5" y2="176.5" /><text x="40" y="180.5" text-anchor="end">12.5</text>
+              <line x1="48" x2="604" y1="125.0" y2="125.0" /><text x="40" y="129.0" text-anchor="end">25</text>
+              <line x1="48" x2="604" y1="73.5" y2="73.5" /><text x="40" y="77.5" text-anchor="end">37.5</text>
+              <line x1="48" x2="604" y1="22.0" y2="22.0" /><text x="40" y="26.0" text-anchor="end">50</text>
+            </g>
+            <path class="area" data-impact-area d="M48.0 228.0 L48.0 216.5 L98.5 205.0 L149.1 193.5 L199.6 181.9 L250.2 170.4 L300.7 158.9 L351.3 147.4 L401.8 135.9 L452.4 124.4 L502.9 112.8 L553.5 101.3 L604.0 89.8 L604.0 228.0 Z"/>
+            <path class="line" data-impact-line d="M48.0 216.5L98.5 205.0L149.1 193.5L199.6 181.9L250.2 170.4L300.7 158.9L351.3 147.4L401.8 135.9L452.4 124.4L502.9 112.8L553.5 101.3L604.0 89.8"/>
+            <circle class="dot" data-impact-dot cx="604.0" cy="89.8" r="4.5"/>
+            <text class="end-label" data-impact-end x="604.0" y="77.8">33.5 h</text>
+            <g class="months">
+              <text x="48.0" y="256" text-anchor="middle">Jan</text>
+              <text x="98.5" y="256" text-anchor="middle">Feb</text>
+              <text x="149.1" y="256" text-anchor="middle">Mar</text>
+              <text x="199.6" y="256" text-anchor="middle">Apr</text>
+              <text x="250.2" y="256" text-anchor="middle">May</text>
+              <text x="300.7" y="256" text-anchor="middle">Jun</text>
+              <text x="351.3" y="256" text-anchor="middle">Jul</text>
+              <text x="401.8" y="256" text-anchor="middle">Aug</text>
+              <text x="452.4" y="256" text-anchor="middle">Sep</text>
+              <text x="502.9" y="256" text-anchor="middle">Oct</text>
+              <text x="553.5" y="256" text-anchor="middle">Nov</text>
+              <text x="604.0" y="256" text-anchor="middle">Dec</text>
+            </g>
+          </svg>
+        </div>
+        <div class="impact-compare">
+          <div class="impact-bar-row">
+            <div>
+              <p>Manual path</p>
+              <div class="impact-bar-track"><div class="impact-bar-fill is-manual"></div></div>
+            </div>
+            <span class="impact-bar-time">40 sec</span>
+          </div>
+          <div class="impact-bar-row">
+            <div>
+              <p>With Promptly</p>
+              <div class="impact-bar-track"><div class="impact-bar-fill is-promptly"></div></div>
+            </div>
+            <span class="impact-bar-time">5 sec</span>
+          </div>
+        </div>
+        <p class="impact-note"><strong>How this is calculated.</strong> These are demo figures — an illustrative forecast, not measured customer results. The model compares a typical manual path (copy the text, switch to the AI app, find a prompt, paste both, and send) at <strong>40 seconds</strong>, with Promptly’s path (select the text, click a prompt, press Ask) at <strong>5 seconds</strong>. That’s 35 seconds back on every ask. The yearly figure uses 230 workdays. A team of 5 at the same pace: <strong><span data-val-team>168</span> hours</strong> a year. We’ll replace this with real usage data when we have it.</p>
+      </div>
+      <div class="impact-uses">
+        <article class="impact-use">
+          <h3>Writing</h3>
+          <p>Select a paragraph in Mail or Pages, apply a rewrite prompt, and send it to ChatGPT or Claude without leaving the document.</p>
+        </article>
+        <article class="impact-use">
+          <h3>Support</h3>
+          <p>Select a customer message, pick your reply prompt, and open the AI you already use with the text already filled in.</p>
+        </article>
+        <article class="impact-use">
+          <h3>Code</h3>
+          <p>Select an error or a function, click a debug prompt, and send it on — no copy, switch, and paste in between.</p>
+        </article>
+      </div>
+      <div class="impact-path">
+        <h3>The path the model times at 5 seconds</h3>
+        <p>Select text, pick a prompt, press Ask — filmed from the Mac app.</p>
+        <div class="impact-path-grid">
+          <figure>
+            <img src="step1-select.gif" width="640" height="400" alt="Selecting a sentence in a document on a Mac.">
+            <figcaption><strong>1. Select</strong> In any app — browser, Mail, Slack, Word, or a code editor.</figcaption>
+          </figure>
+          <figure>
+            <img src="step2-pick.gif" width="640" height="400" alt="The Promptly popup appearing next to the selected text, with prompts to choose from.">
+            <figcaption><strong>2. Pick a prompt</strong> The popup appears next to your cursor, with your library one click away.</figcaption>
+          </figure>
+          <figure>
+            <img src="step3-ask.gif" width="640" height="400" alt="Pressing Ask in the Promptly popup to send the prompt and selected text to an AI service.">
+            <figcaption><strong>3. Ask</strong> Promptly opens the AI service with the prompt and your text already filled in.</figcaption>
+          </figure>
+        </div>
+      </div>
+      </div>
+    </section>
+    <div class="page-section features-page">
+      <div class="wrap-wide feature-list">
+        <section class="feature-block" id="popup">
+          <div class="feature-copy">
+            <h2>The popup</h2>
+            <p>The core experience, next to your cursor.</p>
+            <ul>
+              <li>Appears automatically next to the cursor when you select text anywhere on the Mac.</li>
+              <li>Opens below and to the right of the cursor so it never covers the selection, and flips at screen edges.</li>
+              <li>Two styles, Full and Minimal, that you can switch any time with the expand or minimize button.</li>
+              <li>Full includes editable selected text, a character count, tabs (Suggested, Favorites, Library), a grid of prompts with coloured icons, and a bottom bar with Copy, Discover, an AI-service picker, a more menu, minimize, and a large “Ask &lt;service&gt;” button (⌘↩).</li>
+              <li>Minimal is a slim bar: the selected text, up to 4 favorite prompts as coloured icons, Copy, expand, and Ask.</li>
+              <li>Suggested shows prompts suggested automatically from what you selected.</li>
+              <li>Favorites shows your starred prompts. You choose how many show (2–12).</li>
+              <li>Library opens the full Library window.</li>
+              <li>Click a prompt to send it with your text; Option-click copies the prompt and text instead.</li>
+              <li>Selected text is editable before sending.</li>
+              <li>Auto-hide after a set time (2–30 seconds, default 5). Hovering keeps it open. Auto-hide can be turned off.</li>
+              <li>Distance from the cursor is adjustable (8–80 pt).</li>
+              <li>You can also open it manually from the menu bar icon.</li>
+            </ul>
+</div>
+          <figure class="feature-shot">
+            <img src="app-popup-full.webp" width="612" height="271" alt="Promptly Full popup with selected text, Favorites prompts, and an Ask ChatGPT button." loading="lazy" decoding="async">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="app-popup-minimal-dark.webp">
+            <img class="feature-shot-bar" src="app-popup-minimal.webp" width="540" height="51" alt="Promptly Minimal bar with selected text, favorite prompt icons, Copy, expand and Ask." loading="lazy" decoding="async">
+          </picture>
+          </figure>
         </section>
-        <section class="group-card" id="ai">
-          <h2>Send to any AI</h2>
-          <p>Nine services, plus your own URL.</p>
-          <ul>
-            <li>ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, and Custom URL.</li>
-            <li>If the ChatGPT, Claude, Perplexity or Microsoft 365 Copilot desktop app is installed, Promptly opens it and pastes the prompt automatically.</li>
-            <li>Otherwise it opens the service in the browser with the prompt pre-filled, or copies it to the clipboard where the service doesn't accept pre-filled text.</li>
-            <li>Custom GPT link support for ChatGPT.</li>
-            <li>Custom URL with a {text} placeholder — works with internal or company AI tools.</li>
-            <li>Every service URL can be overridden in Settings.</li>
-          </ul>
+        <section class="feature-block feature-block--flip" id="ai">
+          <div class="feature-copy">
+            <h2>Send to any AI</h2>
+            <p>Nine services, plus your own URL.</p>
+            <ul>
+              <li>ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, and Custom URL.</li>
+              <li>If the ChatGPT, Claude, Perplexity or Microsoft 365 Copilot desktop app is installed, Promptly opens it and pastes the prompt automatically.</li>
+              <li>Otherwise it opens the service in the browser with the prompt pre-filled, or copies it to the clipboard where the service doesn't accept pre-filled text.</li>
+              <li>Custom GPT link support for ChatGPT.</li>
+              <li>Custom URL with a {text} placeholder — works with internal or company AI tools.</li>
+              <li>Every service URL can be overridden in Settings.</li>
+            </ul>
+</div>
+          <figure class="feature-shot">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="app-settings-ai-dark.webp">
+            <img src="app-settings-ai.webp" width="960" height="694" alt="Settings, AI Services: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot and Custom." loading="lazy" decoding="async">
+          </picture>
+          </figure>
         </section>
-        <section class="group-card" id="library">
-          <h2>Prompt and context library</h2>
-          <p>Your prompts, stored on your Mac.</p>
-          <ul>
-            <li>Save prompts (reusable instructions) and contexts (background info the AI should know).</li>
-            <li>Categories with icons: create, rename, delete, and filter by category.</li>
-            <li>Favorites (star) are shown first in the popup.</li>
-            <li>Sort by Recent, A–Z, or Most used.</li>
-            <li>Search (⌘F), New (⌘N), double-click to edit, and delete with ⌫.</li>
-            <li>Most used view — a ranking of your prompts by use, with usage bars.</li>
-            <li>Library window sections: Prompts, Favorites, Contexts, Discover, Most used, and Sources.</li>
-          </ul>
+        <section class="feature-block" id="library">
+          <div class="feature-copy">
+            <h2>Prompt and context library</h2>
+            <p>Your prompts, stored on your Mac.</p>
+            <ul>
+              <li>Save prompts (reusable instructions) and contexts (background info the AI should know).</li>
+              <li>Categories with icons: create, rename, delete, and filter by category.</li>
+              <li>Favorites (star) are shown first in the popup.</li>
+              <li>Sort by Recent, A–Z, or Most used.</li>
+              <li>Search (⌘F), New (⌘N), double-click to edit, and delete with ⌫.</li>
+              <li>Most used view — a ranking of your prompts by use, with usage bars.</li>
+              <li>Library window sections: Prompts, Favorites, Contexts, Discover, Most used, and Sources.</li>
+            </ul>
+</div>
+          <figure class="feature-shot">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="app-library-dark.webp">
+            <img src="app-library.webp" width="1100" height="700" alt="Promptly Library with prompts such as Summarize this email, Fix grammar and Explain code, each with a quality score." loading="lazy" decoding="async">
+          </picture>
+          </figure>
         </section>
-        <section class="group-card" id="score">
-          <h2>Prompt quality score</h2>
-          <p>A check on the prompt before you send it.</p>
-          <ul>
-            <li>Every prompt gets an instant quality score (0–100) with a colour indicator: Great, Good, or Needs work.</li>
-            <li>Scored on a clear task, role, context, output format, constraints, and a reference to the input.</li>
-            <li>Shows the top tip to improve the prompt.</li>
-            <li>Check — an AI review with a score and up to 3 concrete suggestions.</li>
-            <li>Improve with AI — rewrites the prompt; you choose “Use this” or “Discard”.</li>
-            <li>Runs on-device with Apple Intelligence when it is turned on (private, no data leaves the Mac). Otherwise the request opens in your chosen AI service.</li>
-            <li>The instant score currently understands English prompts best.</li>
-          </ul>
+        <section class="feature-block feature-block--flip" id="score">
+          <div class="feature-copy">
+            <h2>Prompt quality score</h2>
+            <p>A check on the prompt before you send it.</p>
+            <ul>
+              <li>Every prompt gets an instant quality score (0–100) with a colour indicator: Great, Good, or Needs work.</li>
+              <li>Scored on a clear task, role, context, output format, constraints, and a reference to the input.</li>
+              <li>Shows the top tip to improve the prompt.</li>
+              <li>Check — an AI review with a score and up to 3 concrete suggestions.</li>
+              <li>Improve with AI — rewrites the prompt; you choose “Use this” or “Discard”.</li>
+              <li>Runs on-device with Apple Intelligence when it is turned on (private, no data leaves the Mac). Otherwise the request opens in your chosen AI service.</li>
+              <li>The instant score currently understands English prompts best.</li>
+            </ul>
+</div>
+          <figure class="feature-shot">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="app-editor-dark.webp">
+            <img src="app-editor.webp" width="612" height="500" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context." loading="lazy" decoding="async">
+          </picture>
+          </figure>
         </section>
-        <section class="group-card" id="discover">
-          <h2>Discover prompts</h2>
-          <p>Browse prompts from connected libraries.</p>
-          <ul>
-            <li>Browse and search top prompts from connected libraries (for example prompts.chat).</li>
-            <li>Sort by Top or New, and filter by library.</li>
-            <li>Copy, Ask, or Save a prompt into a category in one click. Promptly suggests a matching category, or creates one.</li>
-          </ul>
+        <section class="feature-block" id="discover">
+          <div class="feature-copy">
+            <h2>Discover prompts</h2>
+            <p>Browse prompts from connected libraries.</p>
+            <ul>
+              <li>Browse and search top prompts from connected libraries (for example prompts.chat).</li>
+              <li>Sort by Top or New, and filter by library.</li>
+              <li>Copy, Ask, or Save a prompt into a category in one click. Promptly suggests a matching category, or creates one.</li>
+            </ul>
+</div>
+          <figure class="feature-shot">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="app-discover-dark.webp">
+            <img src="app-discover.webp" width="1100" height="700" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer." loading="lazy" decoding="async">
+          </picture>
+          </figure>
         </section>
+      </div>
+      <div class="wrap-wide feature-text-grid">
         <section class="group-card" id="sources">
           <h2>Sources and connections</h2>
           <p>Shared libraries, stored tokens in the Keychain.</p>
@@ -197,7 +355,7 @@
             <li>Microsoft 365 — sign in with a device-code flow and use prompts shared in SharePoint or OneDrive.</li>
             <li>Tokens are stored in the macOS Keychain.</li>
           </ul>
-        </section>
+</section>
         <section class="group-card" id="settings">
           <h2>Settings</h2>
           <p>Everything you can adjust.</p>
@@ -212,8 +370,8 @@
             <li>Appearance: System, Light, or Dark.</li>
             <li>Help menu: What's new (coming soon), Help (coming soon), Report a problem (a bug-report form that prepares an email with the app version, macOS version, screen and theme), and Keyboard shortcuts.</li>
           </ul>
-        </section>
-        <section class="group-card" id="shortcuts">
+</section>
+        <section class="group-card feature-card--wide" id="shortcuts">
           <h2>Keyboard shortcuts</h2>
           <p>From the app.</p>
           <table class="table">
@@ -229,7 +387,7 @@
               <tr><td>Delete selected</td><td><span class="keycaps"><kbd>⌫</kbd></span></td></tr>
             </tbody>
           </table>
-        </section>
+</section>
       </div>
     </div>
   </main>
@@ -286,6 +444,7 @@
   </footer>
   <script src="config.js"></script>
   <script src="waitlist.js" defer></script>
+  <script src="impact.js?v=20261112-all" defer></script>
   <script src="consent.js" defer></script>
 </body>
 </html>
