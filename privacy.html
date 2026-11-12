@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy — Promptly for Mac</title>
-  <meta name="description" content="Promptly stores your prompt library locally on your Mac. No account is required. Text is sent only to the AI service you choose, when you ask.">
+  <meta name="description" content="How Promptly handles your data: a local prompt library, authentication only, optional consent-gated analytics, Stripe for payments, and Improve/Analyze via Groq in the United States. Draft for legal review, 12 November 2026.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="Promptly">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Privacy — Promptly for Mac">
-  <meta property="og:description" content="Promptly stores your prompt library locally on your Mac. No account is required. Text is sent only to the AI service you choose, when you ask.">
+  <meta property="og:description" content="How Promptly handles your data: a local prompt library, authentication only, optional consent-gated analytics, Stripe for payments, and Improve/Analyze via Groq in the United States. Draft for legal review, 12 November 2026.">
   <meta property="og:url" content="https://wearefaces.github.io/promptly-site/privacy.html">
   <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy — Promptly for Mac">
-  <meta name="twitter:description" content="Promptly stores your prompt library locally on your Mac. No account is required. Text is sent only to the AI service you choose, when you ask.">
+  <meta name="twitter:description" content="How Promptly handles your data: a local prompt library, authentication only, optional consent-gated analytics, Stripe for payments, and Improve/Analyze via Groq in the United States. Draft for legal review, 12 November 2026.">
   <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -78,21 +78,51 @@
     <div class="page-hero">
       <div class="wrap">
         <h1>Privacy</h1>
-        <p class="lede">A plain-language account of where your prompts and text go.</p>
+        <p class="lede"><strong>Status:</strong> draft for legal review (12 November 2026). This is not a lawyer-reviewed policy and is not a certification of GDPR, SOC 2, or any other compliance standard. Intended public URL (We Are Interfaces, not a third-party generator): <a href="https://wearefaces.github.io/promptly-site/privacy.html">https://wearefaces.github.io/promptly-site/privacy.html</a>.</p>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap prose">
-        <h2>Your library stays on your Mac</h2>
-        <p>Your prompts and contexts are stored locally on your Mac, in <code>~/Library/Application Support/Promptly/library.json</code>. You can back up that file or share it. An earlier Windows version uses the same library file format, so library files are portable between them.</p>
-        <h2>No account is required</h2>
-        <p>You don't need an account or a sign-in to use Promptly.</p>
-        <h2>You choose when text is sent</h2>
-        <p>Promptly sends text only to the AI service you choose, when you click Ask.</p>
-        <h2>Workspace tokens</h2>
-        <p>If you connect Slack or Microsoft 365, those workspace tokens are kept in the macOS Keychain.</p>
-        <h2>On-device quality checks</h2>
-        <p>AI quality checks can run fully on-device with Apple Intelligence, when it is turned on. In that case, no data leaves your Mac for the check. If Apple Intelligence is not turned on, the request opens in your chosen AI service instead.</p>
+        <p><strong>Controller:</strong> We Are Interfaces AB (Sweden), the publisher of Promptly. A postal address and a public contact email have not been published yet; when they are, they will appear on this page. Until then, existing customers may use the email on their payment receipt.</p>
+        <h2>1. What Promptly is</h2>
+        <p>Promptly is a macOS menu-bar app. You select text, pick a prompt from your library, and send the combined text to an AI service you already use (for example ChatGPT, Claude, Gemini, or Grok). This policy describes how Promptly handles personal data in the current product design, including the test version.</p>
+        <h2>2. Your prompt library stays on your Mac</h2>
+        <p>Your prompts, contexts, and library file are stored <strong>locally</strong> on your Mac (typically in <code>~/Library/Application Support/Promptly/library.json</code>). We do <strong>not</strong> upload your library or the text you select to our servers.</p>
+        <p>You can back up or share that file yourself. If you connect a shared source (for example a JSON/CSV URL, Slack, or Microsoft 365 / SharePoint), tokens for those connections are stored in the <strong>macOS Keychain</strong>, and content from those sources is treated as data you chose to pull onto your Mac. Shared-library content is not stored on We Are Interfaces servers as a prompt archive.</p>
+        <h2>3. Account data — authentication only</h2>
+        <p>Promptly requires a sign-in (email, Google, or Apple ID) through <strong>Firebase Authentication</strong>. The account data we (and Firebase, as our authentication provider) keep in connection with your account is <strong>authentication data only</strong> — for example an email address or a provider user ID, and what is needed to keep your session. We do <strong>not</strong> store your prompt library, selected text, or Improve/Analyze content on our servers as account profile data.</p>
+        <p>The signed-in session is kept on your Mac (Keychain) according to your “Remember me” choice.</p>
+        <h2>4. When text leaves your Mac</h2>
+        <p><strong>Ask.</strong> When you click Ask, Promptly sends the prompt and the selected text <strong>only to the AI service you chose</strong>. Those services (OpenAI, Anthropic, Google, xAI, and others) are independent controllers or processors with their own privacy terms. We do not operate them and we do not receive that text back onto our servers.</p>
+        <p><strong>Improve and Analyze (test version).</strong> When you use Check / Analyze or Improve with AI in the test version, the prompt text you are reviewing is sent to <strong>Groq</strong> so the feature can return a score, suggestions, or a rewrite. Groq is a <strong>US company</strong>. Processing and any retention Groq performs take place in the <strong>United States</strong> (including Google Cloud buckets in the US). Groq does not offer a selectable <strong>EU data residency</strong>. Transfers from the EU/EEA are intended to rely on <strong>Standard Contractual Clauses (SCCs)</strong> and on Groq’s current terms. Groq states <strong>zero data retention by default</strong>; that is Groq’s stated practice, which should be re-checked against Groq’s official documentation at the time of publication and reviewed by counsel. This path is for the <strong>test version</strong>. A later enterprise version is planned to use a provider with EU residency (intended: Mistral). This policy must be updated when that switch happens.</p>
+        <p>Improve and Analyze results stay on your Mac unless you later click Ask and send them to a service you choose.</p>
+        <p><strong>We do not</strong> use Improve/Analyze or Ask text for our advertising, and we do not put that text into Analytics.</p>
+        <h2>5. Payments</h2>
+        <p>Subscriptions and one-time purchases are processed by <strong>Stripe</strong>. We do not store your full payment card number. Stripe’s own privacy policy applies to payment data. We may see limited billing metadata (for example that a subscription is active, a plan, and an email Stripe already has for the receipt). Prices and trial length are on the <a href="https://wearefaces.github.io/promptly-site/pricing.html">pricing page</a>.</p>
+        <h2>6. Analytics (optional, consent-gated)</h2>
+        <p><strong>Firebase Analytics</strong> (Google) is used only if you <strong>opt in</strong>. It is <strong>off by default</strong>. It sends <strong>usage events only</strong>, for example: that the app was activated, how many prompts are saved (a number, not the prompts themselves), that Improve was used, and that Ask was used with a provider name (ChatGPT, Claude, Gemini, Grok, and similar).</p>
+        <p>It does <strong>not</strong> include: selected text, prompt bodies or titles, Improve rewrites, your email, license keys, or other personal identifiers we can reasonably avoid. You can withdraw consent in Settings; collection then stops.</p>
+        <h2>7. Other optional or technical data</h2>
+        <p>- <strong>Crash reports</strong> (Firebase Crashlytics), if and when this is enabled in the app, are also <strong>off until you consent</strong>, and must not include prompt text, selected text, or your email.
+- If you send a <strong>Report a problem</strong> message from the app, it includes the description you type and basic device context (app version, macOS version, screen, theme). It does not attach your library unless you paste that content yourself.
+- If you grant <strong>Accessibility</strong>, Promptly uses it on your Mac to read the selection and to paste into a desktop AI app. That permission stays on your device; we do not receive a remote feed of what you select.</p>
+        <h2>8. Why we process data (GDPR)</h2>
+        <p>For users in the EU/EEA/UK, we process personal data as needed to <strong>perform the contract</strong> (providing the app, the account, and a paid plan), with your <strong>consent</strong> (Analytics, and crash reports if offered), and as needed to operate payments with Stripe. You may withdraw consent at any time without affecting the lawfulness of processing before withdrawal. This paragraph describes our intended legal bases; it is not a formal compliance certification.</p>
+        <h2>9. Transfers outside the EU/EEA</h2>
+        <p>Improve/Analyze in the test version transfers prompt text to Groq in the <strong>United States</strong>, under <strong>SCCs</strong> as described above. Firebase Authentication, Analytics (if you opt in), and Stripe may also process data outside your country, under their respective terms and transfer tools. We do not claim EU residency for Groq.</p>
+        <h2>10. Retention</h2>
+        <p>- The library and local logs remain on your Mac until you delete them or uninstall the app (local model-call logs, if present, stay in the app sandbox).
+- Authentication data is kept for as long as your account exists, and for a short period afterwards if needed to complete a deletion request.
+- Analytics events, if you consented, follow Firebase’s retention for the project (to be set when the project is created and stated here when known).
+- Payment records follow Stripe’s and applicable accounting retention.</p>
+        <h2>11. Your rights</h2>
+        <p>If the GDPR or similar law applies, you may request access, correction, deletion, restriction, or a copy of your personal data, and you may object to certain processing or lodge a complaint with your supervisory authority (in Sweden, Integritetsskyddsmyndigheten — IMY). To exercise rights, use the contact address on this page once it is published, or the email on your payment receipt. You can delete local library data on your Mac at any time by removing the library file or the app’s data.</p>
+        <h2>12. Children</h2>
+        <p>Promptly is not directed at children. We do not knowingly create accounts for children under the age where parental consent is required in their country.</p>
+        <h2>13. Changes</h2>
+        <p>We will update this page when our practices change (for example when Improve moves to an EU-resident provider, or when a contact address is published). The date at the top will change. Material changes should be reviewed before publication.</p>
+        <h2>14. Contact</h2>
+        <p>A public contact email is not published yet. Paying customers may use the email on their Stripe receipt until one is added to this page.</p>
       </div>
     </div>
   </main>
