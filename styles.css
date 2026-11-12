@@ -616,36 +616,46 @@ h3, .h3 {
 .hero .lede { color: #2a2a2a; opacity: 1; }
 .hero .eyebrow,
 .hero-services { color: #3a3a3a; }
+/* First-screen header matches Keytail: white menu and buttons on the hero photo.
+   After scroll (.is-scrolled), the default dark-on-frost styles apply. */
 .home-header:not(.is-scrolled) .brand,
 .home-header:not(.is-scrolled) .brand span,
 .home-header:not(.is-scrolled) .nav a,
 .home-header:not(.is-scrolled) .btn-ghost {
-  color: #141414;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
 }
 .home-header:not(.is-scrolled) .btn-ghost {
-  border-color: rgba(20, 20, 20, 0.22);
+  border-color: rgba(255, 255, 255, 0.55);
   background: transparent;
+  text-shadow: none;
 }
-.home-header:not(.is-scrolled) .btn-ghost:hover { color: #141414; }
-.home-header:not(.is-scrolled) .header-actions .btn:not(.btn-ghost) {
-  background: #141414;
+.home-header:not(.is-scrolled) .btn-ghost:hover {
   color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+.home-header:not(.is-scrolled) .header-actions .btn:not(.btn-ghost) {
+  background: #fff;
+  color: #141414;
 }
 .hero-actions .btn:not(.btn-ghost) {
-  background: #141414;
-  color: #fff;
+  background: #fff;
+  color: #141414;
 }
 .hero-actions .btn-ghost {
-  color: #141414;
-  border-color: rgba(20, 20, 20, 0.22);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
   background: transparent;
 }
-.hero-actions .btn-ghost:hover { color: #141414; }
+.hero-actions .btn-ghost:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
 
 .home-header:not(.is-scrolled) .nav-toggle > summary {
-  color: #141414;
-  border-color: rgba(20, 20, 20, 0.22);
-  background: rgba(255, 255, 255, 0.55);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* Product window */
@@ -858,9 +868,9 @@ h3, .h3 {
 
 /* Sections */
 
-.section { padding: clamp(4.5rem, 8vw, 8rem) 0 4rem; }
-.section-head { margin-bottom: 48px; }
-.section-head.center { max-width: 42rem; margin-inline: auto  auto; margin-bottom: 56px; }
+.section { padding: clamp(5.5rem, 9vw, 8rem) 0; }
+.section-head { margin-bottom: 56px; }
+.section-head.center { max-width: 42rem; margin-inline: auto; margin-bottom: 64px; }
 
 .split {
   display: grid;
@@ -876,7 +886,7 @@ h3, .h3 {
 .card-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 32px;
 }
 .sky-card {
   position: relative;
@@ -891,9 +901,9 @@ h3, .h3 {
     url("images/sky-soft.jpg") center / cover no-repeat;
 }
 .sky-card .inner { width: 100%; display: grid; place-items: center; }
-.card-caption { margin-top: 16px; }
-.card-caption h3 { font-size: 15px; font-weight: 500; letter-spacing: -0.02em; }
-.card-caption p { margin: 0; font-size: 14px; color: var(--secondary); line-height: 1.5; }
+.card-caption { margin-top: 28px; }
+.card-caption h3 { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 10px; }
+.card-caption p { margin: 0; font-size: 14.5px; color: var(--secondary); line-height: 1.55; }
 
 /* Relume-like panel + credibility list */
 
@@ -903,7 +913,8 @@ h3, .h3 {
   border-radius: var(--radius-stage);
   padding: 40px 44px;
 }
-.cred { display: flex; flex-direction: column; gap: 22px; margin: 0; padding: 0; list-style: none; }
+.cred { display: flex; flex-direction: column; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.cred-intro { margin: 0 0 40px; }
 .cred li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; }
 .cred .ico {
   width: 36px; height: 36px;
@@ -1325,7 +1336,7 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(20,8,6,0.38), rgba(20,8,6,0.58));
+  background: linear-gradient(180deg, rgba(18,6,5,0.46), rgba(14,5,4,0.64));
   pointer-events: none;
 }
 .photo-band > .wrap,
@@ -1333,14 +1344,16 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; }
 .photo-band-red .display-md,
 .photo-band-red .lede { color: #fff; }
 .photo-band-red .lede { opacity: 0.9; }
+.photo-band-red .card-caption { margin-top: 28px; }
 .photo-band-red .card-caption h3 { color: #fff; }
-.photo-band-red .card-caption p { color: rgba(255,255,255,0.86); }
+.photo-band-red .card-caption p { color: rgba(255,255,255,0.88); }
 .photo-band-red .step-card {
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  min-height: 220px;
+  background: rgba(255,255,255,0.24);
+  border: 1px solid rgba(255,255,255,0.42);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  min-height: 240px;
 }
 
 /* Portrait feature cards */
@@ -1418,7 +1431,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .hero-actions .btn { min-width: 220px; }
   .frost { width: 100%; max-width: 100%; }
   .frost, .waitlist-fields { flex-direction: row; width: 100%; }
-  .section { padding: 80px 0; }
+  .section { padding: 88px 0; }
   .mac-body { min-height: 0; padding: 20px 16px 24px; }
   .popup-full {
     position: relative;
