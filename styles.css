@@ -2037,3 +2037,41 @@ html, body { overflow-x: hidden; max-width: 100%; }
   color: var(--secondary);
 }
 .enterprise-pricing .ent-fine a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- 12 Nov 2026: white model logos under How-it-works ---------- */
+.compat-logos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 40px;
+  margin: 56px 0 0;
+  padding: 0;
+  color: #fff;
+}
+.compat-logos li {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+.compat-logos svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  opacity: 0.95;
+}
+@media (max-width: 720px) {
+  .compat-logos {
+    gap: 16px 18px;
+    margin-top: 40px;
+  }
+  .compat-logos li,
+  .compat-logos svg {
+    width: 24px;
+    height: 24px;
+  }
+}
