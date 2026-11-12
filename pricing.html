@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pricing — Promptly for Mac</title>
-  <meta name="description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
+  <meta name="description" content="Early pricing for Promptly. A free plan you can keep, a 14-day Pro trial, then Pro Monthly at $7, Pro Yearly at $59, or Lifetime at $149 for the first 300 buyers.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="Promptly">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Pricing — Promptly for Mac">
-  <meta property="og:description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
+  <meta property="og:description" content="Early pricing for Promptly. A free plan you can keep, a 14-day Pro trial, then Pro Monthly at $7, Pro Yearly at $59, or Lifetime at $149 for the first 300 buyers.">
   <meta property="og:url" content="https://wearefaces.github.io/promptly-site/pricing.html">
   <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pricing — Promptly for Mac">
-  <meta name="twitter:description" content="Early pricing for Promptly. A 14-day free trial, cancel anytime, then Pro Monthly at $7, Pro Yearly at $59 ($4.92/mo), or Lifetime at $149 for the first 300 buyers.">
+  <meta name="twitter:description" content="Early pricing for Promptly. A free plan you can keep, a 14-day Pro trial, then Pro Monthly at $7, Pro Yearly at $59, or Lifetime at $149 for the first 300 buyers.">
   <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261112-ent">
+  <link rel="stylesheet" href="styles.css?v=20261112-free">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -120,8 +120,8 @@
           <h1 class="display">Simple plans for your prompt library.</h1>
         </div>
         <div>
-          <p class="lede" data-when="waitlist">Payments are not live yet. These are the planned prices. A 14-day free trial, cancel anytime.</p>
-          <p class="lede" data-when="checkout" hidden>A 14-day free trial, cancel anytime.</p>
+          <p class="lede" data-when="waitlist">Payments are not live yet. These are the planned prices. A free plan you can keep, and a 14-day Pro trial on monthly and yearly.</p>
+          <p class="lede" data-when="checkout" hidden>A free plan you can keep, and a 14-day Pro trial on monthly and yearly.</p>
         </div>
       </div>
     </section>
@@ -136,6 +136,21 @@
         </div>
 
         <div class="plan-cards">
+          <article class="plan-card" data-plan="free">
+            <p class="plan-flag">Forever</p>
+            <h2 class="plan-name">Free</h2>
+            <p class="price">$0 <span>forever</span></p>
+            <p class="note">Not a trial — yours to keep</p>
+
+              <ul class="plan-features">
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Select text and pick a prompt in any app</li>
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Prompt library stored on your Mac</li>
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Ask the AI you already use</li>
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Keep using Promptly after the Pro trial — nothing is locked</li>
+              </ul>
+
+            <a class="btn" href="#waitlist">Join waitlist</a>
+          </article>
           <article class="plan-card" data-plan="pro" aria-live="polite">
             <p class="plan-flag" data-billing-show="yearly">Save $25</p>
             <h2 class="plan-name" data-billing-field="name">Pro Yearly</h2>
@@ -143,6 +158,7 @@
             <p class="note" data-billing-field="note">$4.92/mo · Save $25</p>
 
               <ul class="plan-features">
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Everything in Free</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited prompts and contexts</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Desktop-app routing for ChatGPT and Claude</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Discover and connected libraries</li>
@@ -159,6 +175,7 @@
             <p class="note">First 300 buyers</p>
 
               <ul class="plan-features">
+                <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Everything in Free</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited prompts and contexts</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Desktop-app routing for ChatGPT and Claude</li>
                 <li><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Discover and connected libraries</li>
@@ -170,7 +187,7 @@
           </article>
         </div>
 
-        <p class="includes"><strong>Pro includes</strong> unlimited prompts and contexts, desktop-app routing for ChatGPT and Claude, Discover and connected libraries, and smart suggestions in the popup.</p>
+        <p class="includes"><strong>Free</strong> is the Promptly popup and your library, yours to keep. <strong>Pro includes</strong> unlimited prompts and contexts, desktop-app routing for ChatGPT and Claude, Discover and connected libraries, and smart suggestions in the popup.</p>
         <p class="soon">Shared workspaces with members are coming soon.</p>
       </div>
     </section>
@@ -182,10 +199,11 @@
         </div>
         <div class="compare-wrap">
           <table class="compare">
-            <caption class="visually-hidden">Feature comparison for Pro Monthly, Pro Yearly, and Lifetime</caption>
+            <caption class="visually-hidden">Feature comparison for Free, Pro Monthly, Pro Yearly, and Lifetime</caption>
             <thead>
               <tr>
-                <th scope="col">Included in Pro</th>
+                <th scope="col">Included</th>
+                <th scope="col">Free</th>
                 <th scope="col">Monthly</th>
                 <th scope="col">Yearly</th>
                 <th scope="col">Lifetime</th>
@@ -194,48 +212,70 @@
             <tbody>
               <tr>
                 <th scope="row">Price</th>
+                <td>$0 forever</td>
                 <td>$7 / month</td>
                 <td>$59 / year · $4.92/mo</td>
                 <td>$149 one-time</td>
               </tr>
               <tr>
                 <th scope="row">Billing</th>
+                <td>Yours to keep</td>
                 <td>Cancel any time</td>
                 <td>Save $25</td>
                 <td>First 300 buyers</td>
               </tr>
               <tr>
+                <th scope="row">Select text, pick a prompt, ask your AI</th>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Prompt library stored on your Mac</th>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+                <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
+              </tr>
+              <tr>
                 <th scope="row">14-day free trial, cancel anytime</th>
+                <td>—<span class="visually-hidden">No</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td>—<span class="visually-hidden">No</span></td>
               </tr>
               <tr>
                 <th scope="row">Unlimited prompts and contexts</th>
+                <td>—<span class="visually-hidden">No</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
               </tr>
               <tr>
                 <th scope="row">Desktop-app routing for ChatGPT and Claude</th>
+                <td>—<span class="visually-hidden">No</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
               </tr>
               <tr>
                 <th scope="row">Discover and connected libraries</th>
+                <td>—<span class="visually-hidden">No</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
               </tr>
               <tr>
                 <th scope="row">Smart suggestions in the popup</th>
+                <td>—<span class="visually-hidden">No</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
                 <td><svg class="check" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.3 6.3 11.3 12.8 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">Yes</span></td>
               </tr>
               <tr>
                 <th scope="row">Shared workspaces with members</th>
+                <td>Soon</td>
                 <td>Soon</td>
                 <td>Soon</td>
                 <td>Soon</td>
@@ -255,12 +295,16 @@
         <div class="faq-grid">
           <div class="faq-list">
             <details>
+              <summary>Is there a free plan?</summary>
+              <p>Yes. Free is yours to keep — the popup, your library on your Mac, and asking the AI you already use. It is not a trial and does not expire. You also get a 14-day look at Pro; when that ends you keep using Promptly. Nothing is locked, and you are never charged automatically.</p>
+            </details>
+            <details>
               <summary>What's included in Pro?</summary>
               <p>Unlimited prompts and contexts, desktop-app routing for ChatGPT and Claude, Discover and connected libraries, and smart suggestions in the popup.</p>
             </details>
             <details>
               <summary>What happens after the trial?</summary>
-              <p>It's a 14-day free trial, cancel anytime. Cancel before the trial ends if you don't want to continue on the plan you chose.</p>
+              <p>You keep using Promptly. Nothing is locked and you're never charged automatically.</p>
             </details>
             <details>
               <summary>Do I need an API key?</summary>

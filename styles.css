@@ -1557,15 +1557,15 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 .plan-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   align-items: stretch;
-  max-width: 880px;
+  max-width: 1080px;
   margin-inline: auto;
 }
 .plans.plans-billing {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 720px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 960px;
   margin-inline: auto;
 }
 .plan-card {
@@ -1656,18 +1656,21 @@ html, body { overflow-x: hidden; max-width: 100%; }
   margin-top: 18px;
 }
 
-/* Highlight the active Pro card and Lifetime */
+/* Highlight paid plans, not Free */
 .plan-card[data-plan="pro"],
 .plan-card[data-plan="enterprise"],
 .plan-card-lifetime,
-.plans-billing .plan {
+.plans-billing .plan[data-plan="pro"],
+.plans-billing .plan[data-plan="lifetime"] {
   background: var(--bg-warm);
   border-color: var(--border-secondary);
 }
 @media (prefers-color-scheme: dark) {
   .plan-card[data-plan="pro"],
+  .plan-card[data-plan="enterprise"],
   .plan-card-lifetime,
-  .plans-billing .plan {
+  .plans-billing .plan[data-plan="pro"],
+  .plans-billing .plan[data-plan="lifetime"] {
     background: #1a1a18;
     border-color: var(--border-secondary);
   }
@@ -1686,7 +1689,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .compare {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;
+  min-width: 780px;
   font-size: 14px;
 }
 .compare th, .compare td {
@@ -1700,17 +1703,17 @@ html, body { overflow-x: hidden; max-width: 100%; }
   letter-spacing: -0.02em;
   background: color-mix(in srgb, var(--group) 55%, var(--surface));
 }
-[data-billing="monthly"] .compare thead th:nth-child(2),
-[data-billing="monthly"] .compare tbody td:nth-child(2),
-[data-billing="yearly"] .compare thead th:nth-child(3),
-[data-billing="yearly"] .compare tbody td:nth-child(3) {
+[data-billing="monthly"] .compare thead th:nth-child(3),
+[data-billing="monthly"] .compare tbody td:nth-child(3),
+[data-billing="yearly"] .compare thead th:nth-child(4),
+[data-billing="yearly"] .compare tbody td:nth-child(4) {
   background: var(--bg-warm);
 }
 @media (prefers-color-scheme: dark) {
-  [data-billing="monthly"] .compare thead th:nth-child(2),
-  [data-billing="monthly"] .compare tbody td:nth-child(2),
-  [data-billing="yearly"] .compare thead th:nth-child(3),
-  [data-billing="yearly"] .compare tbody td:nth-child(3) {
+  [data-billing="monthly"] .compare thead th:nth-child(3),
+  [data-billing="monthly"] .compare tbody td:nth-child(3),
+  [data-billing="yearly"] .compare thead th:nth-child(4),
+  [data-billing="yearly"] .compare tbody td:nth-child(4) {
     background: #1a1a18;
   }
 }
