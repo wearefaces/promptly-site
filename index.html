@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261112-hero">
+  <link rel="stylesheet" href="styles.css?v=20261112-gifs">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -166,35 +166,38 @@
         </div>
         <div class="card-row" data-reveal>
           <article>
-            <div class="sky-card step-card">
-              <div class="inner">
-                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">1</p>
-              </div>
+            <div class="step-card step-media">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="step1-select.webp">
+                <img src="step1-select.gif" width="880" height="720" loading="lazy" decoding="async" alt="A cursor drags across a sentence in a note, highlighting it in blue.">
+              </picture>
             </div>
             <div class="card-caption">
-              <h3>Select text</h3>
+              <h3 class="step-title"><span class="step-num"><span class="visually-hidden">Step </span>1</span>Select text</h3>
               <p>In any app — browser, Mail, Slack, Word, or a code editor.</p>
             </div>
           </article>
           <article>
-            <div class="sky-card step-card">
-              <div class="inner">
-                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">2</p>
-              </div>
+            <div class="step-card step-media">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="step2-pick.webp">
+                <img src="step2-pick.gif" width="880" height="720" loading="lazy" decoding="async" alt="The real Promptly popup appears under the highlighted text with the selection inside, and the cursor moves to the Summarize prompt in Favorites.">
+              </picture>
             </div>
             <div class="card-caption">
-              <h3>Pick a prompt</h3>
+              <h3 class="step-title"><span class="step-num"><span class="visually-hidden">Step </span>2</span>Pick a prompt</h3>
               <p>The Promptly popup appears next to your cursor, with your library one click away.</p>
             </div>
           </article>
           <article>
-            <div class="sky-card step-card">
-              <div class="inner">
-                <p style="margin:0;color:#fff;font-size:4rem;font-weight:400;letter-spacing:-0.05em;line-height:1">3</p>
-              </div>
+            <div class="step-card step-media">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="step3-ask.webp">
+                <img src="step3-ask.gif" width="880" height="720" loading="lazy" decoding="async" alt="In the Promptly popup, the cursor moves from the Summarize prompt to the Ask ChatGPT button and clicks it.">
+              </picture>
             </div>
             <div class="card-caption">
-              <h3>Ask your AI</h3>
+              <h3 class="step-title"><span class="step-num"><span class="visually-hidden">Step </span>3</span>Ask your AI</h3>
               <p>Promptly opens ChatGPT, Claude, Copilot or another service with the prompt and your text already filled in.</p>
             </div>
           </article>
@@ -286,7 +289,7 @@
         </div>
         <div class="card-row" style="margin-top:36px" data-reveal>
           <article>
-            <div class="sky-card card-blue card-blue-alt">
+            <div class="sky-card card-violet">
               <img class="app-shot app-shot-editor" src="app-editor.webp" width="612" height="500" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context.">
             </div>
             <div class="card-caption">
@@ -295,7 +298,7 @@
             </div>
           </article>
           <article>
-            <div class="sky-card card-red card-red-alt">
+            <div class="sky-card card-amber">
               <img class="app-shot" src="app-discover.webp" width="1100" height="700" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer.">
             </div>
             <div class="card-caption">
@@ -304,7 +307,7 @@
             </div>
           </article>
           <article>
-            <div class="sky-card card-sage card-sage-alt">
+            <div class="sky-card card-teal">
               <div class="source-pills">
                 <span>prompts.chat</span>
                 <span>Starter library</span>
@@ -322,7 +325,7 @@
       </div>
     </section>
 
-    <section class="section" id="shortcuts">
+    <section class="section photo-band photo-band-blue" id="shortcuts">
       <div class="wrap">
         <div class="section-head center" data-reveal>
           <h2 class="display-md">Keyboard shortcuts</h2>
@@ -451,5 +454,6 @@
   </footer>
   <script src="config.js"></script>
   <script src="waitlist.js" defer></script>
+  <script src="consent.js" defer></script>
 </body>
 </html>
