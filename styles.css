@@ -2765,29 +2765,36 @@ html, body { overflow-x: hidden; max-width: 100%; }
   padding: 48px 0 24px;
 }
 .uses-ticker {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
   overflow: hidden;
   margin: 56px 0 8px;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
-/* 13 Nov: soft wide fade so edge cards never look cut off */
-.uses-ticker {
-  -webkit-mask-image: linear-gradient(to right, transparent 0, transparent 2%, #000 16%, #000 84%, transparent 98%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, transparent 2%, #000 16%, #000 84%, transparent 98%, transparent 100%);
+/* Edge fade via overlays in the section background, not mask-image.
+   All three rows are aligned (no horizontal offsets), so a card
+   crossing the edge dissolves the same way in every row. */
+.uses-ticker::before,
+.uses-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(88px, 14vw, 200px);
+  z-index: 2;
+  pointer-events: none;
 }
-.uses-ticker-row:nth-child(2) { margin-inline: 0; }
-.uses-ticker-row:nth-child(3) { margin-left: 0; }
+.uses-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--canvas) 0%, var(--canvas) 22%, transparent 100%);
+}
+.uses-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--canvas) 0%, var(--canvas) 22%, transparent 100%);
+}
 .uses-ticker-row {
   overflow: hidden;
-}
-.uses-ticker-row:nth-child(2) {
-  margin-inline: -4vw;
-}
-.uses-ticker-row:nth-child(3) {
-  margin-left: 6vw;
 }
 .uses-ticker-track {
   display: flex;
