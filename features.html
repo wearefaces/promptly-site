@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261112-featsmall">
+  <link rel="stylesheet" href="styles.css?v=20261113-uses">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -110,14 +110,207 @@
     </div>
   </header>
   <main id="main">
-    <div class="page-hero features-hero">
-      <div class="wrap-wide">
+    <div class="page-hero features-hero page-hero--photo">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="wrap">
         <h1>Features</h1>
         <p class="lede">The complete list. Promptly is a macOS menu bar app — it appears next to the text you select, with your prompt library one click away.</p>
       </div>
     </div>
-    <div class="page-section features-page">
+    <section class="uses" id="uses">
+      <div class="wrap-wide uses-body">
+        <header class="uses-head">
+          <h2 class="uses-title">See what you can do with Promptly</h2>
+        </header>
+
+        <article class="uses-case uses-case--white">
+          <div class="uses-case-copy">
+            <p class="eyebrow">The popup</p>
+            <h3>From selected text to a ready-to-send prompt</h3>
+            <p>The popup appears when you select text — anywhere on the Mac, or from the menu bar icon. It never covers the selection, and your library is one click away. Switch between Full and Minimal at any time.</p>
+            <a class="uses-more" href="#popup">See how the popup works</a>
+          </div>
+          <figure class="uses-case-shot">
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/step2-pick.webp">
+              <img src="img/step2-pick.gif" width="880" height="720" alt="The Promptly popup appearing next to selected text, then the cursor moving to a prompt in Favorites.">
+            </picture>
+          </figure>
+        </article>
+
+        <article class="uses-case uses-case--flip uses-case--violet">
+          <div class="uses-case-copy">
+            <p class="eyebrow">Library</p>
+            <h3>From a saved prompt to the text you just selected</h3>
+            <p>Save prompts and contexts on your Mac. Organize them with categories, star Favorites so they appear first, and sort by Recent, A–Z, or Most used.</p>
+            <a class="uses-more" href="#library">See the library</a>
+          </div>
+          <figure class="uses-case-shot">
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/app-library.webp">
+              <img src="img/uses-library.webp" width="880" height="560" alt="Promptly Library with prompts such as Summarize this email, Fix grammar and Explain code, each with a quality score.">
+            </picture>
+          </figure>
+        </article>
+
+        <div class="uses-trio">
+          <article class="uses-trio-card uses-trio-card--warm">
+            <p class="eyebrow">Quality score</p>
+            <h3>Check the prompt before you send it</h3>
+            <p>Every prompt gets an instant quality score from 0–100 — Great, Good, or Needs work — plus a tip to improve it. Check runs an AI review; Improve with AI rewrites the prompt, and you choose Use this or Discard. When Apple Intelligence is turned on, this runs on-device.</p>
+            <figure class="uses-trio-shot">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="img/app-editor.webp">
+                <img src="img/uses-editor.webp" width="640" height="522" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context.">
+              </picture>
+            </figure>
+            <a class="uses-more" href="#score">See quality score</a>
+          </article>
+          <article class="uses-trio-card uses-trio-card--amber">
+            <p class="eyebrow">Send to any AI</p>
+            <h3>One popup, the AI you already use</h3>
+            <p>ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. If the ChatGPT, Claude, Perplexity or Microsoft 365 Copilot desktop app is installed, Promptly opens it and pastes the prompt automatically.</p>
+            <figure class="uses-trio-shot">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="img/app-settings-ai.webp">
+                <img src="img/uses-settings-ai.webp" width="760" height="548" alt="Settings, AI Services: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot and Custom.">
+              </picture>
+            </figure>
+            <a class="uses-more" href="#ai">See AI services</a>
+          </article>
+          <article class="uses-trio-card uses-trio-card--teal">
+            <p class="eyebrow">Discover</p>
+            <h3>Browse prompts, then save the ones you want</h3>
+            <p>Browse and search prompts from connected libraries, for example prompts.chat. Copy, Ask, or Save a prompt into a category in one click.</p>
+            <figure class="uses-trio-shot">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="img/app-discover.webp">
+                <img src="img/uses-discover.webp" width="760" height="484" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer.">
+              </picture>
+            </figure>
+            <a class="uses-more" href="#discover">See Discover</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="uses-ticker" aria-hidden="true">
+        <div class="uses-ticker-row">
+          <div class="uses-ticker-track">
+            <p class="uses-card">Rewrite a paragraph in Mail or Pages</p>
+            <p class="uses-card">Select a customer message and pick a reply prompt</p>
+            <p class="uses-card">Select an error or a function and click a debug prompt</p>
+            <p class="uses-card">Send the selected text to ChatGPT or Claude</p>
+            <p class="uses-card">Open the ChatGPT or Claude desktop app with the prompt already pasted</p>
+            <p class="uses-card">Click a prompt to send it, or Option-click to copy the prompt and text</p>
+            <p class="uses-card">Rewrite a paragraph in Mail or Pages</p>
+            <p class="uses-card">Select a customer message and pick a reply prompt</p>
+            <p class="uses-card">Select an error or a function and click a debug prompt</p>
+            <p class="uses-card">Send the selected text to ChatGPT or Claude</p>
+            <p class="uses-card">Open the ChatGPT or Claude desktop app with the prompt already pasted</p>
+            <p class="uses-card">Click a prompt to send it, or Option-click to copy the prompt and text</p>
+          </div>
+        </div>
+        <div class="uses-ticker-row">
+          <div class="uses-ticker-track">
+            <p class="uses-card">Save a prompt and reuse it on the next selection</p>
+            <p class="uses-card">Add a context — background information the AI should know</p>
+            <p class="uses-card">Check a prompt’s quality score before you send it</p>
+            <p class="uses-card">Improve a prompt with AI, then choose Use this or Discard</p>
+            <p class="uses-card">Browse Discover and save a prompt into a category</p>
+            <p class="uses-card">Star a prompt so it shows first in the popup</p>
+            <p class="uses-card">Save a prompt and reuse it on the next selection</p>
+            <p class="uses-card">Add a context — background information the AI should know</p>
+            <p class="uses-card">Check a prompt’s quality score before you send it</p>
+            <p class="uses-card">Improve a prompt with AI, then choose Use this or Discard</p>
+            <p class="uses-card">Browse Discover and save a prompt into a category</p>
+            <p class="uses-card">Star a prompt so it shows first in the popup</p>
+          </div>
+        </div>
+        <div class="uses-ticker-row">
+          <div class="uses-ticker-track">
+            <p class="uses-card">Send to Gemini, Grok, DeepSeek, Mistral, Perplexity, or Copilot</p>
+            <p class="uses-card">Use a custom URL with a {text} placeholder</p>
+            <p class="uses-card">Connect a Slack workspace to pull shared prompts</p>
+            <p class="uses-card">Sign in to Microsoft 365 and use prompts from SharePoint or OneDrive</p>
+            <p class="uses-card">Sort the library by Recent, A–Z, or Most used</p>
+            <p class="uses-card">Switch between the Full popup and the Minimal bar</p>
+            <p class="uses-card">Send to Gemini, Grok, DeepSeek, Mistral, Perplexity, or Copilot</p>
+            <p class="uses-card">Use a custom URL with a {text} placeholder</p>
+            <p class="uses-card">Connect a Slack workspace to pull shared prompts</p>
+            <p class="uses-card">Sign in to Microsoft 365 and use prompts from SharePoint or OneDrive</p>
+            <p class="uses-card">Sort the library by Recent, A–Z, or Most used</p>
+            <p class="uses-card">Switch between the Full popup and the Minimal bar</p>
+          </div>
+        </div>
+      </div>
+      <ul class="uses-examples">
+          <li>Rewrite a paragraph in Mail or Pages</li>
+          <li>Select a customer message and pick a reply prompt</li>
+          <li>Select an error or a function and click a debug prompt</li>
+          <li>Send the selected text to ChatGPT or Claude</li>
+          <li>Open the ChatGPT or Claude desktop app with the prompt already pasted</li>
+          <li>Click a prompt to send it, or Option-click to copy the prompt and text</li>
+          <li>Save a prompt and reuse it on the next selection</li>
+          <li>Add a context — background information the AI should know</li>
+          <li>Check a prompt’s quality score before you send it</li>
+          <li>Improve a prompt with AI, then choose Use this or Discard</li>
+          <li>Browse Discover and save a prompt into a category</li>
+          <li>Star a prompt so it shows first in the popup</li>
+          <li>Send to Gemini, Grok, DeepSeek, Mistral, Perplexity, or Copilot</li>
+          <li>Use a custom URL with a {text} placeholder</li>
+          <li>Connect a Slack workspace to pull shared prompts</li>
+          <li>Sign in to Microsoft 365 and use prompts from SharePoint or OneDrive</li>
+          <li>Sort the library by Recent, A–Z, or Most used</li>
+          <li>Switch between the Full popup and the Minimal bar</li>
+      </ul>
+
+      <div class="wrap-wide">
+        <figure class="uses-life">
+          <img src="img/uses-lifestyle.webp?v=20261113-blonde" width="1152" height="864" alt="Over the shoulder, a person at a MacBook with the Promptly library open on the screen.">
+        </figure>
+        <div class="uses-context">
+          <div class="uses-context-lead">
+            <p class="eyebrow">The same popup behind every ask</p>
+            <h2 class="uses-title uses-title--left">The selected text, the prompt, and the AI — in one step</h2>
+            <p>Your library stays on your Mac. Select text in any app, pick a prompt, and send it to the AI you already use — without copying, switching, and pasting each time.</p>
+            <a class="uses-more" href="#complete-list">See the complete list</a>
+          </div>
+          <ul class="uses-points">
+            <li>
+              <h3>Keep the library on your Mac</h3>
+              <p>Prompts and contexts are stored locally, in categories you name, with Favorites first in the popup.</p>
+            </li>
+            <li>
+              <h3>Put your prompts to work</h3>
+              <p>The popup appears next to the text you select. Click a prompt to send it, or Option-click to copy it.</p>
+            </li>
+            <li>
+              <h3>Work across the apps you already use</h3>
+              <p>Select text in a browser, Mail, Slack, Word, or a code editor, and send it to ChatGPT, Claude, or another service you choose.</p>
+            </li>
+          </ul>
+          <ul class="uses-chips" aria-label="Works with these AI services, plus a custom URL.">
+            <li>ChatGPT</li>
+            <li>Claude</li>
+            <li>Gemini</li>
+            <li>Grok</li>
+            <li>DeepSeek</li>
+            <li>Mistral</li>
+            <li>Perplexity</li>
+            <li>Microsoft Copilot</li>
+            <li>Custom URL</li>
+          </ul>
+          <p class="uses-chips-note">Sources: prompts.chat, Slack, Microsoft 365, or a custom JSON or CSV URL. Tokens stay in the Keychain.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-section features-page" id="complete-list">
       <div class="wrap-wide feature-list">
+        <header class="uses-complete-head">
+          <h2 class="uses-title uses-title--left">The complete list</h2>
+          <p class="lede">Every control, in the same order as the app.</p>
+        </header>
         <section class="feature-block" id="popup">
           <div class="feature-copy">
             <h2>The popup</h2>
@@ -148,10 +341,10 @@
             </div>
           </div>
           <figure class="feature-shot">
-            <img src="app-popup-full.webp" width="612" height="271" alt="Promptly Full popup with selected text, Favorites prompts, and an Ask ChatGPT button." loading="lazy" decoding="async">
+            <img src="img/app-popup-full.webp" width="612" height="271" alt="Promptly Full popup with selected text, Favorites prompts, and an Ask ChatGPT button." loading="lazy" decoding="async">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="app-popup-minimal-dark.webp">
-            <img class="feature-shot-bar" src="app-popup-minimal.webp" width="540" height="51" alt="Promptly Minimal bar with selected text, favorite prompt icons, Copy, expand and Ask." loading="lazy" decoding="async">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-popup-minimal-dark.webp">
+            <img class="feature-shot-bar" src="img/app-popup-minimal.webp" width="540" height="51" alt="Promptly Minimal bar with selected text, favorite prompt icons, Copy, expand and Ask." loading="lazy" decoding="async">
           </picture>
           </figure>
         </section>
@@ -170,8 +363,8 @@
 </div>
           <figure class="feature-shot">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="app-settings-ai-dark.webp">
-            <img src="app-settings-ai.webp" width="960" height="694" alt="Settings, AI Services: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot and Custom." loading="lazy" decoding="async">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-settings-ai-dark.webp">
+            <img src="img/app-settings-ai.webp" width="960" height="694" alt="Settings, AI Services: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot and Custom." loading="lazy" decoding="async">
           </picture>
           </figure>
         </section>
@@ -191,8 +384,8 @@
 </div>
           <figure class="feature-shot">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="app-library-dark.webp">
-            <img src="app-library.webp" width="1100" height="700" alt="Promptly Library with prompts such as Summarize this email, Fix grammar and Explain code, each with a quality score." loading="lazy" decoding="async">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-library-dark.webp">
+            <img src="img/app-library.webp" width="1100" height="700" alt="Promptly Library with prompts such as Summarize this email, Fix grammar and Explain code, each with a quality score." loading="lazy" decoding="async">
           </picture>
           </figure>
         </section>
@@ -212,8 +405,8 @@
 </div>
           <figure class="feature-shot">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="app-editor-dark.webp">
-            <img src="app-editor.webp" width="612" height="500" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context." loading="lazy" decoding="async">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-editor-dark.webp">
+            <img src="img/app-editor.webp" width="612" height="500" alt="Prompt editor for Summarize this email, with a quality score of 90, Great, and a tip to add context." loading="lazy" decoding="async">
           </picture>
           </figure>
         </section>
@@ -229,8 +422,8 @@
 </div>
           <figure class="feature-shot">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="app-discover-dark.webp">
-            <img src="app-discover.webp" width="1100" height="700" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer." loading="lazy" decoding="async">
+            <source media="(prefers-color-scheme: dark)" srcset="img/app-discover-dark.webp">
+            <img src="img/app-discover.webp" width="1100" height="700" alt="Discover view browsing starter-library prompts such as Email Composer and Code Reviewer." loading="lazy" decoding="async">
           </picture>
           </figure>
         </section>
@@ -388,15 +581,15 @@
         <p>Select text, pick a prompt, press Ask — filmed from the Mac app.</p>
         <div class="impact-path-grid">
           <figure>
-            <img src="step1-select.gif" width="640" height="400" alt="Selecting a sentence in a document on a Mac.">
+            <img src="img/step1-select.gif" width="640" height="400" alt="Selecting a sentence in a document on a Mac.">
             <figcaption><strong>1. Select</strong> In any app — browser, Mail, Slack, Word, or a code editor.</figcaption>
           </figure>
           <figure>
-            <img src="step2-pick.gif" width="640" height="400" alt="The Promptly popup appearing next to the selected text, with prompts to choose from.">
+            <img src="img/step2-pick.gif" width="640" height="400" alt="The Promptly popup appearing next to the selected text, with prompts to choose from.">
             <figcaption><strong>2. Pick a prompt</strong> The popup appears next to your cursor, with your library one click away.</figcaption>
           </figure>
           <figure>
-            <img src="step3-ask.gif" width="640" height="400" alt="Pressing Ask in the Promptly popup to send the prompt and selected text to an AI service.">
+            <img src="img/step3-ask.gif" width="640" height="400" alt="Pressing Ask in the Promptly popup to send the prompt and selected text to an AI service.">
             <figcaption><strong>3. Ask</strong> Promptly opens the AI service with the prompt and your text already filled in.</figcaption>
           </figure>
         </div>
