@@ -1,29 +1,37 @@
-/* Promptly marketing site — demo time-saved model.
-   Figures are an illustrative forecast, not measured customer results.
-   Model: 40s manual path vs 5s with Promptly, 230 workdays/year. */
+/* Promptly marketing site — modeled weekly time saved by prompt-access tools.
+   Midpoint and range come only from the published note:
+   weekly hours = asks/day × 5 days × seconds-per-interaction / 3600.
+   Midpoint: 45s direct + 15% × 75s avoided retry (15/day → 1.17 h/week).
+   Range: 30s + 10% × 60s, versus 60s + 20% × 90s.
+   Cumulative chart is modeled hours over 52 weeks, not a measured year.
+   Not measured Promptly customer results. */
 (function () {
   "use strict";
 
-  var MANUAL_SEC = 40;
-  var PROMPTLY_SEC = 5;
-  var SAVED_SEC = MANUAL_SEC - PROMPTLY_SEC;
-  var WORKDAYS = 230;
   var WEEK_DAYS = 5;
+  var MID_SEC = 45 + 0.15 * 75; /* 56.25 */
+  var LOW_SEC = 30 + 0.10 * 60; /* 36 */
+  var HIGH_SEC = 60 + 0.20 * 90; /* 78 */
+  var CHART_WEEKS = [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52];
+  var CHART_LABELS = [4, 12, 20, 28, 36, 44, 52];
+  var SPAN_SHORT = 12;
+  var SPAN_LONG = 52;
 
-  function hoursYear(asks) {
-    return (asks * SAVED_SEC * WORKDAYS) / 3600;
+  function weekHours(asks, sec) {
+    return (asks * WEEK_DAYS * sec) / 3600;
   }
 
   function fmtHours(h) {
-    if (h >= 100) return String(Math.round(h));
-    var r = Math.round(h * 10) / 10;
-    return (Math.abs(r - Math.round(r)) < 0.05) ? String(Math.round(r)) : String(r);
+    if (h >= 1000) return String(Math.round(h));
+    var r2 = Math.round(h * 100) / 100;
+    if (Math.abs(r2 - Math.round(r2)) < 0.005) return String(Math.round(r2));
+    var r1 = Math.round(h * 10) / 10;
+    if (Math.abs(r2 - r1) >= 0.005) return String(r2);
+    return String(r1);
   }
 
-  function fmtMinutes(seconds) {
-    var m = seconds / 60;
-    if (m < 10) return String(Math.round(m * 10) / 10);
-    return String(Math.round(m));
+  function hourWord(h) {
+    return (Math.round(h * 100) / 100) === 1 ? "hour" : "hours";
   }
 
   function niceMax(value) {
@@ -40,7 +48,7 @@
     for (var i = 0; i < els.length; i++) els[i].textContent = text;
   }
 
-  function renderChart(svg, yearHours) {
+  function renderChart(svg, weekH) {
     if (!svg) return;
     var w = 640;
     var h = 268;
@@ -50,15 +58,16 @@
     var pb = 40;
     var iw = w - pl - pr;
     var ih = h - pt - pb;
-    var maxH = niceMax(yearHours);
-    var months = 12;
+    var endHours = weekH * SPAN_LONG;
+    var maxH = niceMax(endHours);
     var pts = [];
-    var i;
-    for (i = 0; i < months; i++) {
-      var hours = yearHours * (i + 1) / months;
-      var x = pl + (iw * i) / (months - 1);
-      var y = pt + ih - (hours / maxH) * ih;
-      pts.push({ x: x, y: y, hours: hours });
+    var i, wk, hours, x, y;
+    for (i = 0; i < CHART_WEEKS.length; i++) {
+      wk = CHART_WEEKS[i];
+      hours = weekH * wk;
+      x = pl + (iw * i) / (CHART_WEEKS.length - 1);
+      y = pt + ih - (hours / maxH) * ih;
+      pts.push({ x: x, y: y, hours: hours, week: wk });
     }
     var line = "";
     for (i = 0; i < pts.length; i++) {
@@ -88,7 +97,7 @@
     if (endLabel) {
       endLabel.setAttribute("x", last.x.toFixed(1));
       endLabel.setAttribute("y", (last.y - 12).toFixed(1));
-      endLabel.textContent = fmtHours(yearHours) + " h";
+      endLabel.textContent = fmtHours(endHours) + " h";
     }
 
     var ticks = svg.querySelector("[data-impact-yticks]");
@@ -97,7 +106,7 @@
       var steps = 4;
       for (i = 0; i <= steps; i++) {
         var v = (maxH * i) / steps;
-        var y = pt + ih - (v / maxH) * ih;
+        y = pt + ih - (v / maxH) * ih;
         html +=
           '<line x1="' + pl + '" x2="' + (w - pr) + '" y1="' + y.toFixed(1) +
           '" y2="' + y.toFixed(1) + '" />' +
@@ -106,38 +115,57 @@
       }
       ticks.innerHTML = html;
     }
+
+    var xlabels = svg.querySelector("[data-impact-xlabels]");
+    if (xlabels) {
+      var xhtml = "";
+      for (i = 0; i < pts.length; i++) {
+        if (CHART_LABELS.indexOf(pts[i].week) === -1) continue;
+        xhtml +=
+          '<text x="' + pts[i].x.toFixed(1) + '" y="256" text-anchor="middle">' +
+          pts[i].week + "</text>";
+      }
+      xlabels.innerHTML = xhtml;
+    }
   }
 
   function update(root) {
     var slider = root.querySelector("[data-impact-asks]");
     var asks = slider ? parseInt(slider.value, 10) : 15;
     if (!asks || asks < 1) asks = 15;
-    var daySec = asks * SAVED_SEC;
-    var weekSec = daySec * WEEK_DAYS;
-    var yearH = hoursYear(asks);
-    var teamH = yearH * 5;
+
+    var mid = weekHours(asks, MID_SEC);
+    var lo = weekHours(asks, LOW_SEC);
+    var hi = weekHours(asks, HIGH_SEC);
+    var shortH = mid * SPAN_SHORT;
+    var longH = mid * SPAN_LONG;
 
     setText(root, "[data-impact-asks-out]", String(asks));
-    setText(root, "[data-val-ask]", String(SAVED_SEC));
-    setText(root, "[data-val-day]", fmtMinutes(daySec));
-    setText(root, "[data-val-week]", fmtMinutes(weekSec));
-    setText(root, "[data-val-year]", fmtHours(yearH));
-    setText(root, "[data-val-team]", fmtHours(teamH));
+    setText(root, "[data-val-week]", fmtHours(mid));
+    setText(root, "[data-val-range]", fmtHours(lo) + "–" + fmtHours(hi));
+    setText(root, "[data-val-12w]", fmtHours(shortH));
+    setText(root, "[data-val-52w]", fmtHours(longH));
     setText(root, "[data-asks-word]", String(asks));
 
-    var yearUnit = root.querySelectorAll("[data-unit-year]");
-    var yLabel = (Math.round(yearH * 10) / 10) === 1 ? "hour" : "hours";
-    for (var i = 0; i < yearUnit.length; i++) yearUnit[i].textContent = yLabel;
+    var wLabel = hourWord(mid);
+    var units = root.querySelectorAll("[data-unit-week]");
+    for (var i = 0; i < units.length; i++) units[i].textContent = wLabel;
+    units = root.querySelectorAll("[data-unit-12w]");
+    var sLabel = hourWord(shortH);
+    for (i = 0; i < units.length; i++) units[i].textContent = sLabel;
+    units = root.querySelectorAll("[data-unit-52w]");
+    var lLabel = hourWord(longH);
+    for (i = 0; i < units.length; i++) units[i].textContent = lLabel;
 
-    renderChart(root.querySelector("[data-impact-chart]"), yearH);
+    renderChart(root.querySelector("[data-impact-chart]"), mid);
 
     var live = root.querySelector("[data-impact-live]");
     if (live) {
       live.textContent =
-        "Demo forecast at " + asks + " asks a workday: " +
-        SAVED_SEC + " seconds saved per ask, " +
-        fmtMinutes(daySec) + " minutes a day, " +
-        fmtHours(yearH) + " " + yLabel + " a year.";
+        "Modeled estimate at " + asks + " asks a workday: " +
+        fmtHours(mid) + " " + wLabel + " a week, range " +
+        fmtHours(lo) + "–" + fmtHours(hi) + " " + hourWord(hi) +
+        ", " + fmtHours(longH) + " " + lLabel + " over 52 weeks.";
     }
   }
 

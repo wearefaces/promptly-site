@@ -3222,3 +3222,65 @@ html.is-preview .uses-ticker-track {
     padding-bottom: 72px;
   }
 }
+
+
+/* Blog article and listing — reuse prose / group-card; only what those pages need. */
+.prose a { color: var(--text); }
+.prose figure {
+  margin: 28px 0;
+}
+.prose figure img,
+.impact-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.prose figcaption {
+  margin-top: 8px;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--secondary);
+  font-style: italic;
+}
+.prose .table { margin: 8px 0 28px; }
+.prose .calc {
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  background: var(--group);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+.blog-list { max-width: 40rem; }
+.blog-list .group-card h2 { margin: 4px 0 10px; }
+.blog-list .group-card h2 a { text-decoration: none; }
+.blog-list .group-card h2 a:hover { text-decoration: underline; }
+.blog-list .eyebrow { margin: 0 0 8px; }
+.blog-list .group-card > p:last-child { margin-bottom: 0; }
+.article-meta { margin: 0 0 8px; }
+.impact-stat-value.is-range {
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+}
+.impact-figure { margin: 0; }
+.impact-figure figcaption {
+  margin-top: 10px;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--secondary);
+}
+.footer-nav { flex-wrap: wrap; }
+@media (max-width: 900px) {
+  .impact-stat-value.is-range { font-size: 1.45rem; }
+}
+
+.impact-ref {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--secondary);
+}
