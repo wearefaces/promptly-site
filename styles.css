@@ -2248,8 +2248,13 @@ html, body { overflow-x: hidden; max-width: 100%; }
   width: 100%;
   max-width: 540px;
   height: auto;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
   background: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  .feature-shot img {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.10));
+  }
 }
 .feature-shot .feature-shot-bar {
   width: 88%;
