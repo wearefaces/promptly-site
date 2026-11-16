@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261116-signup-v6">
+  <link rel="stylesheet" href="styles.css?v=20261116-signup-v7">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -126,16 +126,23 @@
       <div class="hero-copy">
         <p class="eyebrow">A menu bar app for Mac</p>
         <h1 class="display">Select text.<br>Ask any AI.</h1>
-        <form class="frost waitlist" action="#" method="post" id="waitlist">
+        <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
+          <div class="frost">
           <div class="waitlist-fields">
             <label for="email-hero" class="visually-hidden">Email</label>
-            <input id="email-hero" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
-            <button type="submit" class="frost-go" aria-label="Join waitlist">
+            <input id="email-hero" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+            <button type="submit" class="frost-go" aria-label="Join the waitlist">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5V3.5M3.5 8 8 3.5 12.5 8"/></svg>
             </button>
           </div>
+          </div>
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="true">Both</button>
+          </div>
         </form>
-        <p class="frost-thanks waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+        <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
         <p class="lede">Promptly turns any text you select on your Mac into a ready-to-send AI prompt — with your own prompt library one click away.</p>
         <div class="hero-actions">
           <a class="btn" href="#waitlist" data-cta="primary">Join waitlist</a>
@@ -548,23 +555,6 @@
       </div>
     </section>
 
-    <section class="section on-canvas" id="windows-waitlist">
-      <div class="wrap">
-        <div class="section-head center" data-reveal>
-          <h2 class="display-md">Promptly for Windows — join the waitlist</h2>
-          <p class="lede">Leave your email and we'll write when Promptly for Windows is ready.</p>
-        </div>
-        <form class="waitlist" data-waitlist="windows" action="#" method="post" data-reveal>
-          <div class="waitlist-fields">
-            <label for="email-windows-home" class="visually-hidden">Email</label>
-            <input id="email-windows-home" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-            <button class="btn" type="submit">Join the waitlist</button>
-          </div>
-          <p class="waitlist-thanks" hidden>You're on the Windows waitlist. We'll write when it's ready.</p>
-        </form>
-      </div>
-    </section>
-
     <section class="section" id="faq">
       <div class="wrap">
         <div class="section-head center" data-reveal>
@@ -578,7 +568,7 @@
           <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
           <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
           <details><summary>What happens after the trial?</summary><p>You keep using Promptly. Nothing is locked and you're never charged automatically.</p></details>
-          <details><summary>Is there a Windows version?</summary><p>An earlier Windows version exists; the new design is Mac-first. <a href="#windows-waitlist">Join the Windows waitlist</a> to hear when it is ready.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>An earlier Windows version exists; the new design is Mac-first. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
         </div>
       </div>
     </section>
@@ -607,17 +597,9 @@
         </svg>
       </div>
       <div>
-        <h2 class="display">Join the waitlist.</h2>
-        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
-        
-          <form class="waitlist" action="#" method="post">
-            <div class="waitlist-fields">
-              <label for="email-home-footer" class="visually-hidden">Email</label>
-              <input id="email-home-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
-              <button class="btn btn-light" type="submit">Join waitlist</button>
-            </div>
-            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
-          </form>
+        <h2 class="display">Join the Promptly waitlist.</h2>
+        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
+          <a class="btn btn-light" href="#waitlist">Join the waitlist</a>
       </div>
     </div>
     <div class="footer-bar">
@@ -640,8 +622,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
-  <script src="auth.js?v=20261116-signup-v6" defer></script>
-  <script src="waitlist.js?v=20261116-signup-v6" defer></script>
+  <script src="auth.js?v=20261116-signup-v7" defer></script>
+  <script src="waitlist.js?v=20261116-signup-v7" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
   <script src="consent.js?v=20261113-uses5" defer></script>
 </body>

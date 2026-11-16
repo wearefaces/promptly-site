@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261116-signup-v6">
+  <link rel="stylesheet" href="styles.css?v=20261116-signup-v7">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -295,19 +295,24 @@
     </section>
 
 
-    <section class="page-section on-canvas" id="windows-waitlist">
+    <section class="page-section on-canvas" id="waitlist">
       <div class="wrap">
         <div class="pricing-faq-head">
-          <h2 class="display-md">Promptly for Windows — join the waitlist</h2>
-          <p class="lede">Leave your email and we'll write when Promptly for Windows is ready.</p>
+          <h2 class="display-md">Join the Promptly waitlist</h2>
+          <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
         </div>
-        <form class="waitlist" data-waitlist="windows" action="#" method="post">
+        <form class="waitlist" action="#" method="post">
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="true">Both</button>
+          </div>
           <div class="waitlist-fields">
-            <label for="email-windows-pricing" class="visually-hidden">Email</label>
-            <input id="email-windows-pricing" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+            <label for="email-pricing-waitlist" class="visually-hidden">Email</label>
+            <input id="email-pricing-waitlist" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
             <button class="btn" type="submit">Join the waitlist</button>
           </div>
-          <p class="waitlist-thanks" hidden>You're on the Windows waitlist. We'll write when it's ready.</p>
+          <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
         </form>
       </div>
     </section>
@@ -356,7 +361,7 @@
             </details>
             <details>
               <summary>Is there a Windows version?</summary>
-              <p>An earlier Windows version exists; the new design is Mac-first. <a href="#windows-waitlist">Join the Windows waitlist</a> to hear when it is ready.</p>
+              <p>An earlier Windows version exists; the new design is Mac-first. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p>
             </details>
           </div>
         </div>
@@ -388,16 +393,9 @@
       </div>
       <div>
         <div data-when="no-download">
-          <h2 class="display">Join the waitlist.</h2>
-          <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
-          <form class="waitlist" action="#" method="post" id="waitlist">
-            <div class="waitlist-fields">
-              <label for="email-pricing-footer" class="visually-hidden">Email</label>
-              <input id="email-pricing-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
-              <button class="btn btn-light" type="submit">Join waitlist</button>
-            </div>
-            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
-          </form>
+          <h2 class="display">Join the Promptly waitlist.</h2>
+          <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
+          <a class="btn btn-light" href="#waitlist">Join the waitlist</a>
         </div>
         <div data-when="download" hidden>
           <h2 class="display">Download for Mac.</h2>
@@ -426,8 +424,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
-  <script src="auth.js?v=20261116-signup-v6" defer></script>
-  <script src="waitlist.js?v=20261116-signup-v6" defer></script>
+  <script src="auth.js?v=20261116-signup-v7" defer></script>
+  <script src="waitlist.js?v=20261116-signup-v7" defer></script>
   <script src="consent.js?v=20261113-uses5" defer></script>
 </body>
 </html>

@@ -2,7 +2,8 @@
    CHECKOUT links below are Stripe TEST-mode payment links.
    Swap them for live payment links before a real launch.
    Leave a value empty to keep the "Join waitlist" fallback.
-   DOWNLOAD_URL, CONTACT_EMAIL, and WAITLIST_ENDPOINT stay empty until provided.
+   DOWNLOAD_URL and CONTACT_EMAIL stay empty until provided.
+   WAITLIST_ENDPOINT is unused: waitlist sign-ups go to Firestore in promptly-bfad6.
    This file only stores URLs — it does not create Stripe objects or accounts. */
 var CHECKOUT = {
   monthly: "https://buy.stripe.com/test_6oU7sF5Sc3rI6iJ3mffbq00",

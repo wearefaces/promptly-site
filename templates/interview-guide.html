@@ -27,11 +27,11 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="../styles.css?v=20261116-signup-v6">
-  <link rel="stylesheet" href="../templates.css?v=20261116-signup-v6">
-  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-signup-v6">
-  <link rel="stylesheet" href="../members.css?v=20261116-signup-v6">
-  <script src="../prompt-quality.js?v=20261116-signup-v6" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261116-signup-v7">
+  <link rel="stylesheet" href="../templates.css?v=20261116-signup-v7">
+  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-signup-v7">
+  <link rel="stylesheet" href="../members.css?v=20261116-signup-v7">
+  <script src="../prompt-quality.js?v=20261116-signup-v7" defer></script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body data-template-slug="interview-guide" data-template-title="Interview guide" data-template-category="Research" data-template-persona="Collaborative Partner" data-template-level="Detailed" data-template-format="Interview guide with timing, questions, and probes">
@@ -247,15 +247,20 @@ Do not invent findings. This is a guide for conversations that have not happened
         </svg>
       </div>
       <div>
-        <h2 class="display">Join the waitlist.</h2>
-        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+        <h2 class="display">Join the Promptly waitlist.</h2>
+        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
           <form class="waitlist" action="#" method="post">
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="true">Both</button>
+          </div>
             <div class="waitlist-fields">
               <label for="email-tpl-interview-guide-footer" class="visually-hidden">Email</label>
-              <input id="email-tpl-interview-guide-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
-              <button class="btn btn-light" type="submit">Join waitlist</button>
+              <input id="email-tpl-interview-guide-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+              <button class="btn btn-light" type="submit">Join the waitlist</button>
             </div>
-            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
           </form>
       </div>
     </div>
@@ -279,10 +284,10 @@ Do not invent findings. This is a guide for conversations that have not happened
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="../firebase-config.js" defer></script>
-  <script src="../auth.js?v=20261116-signup-v6" defer></script>
-  <script src="../waitlist.js?v=20261116-signup-v6" defer></script>
+  <script src="../auth.js?v=20261116-signup-v7" defer></script>
+  <script src="../waitlist.js?v=20261116-signup-v7" defer></script>
   <script src="../consent.js?v=20261113-uses5" defer></script>
-  <script src="../templates.js?v=20261116-signup-v6" defer></script>
+  <script src="../templates.js?v=20261116-signup-v7" defer></script>
 
 </body>
 </html>

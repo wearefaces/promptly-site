@@ -1225,7 +1225,8 @@ kbd, .key {
 }
 .waitlist-fields[hidden],
 .waitlist-thanks[hidden],
-.frost-thanks[hidden] { display: none !important; }
+.frost-thanks[hidden],
+.frost[hidden] { display: none !important; }
 
 /* On-canvas waitlist (pricing/download) */
 .on-canvas .waitlist input[type="email"] {
@@ -3448,10 +3449,84 @@ html.is-preview .uses-ticker-track {
 .on-canvas .waitlist-fields {
   margin: 0 auto;
 }
-.section#windows-waitlist .on-canvas,
-#windows-waitlist.on-canvas .waitlist,
-.section#windows-waitlist .waitlist {
+.on-canvas form.waitlist,
+.section#waitlist form.waitlist {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+}
+
+/* Compact Mac / Windows / Both control, same family as .billing-toggle */
+.waitlist-platforms {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+.waitlist-platforms[hidden] { display: none !important; }
+.waitlist-platforms button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--secondary);
+  font: inherit;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: 500;
+  padding: 6px 14px;
+  min-height: 32px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+.waitlist-platforms button.is-on,
+.waitlist-platforms button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.hero-waitlist {
+  width: min(100%, 520px);
+  margin: 0 auto 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.hero-waitlist .frost {
+  width: 100%;
+  margin: 0;
+}
+.hero-waitlist .waitlist-platforms {
+  background: rgba(255, 255, 255, 0.52);
+  border-color: rgba(20, 20, 20, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.hero-waitlist .waitlist-platforms button { color: #141414; }
+.hero-waitlist .waitlist-platforms button.is-on,
+.hero-waitlist .waitlist-platforms button[aria-pressed="true"] {
+  background: #141414;
+  color: #fff;
+}
+
+.site-footer form.waitlist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.site-footer .waitlist-platforms {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.site-footer .waitlist-platforms button { color: rgba(255, 255, 255, 0.88); }
+.site-footer .waitlist-platforms button.is-on,
+.site-footer .waitlist-platforms button[aria-pressed="true"] {
+  background: #fff;
+  color: #141414;
 }

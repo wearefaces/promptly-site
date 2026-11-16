@@ -199,6 +199,9 @@
         fields.hidden = true;
       }
     }
+    form.querySelectorAll(".waitlist-platforms, .frost").forEach(function (el) {
+      el.hidden = true;
+    });
     var err = form.parentElement ? form.parentElement.querySelector(".waitlist-error") : null;
     if (err) err.hidden = true;
     if (thanks) {
@@ -229,9 +232,26 @@
     return path || "index.html";
   }
 
-  function prefillWindowsEmail(user) {
+  function platformsOf(form) {
+    var btn = form.querySelector(".waitlist-platforms button[aria-pressed='true']");
+    var key = (btn && btn.getAttribute("data-platform")) || "both";
+    if (key === "mac") return ["mac"];
+    if (key === "windows") return ["windows"];
+    return ["mac", "windows"];
+  }
+
+  function setPlatform(form, key) {
+    key = key === "mac" || key === "windows" ? key : "both";
+    form.querySelectorAll(".waitlist-platforms button").forEach(function (b) {
+      var on = b.getAttribute("data-platform") === key;
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.classList.toggle("is-on", on);
+    });
+  }
+
+  function prefillWaitlistEmail(user) {
     var email = user && user.email;
-    document.querySelectorAll('form[data-waitlist="windows"] input[type="email"]').forEach(function (input) {
+    document.querySelectorAll("form.waitlist input[type='email']").forEach(function (input) {
       if (email && (!input.value || input.getAttribute("data-prefilled") === "1")) {
         input.value = email;
         input.setAttribute("data-prefilled", "1");
@@ -242,7 +262,7 @@
     });
   }
 
-  function writeWindowsWaitlist(form) {
+  function writeWaitlist(form) {
     var emailInput = form.querySelector("input[type='email']");
     var email = emailInput && emailInput.value.trim().toLowerCase();
     if (!email || email.length >= 200 || !EMAIL_RE.test(email)) {
@@ -258,7 +278,7 @@
     var user = window.PromptlyAuth && PromptlyAuth.currentUser && PromptlyAuth.currentUser();
     var data = {
       email: email,
-      platform: "windows",
+      platforms: platformsOf(form),
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       source: sourcePage()
     };
@@ -270,11 +290,11 @@
       var code = (err && err.code) || "";
       if (code === "already-exists" || /already exists|already-exists/i.test((err && err.message) || "")) {
         showThanks(form);
-        showNote(form, "You're already on the Windows waitlist.");
+        showNote(form, "You're already on the waitlist.");
       } else if (code === "permission-denied") {
         // Create-only rules refuse both duplicates and writes made before the
         // waitlist rules are deployed, so don't claim success here.
-        showNote(form, "You're already on the Windows waitlist, or sign-up isn't open yet.", { isError: true });
+        showNote(form, "You're already on the waitlist, or sign-up isn't open yet.", { isError: true });
       } else {
         showNote(form, "Something went wrong. Please try again.", { isError: true });
       }
@@ -283,54 +303,30 @@
     });
   }
 
-  document.querySelectorAll('form[data-waitlist="windows"]').forEach(function (form) {
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest(".waitlist-platforms [data-platform]");
+    if (!btn) return;
+    var form = btn.closest("form.waitlist");
+    if (form) setPlatform(form, btn.getAttribute("data-platform"));
+  });
+
+  if (window.PromptlyAuth && PromptlyAuth.onChange) {
+    PromptlyAuth.onChange(prefillWaitlistEmail);
+  } else {
+    window.addEventListener("promptly-auth", function (e) {
+      prefillWaitlistEmail(e.detail && e.detail.user);
+    });
+  }
+
+  document.querySelectorAll("form.waitlist").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-      event.stopImmediatePropagation();
       var email = form.querySelector("input[type='email']");
       if (email && !email.checkValidity()) {
         email.reportValidity();
         return;
       }
-      writeWindowsWaitlist(form);
-    });
-  });
-
-  if (window.PromptlyAuth && PromptlyAuth.onChange) {
-    PromptlyAuth.onChange(prefillWindowsEmail);
-  } else {
-    window.addEventListener("promptly-auth", function (e) {
-      prefillWindowsEmail(e.detail && e.detail.user);
-    });
-  }
-
-  document.querySelectorAll("form.waitlist:not([data-waitlist])").forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var email = form.querySelector("input[type='email']");
-      if (!email.checkValidity()) {
-        email.reportValidity();
-        return;
-      }
-      var endpoint = cfg().waitlist;
-      var submit = form.querySelector("button[type='submit']");
-      if (filled(endpoint)) {
-        if (submit) submit.disabled = true;
-        fetch(endpoint.trim(), {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ email: email.value.trim() })
-        }).then(function (res) {
-          if (!res.ok) throw new Error("Request failed");
-          showThanks(form);
-        }).catch(function () {
-          showNote(form, "Something went wrong. Please try again.", { isError: true });
-        }).finally(function () {
-          if (submit) submit.disabled = false;
-        });
-        return;
-      }
-      showNote(form, "The waitlist isn’t open for sign-ups yet. Your email was not sent.");
+      writeWaitlist(form);
     });
   });
 

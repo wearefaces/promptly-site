@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://wearefaces.github.io/promptly-site"
-CSS_V = "20261116-signup-v6"
+CSS_V = "20261116-signup-v7"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -116,15 +116,20 @@ def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
 {FOOTER_LOGO}
       </div>
       <div>
-        <h2 class="display">Join the waitlist.</h2>
-        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+        <h2 class="display">Join the Promptly waitlist.</h2>
+        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
           <form class="waitlist" action="#" method="post">
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="true">Both</button>
+          </div>
             <div class="waitlist-fields">
               <label for="{form_id}" class="visually-hidden">Email</label>
-              <input id="{form_id}" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
-              <button class="btn btn-light" type="submit">Join waitlist</button>
+              <input id="{form_id}" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+              <button class="btn btn-light" type="submit">Join the waitlist</button>
             </div>
-            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
           </form>
       </div>
     </div>
