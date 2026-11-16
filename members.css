@@ -111,6 +111,21 @@
   color: var(--text);
   font: inherit;
 }
+
+.auth-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.auth-providers .btn { width: 100%; }
+.btn-apple {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.btn-apple:hover { color: #fff; opacity: 0.85; }
+.btn-apple svg { width: 16px; height: 16px; flex-shrink: 0; }
+
 .auth-actions {
   display: flex;
   flex-direction: column;

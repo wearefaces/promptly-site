@@ -1,4 +1,4 @@
-/* Firebase Auth for templates: Google + email/password (matches the Promptly app, minus Sign in with Apple). */
+/* Firebase Auth for templates: Google, Apple, and email/password (matches the Promptly app). */
 (function (root) {
   "use strict";
 
@@ -23,9 +23,12 @@
       '<div class="auth-dialog">' +
         '<button type="button" class="auth-close" data-auth-close="true" aria-label="Close">×</button>' +
         '<h2 id="auth-title">Sign in to unlock</h2>' +
-        '<p class="lede">Use the same Google or email sign-in as Promptly. Members templates stay in your account.</p>' +
+        '<p class="lede">Use the same Google, Apple, or email sign-in as Promptly. Members templates stay in your account.</p>' +
         '<p class="auth-error" id="auth-error" hidden></p>' +
+        '<div class="auth-providers">' +
         '<button type="button" class="btn" id="auth-google">Continue with Google</button>' +
+        '<button type="button" class="btn btn-apple" id="auth-apple"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.365 12.86c-.02-2.14 1.75-3.17 1.83-3.22-1-1.46-2.56-1.66-3.11-1.68-1.32-.13-2.58.78-3.25.78-.67 0-1.7-.76-2.8-.74-1.44.02-2.77.84-3.51 2.13-1.5 2.6-.38 6.45 1.08 8.56.71 1.03 1.56 2.19 2.67 2.15 1.07-.04 1.47-.69 2.76-.69 1.29 0 1.65.69 2.78.67 1.15-.02 1.88-1.05 2.58-2.09.81-1.18 1.15-2.33 1.17-2.39-.03-.01-2.24-.86-2.26-3.41zm-2.12-6.26c.59-.71.98-1.7.87-2.69-.84.03-1.86.56-2.46 1.27-.54.63-1.01 1.64-.88 2.61.93.07 1.89-.47 2.47-1.19z"/></svg>Continue with Apple</button>' +
+        '</div>' +
         '<form id="auth-form" class="auth-actions" style="margin-top:16px">' +
           '<label for="auth-email">Email</label>' +
           '<input id="auth-email" type="email" name="email" autocomplete="email" required>' +
@@ -40,6 +43,7 @@
       if (e.target && e.target.getAttribute("data-auth-close")) closeModal();
     });
     $("auth-google").addEventListener("click", signInGoogle);
+    $("auth-apple").addEventListener("click", signInApple);
     $("auth-form").addEventListener("submit", function (e) {
       e.preventDefault();
       signInEmail(false);
@@ -112,18 +116,33 @@
     return firebase.initializeApp(root.PROMPTLY_FIREBASE);
   }
 
+  function signInWithProvider(provider) {
+    firebase.auth().signInWithPopup(provider).then(function () {
+      closeModal();
+    }).catch(function (err) {
+      if (err && err.code === "auth/popup-blocked") {
+        return firebase.auth().signInWithRedirect(provider);
+      }
+      showError(friendlyError(err));
+    });
+  }
+
   function signInGoogle() {
     showError("");
     try {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then(function () {
-        closeModal();
-      }).catch(function (err) {
-        if (err && err.code === "auth/popup-blocked") {
-          return firebase.auth().signInWithRedirect(provider);
-        }
-        showError(friendlyError(err));
-      });
+      signInWithProvider(new firebase.auth.GoogleAuthProvider());
+    } catch (err) {
+      showError(friendlyError(err));
+    }
+  }
+
+  function signInApple() {
+    showError("");
+    try {
+      var provider = new firebase.auth.OAuthProvider("apple.com");
+      provider.addScope("email");
+      provider.addScope("name");
+      signInWithProvider(provider);
     } catch (err) {
       showError(friendlyError(err));
     }
