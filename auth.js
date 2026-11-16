@@ -1,4 +1,5 @@
-/* Firebase Auth for templates: Google, Apple, and email/password (matches the Promptly app). */
+/* Firebase Auth for the site and templates: Google, Apple, and email/password
+   (the same account as the Promptly app). The site never writes trialStartedAt. */
 (function (root) {
   "use strict";
 
@@ -6,6 +7,7 @@
   var user = null;
   var ready = false;
   var initError = null;
+  var authMode = "signin";
 
   function $(id) { return document.getElementById(id); }
 
@@ -22,8 +24,8 @@
       '<div class="auth-modal-backdrop" data-auth-close="true"></div>' +
       '<div class="auth-dialog">' +
         '<button type="button" class="auth-close" data-auth-close="true" aria-label="Close">×</button>' +
-        '<h2 id="auth-title">Sign in to unlock</h2>' +
-        '<p class="lede">Use the same Google, Apple, or email sign-in as Promptly. Members templates stay in your account.</p>' +
+        '<h2 id="auth-title">Sign in</h2>' +
+        '<p class="lede" id="auth-lede">Use the same Google, Apple, or email sign-in as the Promptly app.</p>' +
         '<p class="auth-error" id="auth-error" hidden></p>' +
         '<div class="auth-providers">' +
         '<button type="button" class="btn" id="auth-google">Continue with Google</button>' +
@@ -34,9 +36,9 @@
           '<input id="auth-email" type="email" name="email" autocomplete="email" required>' +
           '<label for="auth-password">Password</label>' +
           '<input id="auth-password" type="password" name="password" autocomplete="current-password" required minlength="6">' +
-          '<button type="submit" class="btn" id="auth-signin">Sign in</button>' +
-          '<button type="button" class="btn btn-ghost" id="auth-signup">Create account</button>' +
+          '<button type="submit" class="btn" id="auth-submit">Sign in</button>' +
         '</form>' +
+        '<p class="auth-switch" id="auth-switch-wrap">No account? <button type="button" id="auth-switch" class="auth-switch-btn">Create account</button></p>' +
       '</div>';
     document.body.appendChild(wrap);
     wrap.addEventListener("click", function (e) {
@@ -46,12 +48,39 @@
     $("auth-apple").addEventListener("click", signInApple);
     $("auth-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      signInEmail(false);
+      signInEmail(authMode === "signup");
     });
-    $("auth-signup").addEventListener("click", function () { signInEmail(true); });
+    $("auth-switch").addEventListener("click", function () {
+      setMode(authMode === "signup" ? "signin" : "signup");
+    });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !$("auth-modal").hidden) closeModal();
     });
+    setMode(authMode);
+  }
+
+  function setMode(mode) {
+    authMode = mode === "signup" ? "signup" : "signin";
+    var isSignup = authMode === "signup";
+    var title = $("auth-title");
+    var lede = $("auth-lede");
+    var submit = $("auth-submit");
+    var sw = $("auth-switch");
+    var wrap = $("auth-switch-wrap");
+    var password = $("auth-password");
+    if (title) title.textContent = isSignup ? "Create account" : "Sign in";
+    if (lede) {
+      lede.textContent = isSignup
+        ? "Use Google, Apple, or email. This is the same account you'll use in the Promptly app. The free trial starts when you first sign in to the app."
+        : "Use the same Google, Apple, or email sign-in as the Promptly app.";
+    }
+    if (submit) submit.textContent = isSignup ? "Create account" : "Sign in";
+    if (sw) sw.textContent = isSignup ? "Sign in" : "Create account";
+    if (wrap) {
+      wrap.firstChild.textContent = isSignup ? "Already have an account? " : "No account? ";
+    }
+    if (password) password.setAttribute("autocomplete", isSignup ? "new-password" : "current-password");
+    showError("");
   }
 
   function showError(msg) {
@@ -81,8 +110,9 @@
     return (err && err.message) || "Sign-in failed.";
   }
 
-  function openModal() {
+  function openModal(mode) {
     ensureModal();
+    setMode(mode === "signup" ? "signup" : "signin");
     showError(initError);
     $("auth-modal").hidden = false;
     var email = $("auth-email");
@@ -94,13 +124,36 @@
     if (modal) modal.hidden = true;
   }
 
+  function firstLetter(u) {
+    var s = ((u && (u.displayName || u.email)) || "?").trim();
+    return (s.charAt(0) || "?").toUpperCase();
+  }
+
+  function renderAvatars() {
+    document.querySelectorAll("[data-auth-avatar]").forEach(function (el) {
+      el.replaceChildren();
+      if (!user) return;
+      if (user.photoURL) {
+        var img = document.createElement("img");
+        img.src = user.photoURL;
+        img.alt = "";
+        el.appendChild(img);
+      } else {
+        el.textContent = firstLetter(user);
+      }
+    });
+  }
+
   function emit() {
     listeners.forEach(function (fn) {
       try { fn(user); } catch (e) {}
     });
     root.dispatchEvent(new CustomEvent("promptly-auth", { detail: { user: user } }));
     document.querySelectorAll("[data-auth-open]").forEach(function (btn) {
-      btn.hidden = !!user;
+      if (btn.closest && btn.closest("[data-auth-signed-in]")) return;
+      if (btn.classList.contains("header-signin") || btn.hasAttribute("data-auth-header")) {
+        btn.hidden = !!user;
+      }
     });
     document.querySelectorAll("[data-auth-signed-in]").forEach(function (el) {
       el.hidden = !user;
@@ -108,6 +161,7 @@
     document.querySelectorAll("[data-auth-email]").forEach(function (el) {
       el.textContent = user && (user.email || user.displayName || "Signed in");
     });
+    renderAvatars();
   }
 
   function app() {
@@ -169,10 +223,19 @@
     ensureModal();
     document.addEventListener("click", function (e) {
       var open = e.target.closest && e.target.closest("[data-auth-open]");
-      if (open) { e.preventDefault(); openModal(); }
+      if (open) {
+        e.preventDefault();
+        var mode = open.getAttribute("data-auth-open");
+        openModal(mode === "signup" ? "signup" : "signin");
+      }
       var out = e.target.closest && e.target.closest("[data-auth-signout]");
       if (out) { e.preventDefault(); signOut(); }
     });
+    try {
+      var q = new URLSearchParams(location.search).get("auth");
+      var hash = (location.hash || "").replace("#", "");
+      if (q === "signup" || hash === "signup") openModal("signup");
+    } catch (e) {}
     if (!root.firebase || !root.PROMPTLY_FIREBASE) {
       initError = "Sign-in is not configured in this build.";
       ready = true;

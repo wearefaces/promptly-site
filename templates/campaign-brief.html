@@ -27,11 +27,11 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
-  <link rel="stylesheet" href="../templates.css?v=20261116-templates-v5">
-  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-templates-v5">
-  <link rel="stylesheet" href="../members.css?v=20261116-templates-v5">
-  <script src="../prompt-quality.js?v=20261116-templates-v5" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261116-signup-v6">
+  <link rel="stylesheet" href="../templates.css?v=20261116-signup-v6">
+  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-signup-v6">
+  <link rel="stylesheet" href="../members.css?v=20261116-signup-v6">
+  <script src="../prompt-quality.js?v=20261116-signup-v6" defer></script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body data-template-slug="campaign-brief" data-template-title="Campaign brief builder" data-template-category="Marketing" data-template-persona="Collaborative Partner" data-template-level="Expert" data-template-format="Brief with open questions called out in brackets">
@@ -63,6 +63,12 @@
           <a href="../download.html">Download</a>
       </nav>
       <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
+        <span class="header-account" data-auth-signed-in hidden>
+          <span class="header-avatar" data-auth-avatar aria-hidden="true"></span>
+          <span class="header-email" data-auth-email></span>
+          <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+        </span>
         <a class="btn btn-sm" href="../index.html#waitlist" data-cta="primary">Join waitlist</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
@@ -271,9 +277,14 @@ Keep the language plain enough that a designer, a media buyer, and a lawyer coul
     </div>
   </footer>
   <script src="../config.js"></script>
-  <script src="../waitlist.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
+  <script src="../firebase-config.js" defer></script>
+  <script src="../auth.js?v=20261116-signup-v6" defer></script>
+  <script src="../waitlist.js?v=20261116-signup-v6" defer></script>
   <script src="../consent.js?v=20261113-uses5" defer></script>
-  <script src="../templates.js?v=20261116-templates-v5" defer></script>
+  <script src="../templates.js?v=20261116-signup-v6" defer></script>
 
 </body>
 </html>

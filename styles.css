@@ -666,6 +666,10 @@ h3, .h3 {
   background: #fff;
   color: #141414;
 }
+.home-header:not(.is-scrolled) .header-email {
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
+}
 .hero-actions .btn:not(.btn-ghost) {
   background: #fff;
   color: #141414;
@@ -1459,6 +1463,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .header-inner { gap: 8px; overflow: hidden; }
   .header-actions { gap: 6px; min-width: 0; }
   .header-actions .btn-ghost { display: none; }
+  .header-actions .header-signin,
+  .header-actions .header-account,
+  .header-actions .header-account .btn-ghost {
+    display: inline-flex;
+  }
+  .header-account .header-email { display: none; }
   .header-actions .btn-sm {
     padding: 0 12px;
     max-width: 46vw;
@@ -3288,4 +3298,160 @@ html.is-preview .uses-ticker-track {
   font-size: 13px;
   line-height: 1.5;
   color: var(--secondary);
+}
+
+/* Site-wide account header and auth modal */
+
+.header-account {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.header-account[hidden] { display: none !important; }
+.header-email {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--fg-marketing, #141414);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-shadow: none;
+}
+.header-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.auth-modal[hidden] { display: none !important; }
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.auth-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--fg-marketing) 45%, transparent);
+}
+.auth-dialog {
+  position: relative;
+  width: min(400px, 100%);
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 28px 24px 24px;
+  box-shadow: var(--shadow-soft);
+}
+.auth-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.auth-dialog .lede { margin-bottom: 20px; font-size: var(--text-sm); }
+.auth-dialog label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+.auth-dialog input[type="email"],
+.auth-dialog input[type="password"] {
+  width: 100%;
+  height: 44px;
+  margin: 0 0 12px;
+  padding: 0 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.auth-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.auth-providers .btn { width: 100%; }
+.btn-apple {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.btn-apple:hover { color: #fff; opacity: 0.85; }
+.btn-apple svg { width: 16px; height: 16px; flex-shrink: 0; }
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.auth-error { color: #DC2D28; font-size: var(--text-sm); margin: 0 0 8px; }
+.auth-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+}
+.auth-close:hover { background: var(--group); }
+.auth-switch {
+  margin: 16px 0 0;
+  font-size: var(--text-sm);
+  color: var(--secondary);
+  text-align: center;
+}
+.auth-switch-btn {
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+.auth-switch-btn:hover { opacity: 0.8; }
+
+.section.on-canvas .waitlist-fields,
+.on-canvas .waitlist-fields {
+  margin: 0 auto;
+}
+.section#windows-waitlist .on-canvas,
+#windows-waitlist.on-canvas .waitlist,
+.section#windows-waitlist .waitlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

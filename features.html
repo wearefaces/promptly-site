@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="styles.css?v=20261116-signup-v6">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -94,6 +94,12 @@
           <a href="download.html">Download</a>
       </nav>
       <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
+        <span class="header-account" data-auth-signed-in hidden>
+          <span class="header-avatar" data-auth-avatar aria-hidden="true"></span>
+          <span class="header-email" data-auth-email></span>
+          <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+        </span>
         <a class="btn btn-sm" href="index.html#waitlist" data-cta="primary">Join waitlist</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
@@ -633,8 +639,13 @@
       </div>
     </div>
   </footer>
-  <script src="config.js?v=20261113-uses6"></script>
-  <script src="waitlist.js?v=20261113-uses6" defer></script>
+  <script src="config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="auth.js?v=20261116-signup-v6" defer></script>
+  <script src="waitlist.js?v=20261116-signup-v6" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
   <script src="consent.js?v=20261113-uses6" defer></script>
 </body>

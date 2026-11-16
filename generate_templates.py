@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://wearefaces.github.io/promptly-site"
-CSS_V = "20261116-templates-v5"
+CSS_V = "20261116-signup-v6"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -86,6 +86,12 @@ def header(prefix: str, current: str) -> str:
 {links}
       </nav>
       <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
+        <span class="header-account" data-auth-signed-in hidden>
+          <span class="header-avatar" data-auth-avatar aria-hidden="true"></span>
+          <span class="header-email" data-auth-email></span>
+          <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+        </span>
         <a class="btn btn-sm" href="{waitlist}" data-cta="primary">Join waitlist</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
@@ -138,22 +144,19 @@ def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
     </div>
   </footer>
   <script src="{prefix}config.js"></script>
-  <script src="{prefix}waitlist.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
+  <script src="{prefix}firebase-config.js" defer></script>
+  <script src="{prefix}auth.js?v={CSS_V}" defer></script>
+  <script src="{prefix}waitlist.js?v={CSS_V}" defer></script>
   <script src="{prefix}consent.js?v=20261113-uses5" defer></script>
   <script src="{prefix}templates.js?v={CSS_V}" defer></script>
 {extra_js}"""
 
 
 def firebase_scripts(prefix: str) -> str:
-    fb = "https://www.gstatic.com/firebasejs/11.4.0"
-    return (
-        f'  <script src="{fb}/firebase-app-compat.js" defer></script>\n'
-        f'  <script src="{fb}/firebase-auth-compat.js" defer></script>\n'
-        f'  <script src="{fb}/firebase-firestore-compat.js" defer></script>\n'
-        f'  <script src="{prefix}firebase-config.js" defer></script>\n'
-        f'  <script src="{prefix}auth.js?v={CSS_V}" defer></script>\n'
-        f'  <script src="{prefix}members.js?v={CSS_V}" defer></script>'
-    )
+    return f'  <script src="{prefix}members.js?v={CSS_V}" defer></script>'
 
 
 def head(title: str, description: str, canonical: str, extra_css: str = "") -> str:
@@ -190,7 +193,7 @@ def head(title: str, description: str, canonical: str, extra_css: str = "") -> s
   <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
   <link rel="icon" href="{prefix}favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="{prefix}styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="{prefix}styles.css?v={CSS_V}">
   <link rel="stylesheet" href="{prefix}templates.css?v={CSS_V}">
 {extra_css}
   <script>document.documentElement.classList.add("js");</script>

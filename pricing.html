@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="styles.css?v=20261116-signup-v6">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -94,6 +94,12 @@
           <a href="download.html">Download</a>
       </nav>
       <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
+        <span class="header-account" data-auth-signed-in hidden>
+          <span class="header-avatar" data-auth-avatar aria-hidden="true"></span>
+          <span class="header-email" data-auth-email></span>
+          <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+        </span>
         <a class="btn btn-sm" href="#waitlist" data-cta="primary">Join waitlist</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
@@ -288,6 +294,24 @@
       </div>
     </section>
 
+
+    <section class="page-section on-canvas" id="windows-waitlist">
+      <div class="wrap">
+        <div class="pricing-faq-head">
+          <h2 class="display-md">Promptly for Windows — join the waitlist</h2>
+          <p class="lede">Leave your email and we'll write when Promptly for Windows is ready.</p>
+        </div>
+        <form class="waitlist" data-waitlist="windows" action="#" method="post">
+          <div class="waitlist-fields">
+            <label for="email-windows-pricing" class="visually-hidden">Email</label>
+            <input id="email-windows-pricing" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="waitlist-thanks" hidden>You're on the Windows waitlist. We'll write when it's ready.</p>
+        </form>
+      </div>
+    </section>
+
     <section class="page-section" id="pricing-faq">
       <div class="wrap">
         <div class="pricing-faq-head">
@@ -332,7 +356,7 @@
             </details>
             <details>
               <summary>Is there a Windows version?</summary>
-              <p>An earlier Windows version exists; the new design is Mac-first.</p>
+              <p>An earlier Windows version exists; the new design is Mac-first. <a href="#windows-waitlist">Join the Windows waitlist</a> to hear when it is ready.</p>
             </details>
           </div>
         </div>
@@ -398,7 +422,12 @@
     </div>
   </footer>
   <script src="config.js"></script>
-  <script src="waitlist.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="auth.js?v=20261116-signup-v6" defer></script>
+  <script src="waitlist.js?v=20261116-signup-v6" defer></script>
   <script src="consent.js?v=20261113-uses5" defer></script>
 </body>
 </html>

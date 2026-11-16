@@ -222,7 +222,85 @@
     err.hidden = false;
   }
 
-  document.querySelectorAll("form.waitlist").forEach(function (form) {
+  var EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  function sourcePage() {
+    var path = (location.pathname || "").split("/").pop() || "index.html";
+    return path || "index.html";
+  }
+
+  function prefillWindowsEmail(user) {
+    var email = user && user.email;
+    document.querySelectorAll('form[data-waitlist="windows"] input[type="email"]').forEach(function (input) {
+      if (email && (!input.value || input.getAttribute("data-prefilled") === "1")) {
+        input.value = email;
+        input.setAttribute("data-prefilled", "1");
+      } else if (!email && input.getAttribute("data-prefilled") === "1") {
+        input.value = "";
+        input.removeAttribute("data-prefilled");
+      }
+    });
+  }
+
+  function writeWindowsWaitlist(form) {
+    var emailInput = form.querySelector("input[type='email']");
+    var email = emailInput && emailInput.value.trim().toLowerCase();
+    if (!email || email.length >= 200 || !EMAIL_RE.test(email)) {
+      if (emailInput && emailInput.reportValidity) emailInput.reportValidity();
+      else showNote(form, "Enter a valid email address.", { isError: true });
+      return;
+    }
+    if (!window.firebase || !firebase.firestore) {
+      showNote(form, "The waitlist isn't available in this browser right now. Please try again.", { isError: true });
+      return;
+    }
+    var submit = form.querySelector("button[type='submit']");
+    var user = window.PromptlyAuth && PromptlyAuth.currentUser && PromptlyAuth.currentUser();
+    var data = {
+      email: email,
+      platform: "windows",
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      source: sourcePage()
+    };
+    if (user && user.uid) data.uid = user.uid;
+    if (submit) submit.disabled = true;
+    firebase.firestore().collection("waitlist").doc(email).set(data).then(function () {
+      showThanks(form);
+    }).catch(function (err) {
+      var code = (err && err.code) || "";
+      if (code === "permission-denied" || /already exists|already-exists/i.test((err && err.message) || "")) {
+        showNote(form, "You're already on the Windows waitlist.");
+        showThanks(form);
+      } else {
+        showNote(form, "Something went wrong. Please try again.", { isError: true });
+      }
+    }).finally(function () {
+      if (submit) submit.disabled = false;
+    });
+  }
+
+  document.querySelectorAll('form[data-waitlist="windows"]').forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      var email = form.querySelector("input[type='email']");
+      if (email && !email.checkValidity()) {
+        email.reportValidity();
+        return;
+      }
+      writeWindowsWaitlist(form);
+    });
+  });
+
+  if (window.PromptlyAuth && PromptlyAuth.onChange) {
+    PromptlyAuth.onChange(prefillWindowsEmail);
+  } else {
+    window.addEventListener("promptly-auth", function (e) {
+      prefillWindowsEmail(e.detail && e.detail.user);
+    });
+  }
+
+  document.querySelectorAll("form.waitlist:not([data-waitlist])").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var email = form.querySelector("input[type='email']");
