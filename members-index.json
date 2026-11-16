@@ -1,0 +1,268 @@
+{
+  "categories": [
+    "Writing",
+    "Marketing",
+    "Coding",
+    "Business",
+    "Email",
+    "Research",
+    "Learning",
+    "Sales",
+    "Product",
+    "HR",
+    "Data/Analysis",
+    "Social media"
+  ],
+  "templates": [
+    {
+      "slug": "discovery-call-agenda",
+      "title": "Discovery call agenda",
+      "category": "Sales"
+    },
+    {
+      "slug": "objection-handler",
+      "title": "Objection handler",
+      "category": "Sales"
+    },
+    {
+      "slug": "proposal-followup",
+      "title": "Proposal follow-up",
+      "category": "Sales"
+    },
+    {
+      "slug": "win-loss-note",
+      "title": "Win/loss debrief",
+      "category": "Sales"
+    },
+    {
+      "slug": "outbound-sequence-draft",
+      "title": "Outbound sequence draft",
+      "category": "Sales"
+    },
+    {
+      "slug": "prd-lite",
+      "title": "Lightweight PRD",
+      "category": "Product"
+    },
+    {
+      "slug": "user-story-splitter",
+      "title": "User story splitter",
+      "category": "Product"
+    },
+    {
+      "slug": "changelog-entry",
+      "title": "Changelog entry",
+      "category": "Product"
+    },
+    {
+      "slug": "feature-kickoff",
+      "title": "Feature kickoff brief",
+      "category": "Product"
+    },
+    {
+      "slug": "acceptance-criteria",
+      "title": "Acceptance criteria",
+      "category": "Product"
+    },
+    {
+      "slug": "job-posting",
+      "title": "Job posting draft",
+      "category": "HR"
+    },
+    {
+      "slug": "interview-scorecard",
+      "title": "Interview scorecard",
+      "category": "HR"
+    },
+    {
+      "slug": "offer-email",
+      "title": "Offer email",
+      "category": "HR"
+    },
+    {
+      "slug": "performance-review-prep",
+      "title": "Performance review prep",
+      "category": "HR"
+    },
+    {
+      "slug": "chart-brief",
+      "title": "Chart brief",
+      "category": "Data/Analysis"
+    },
+    {
+      "slug": "question-to-sql",
+      "title": "Question to SQL",
+      "category": "Data/Analysis"
+    },
+    {
+      "slug": "data-caveats",
+      "title": "Data caveats write-up",
+      "category": "Data/Analysis"
+    },
+    {
+      "slug": "experiment-readout",
+      "title": "Experiment readout",
+      "category": "Data/Analysis"
+    },
+    {
+      "slug": "thread-from-note",
+      "title": "Thread from a note",
+      "category": "Social media"
+    },
+    {
+      "slug": "launch-post-set",
+      "title": "Launch post set",
+      "category": "Social media"
+    },
+    {
+      "slug": "comment-reply-voice",
+      "title": "Comment reply in voice",
+      "category": "Social media"
+    },
+    {
+      "slug": "content-repurpose",
+      "title": "Repurpose a piece",
+      "category": "Social media"
+    },
+    {
+      "slug": "exec-summary",
+      "title": "Executive summary",
+      "category": "Writing"
+    },
+    {
+      "slug": "before-after-edit",
+      "title": "Before/after line edit",
+      "category": "Writing"
+    },
+    {
+      "slug": "metaphor-pass",
+      "title": "Metaphor pass",
+      "category": "Writing"
+    },
+    {
+      "slug": "abstract-from-draft",
+      "title": "Abstract from a draft",
+      "category": "Writing"
+    },
+    {
+      "slug": "customer-story-outline",
+      "title": "Customer story outline",
+      "category": "Marketing"
+    },
+    {
+      "slug": "nurture-email-series",
+      "title": "Nurture series outline",
+      "category": "Marketing"
+    },
+    {
+      "slug": "launch-faq",
+      "title": "Launch FAQ",
+      "category": "Marketing"
+    },
+    {
+      "slug": "audience-messaging-map",
+      "title": "Messaging map",
+      "category": "Marketing"
+    },
+    {
+      "slug": "test-plan-from-code",
+      "title": "Test plan from code",
+      "category": "Coding"
+    },
+    {
+      "slug": "api-change-note",
+      "title": "API change note",
+      "category": "Coding"
+    },
+    {
+      "slug": "incident-timeline",
+      "title": "Incident timeline",
+      "category": "Coding"
+    },
+    {
+      "slug": "regex-explainer",
+      "title": "Regex explainer",
+      "category": "Coding"
+    },
+    {
+      "slug": "okr-draft",
+      "title": "OKR draft",
+      "category": "Business"
+    },
+    {
+      "slug": "vendor-comparison",
+      "title": "Vendor comparison",
+      "category": "Business"
+    },
+    {
+      "slug": "risk-register",
+      "title": "Risk register",
+      "category": "Business"
+    },
+    {
+      "slug": "board-pre-read",
+      "title": "Board pre-read",
+      "category": "Business"
+    },
+    {
+      "slug": "apology-email-members",
+      "title": "Apology email",
+      "category": "Email"
+    },
+    {
+      "slug": "vendor-negotiation-email",
+      "title": "Vendor negotiation email",
+      "category": "Email"
+    },
+    {
+      "slug": "internal-ask-email",
+      "title": "Internal ask email",
+      "category": "Email"
+    },
+    {
+      "slug": "cs-checkin-email",
+      "title": "Customer success check-in",
+      "category": "Email"
+    },
+    {
+      "slug": "competitor-teardown",
+      "title": "Competitor teardown",
+      "category": "Research"
+    },
+    {
+      "slug": "survey-questions",
+      "title": "Survey questions",
+      "category": "Research"
+    },
+    {
+      "slug": "assumption-map",
+      "title": "Assumption map",
+      "category": "Research"
+    },
+    {
+      "slug": "evidence-log",
+      "title": "Evidence log",
+      "category": "Research"
+    },
+    {
+      "slug": "flashcards-from-notes",
+      "title": "Flashcards from notes",
+      "category": "Learning"
+    },
+    {
+      "slug": "worked-example",
+      "title": "Worked example",
+      "category": "Learning"
+    },
+    {
+      "slug": "skill-gap-plan",
+      "title": "Skill-gap plan",
+      "category": "Learning"
+    },
+    {
+      "slug": "discussion-questions",
+      "title": "Discussion questions",
+      "category": "Learning"
+    }
+  ]
+}

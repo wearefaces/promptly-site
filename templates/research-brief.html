@@ -28,10 +28,13 @@
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
-  <link rel="stylesheet" href="../templates.css?v=20261116-templates">
+  <link rel="stylesheet" href="../templates.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../members.css?v=20261116-templates-v4">
+  <script src="../prompt-quality.js?v=20261116-templates-v4" defer></script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
-<body>
+<body data-template-slug="research-brief" data-template-title="Research brief" data-template-category="Research" data-template-persona="Critical Reviewer" data-template-level="Detailed" data-template-format="Brief with scope, method options, and quality bar">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header header-page">
     <div class="wrap-wide header-inner">
@@ -83,39 +86,33 @@
     <div class="page-hero">
       <div class="wrap">
         <p class="tpl-crumb"><a href="../templates.html">Templates</a> / Research</p>
-        <h1>Research brief</h1>
-        <p class="lede tpl-detail-lede">Shape a loose question into a research brief with scope, method, and what would count as enough.</p>
-        <div class="tpl-detail-meta">
-          <span class="tpl-tag tpl-tag-cat">Research</span>
-          <span class="tpl-tag">Critical Reviewer</span>
-          <span class="tpl-tag">Detailed</span>
+        <div class="tpl-detail-head">
+          <div>
+            <h1>Research brief</h1>
+            <p class="lede tpl-detail-lede">Shape a loose question into a research brief with scope, method, and what would count as enough.</p>
+            <div class="tpl-detail-meta">
+              <span class="tpl-tag tpl-tag-cat">Research</span>
+              <span class="tpl-tag">Critical Reviewer</span>
+              <span class="tpl-tag">Detailed</span>
+            </div>
+          </div>
         </div>
-        <p class="tpl-format"><strong>Output format.</strong> Brief with scope, method options, and quality bar</p>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap">
-        <div class="tpl-prompt-head">
-          <h2>Prompt</h2>
-          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
-        </div>
-        <div class="tpl-prompt">
-          <pre class="tpl-prompt-body" id="tpl-prompt-display">You are a critical reviewer helping to scope a research task before anyone spends much time on it. Tighten the question and make the method honest. Do not pretend a desk search is a study, and do not invent sources.
-
-Working question: <span class="tpl-var">[QUESTION]</span>
-Why we need this, and by when: <span class="tpl-var">[PURPOSE]</span>
-Time and access we actually have: <span class="tpl-var">[CONSTRAINTS]</span>
-What we already know or have: <span class="tpl-var">[BACKGROUND]</span>
-
-Output:
-1. A sharper question, plus the sub-questions that would answer it
-2. What is in scope and out of scope
-3. A method that fits the constraints (for example: source review, interviews, data pull). List steps, and mark what this method cannot claim
-4. The quality bar — what evidence would be &#x27;good enough&#x27; to decide, and what would still be too thin
-5. Likely biases or blind spots
-6. A first search or outreach list, written as queries, people, or <span class="tpl-var">[SOURCE NEEDED]</span> items — not as made-up titles
-7. A suggested delivery shape (short brief, table, memo) and a stop rule so the work does not sprawl</pre>
-          <pre id="tpl-prompt-raw" hidden>You are a critical reviewer helping to scope a research task before anyone spends much time on it. Tighten the question and make the method honest. Do not pretend a desk search is a study, and do not invent sources.
+        <div class="tpl-workspace">
+          <div class="tpl-workspace-main">
+            <div class="tpl-prompt-head">
+              <h2>Prompt</h2>
+              <div class="tpl-prompt-tools">
+                <button type="button" class="tpl-reset" id="tpl-prompt-reset" hidden>Reset</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-copy-prompt>Copy</button>
+              </div>
+            </div>
+            <div class="tpl-prompt">
+              <label class="visually-hidden" for="tpl-prompt-editor">Prompt text</label>
+              <textarea class="tpl-prompt-body" id="tpl-prompt-editor" spellcheck="true">You are a critical reviewer helping to scope a research task before anyone spends much time on it. Tighten the question and make the method honest. Do not pretend a desk search is a study, and do not invent sources.
 
 Working question: [QUESTION]
 Why we need this, and by when: [PURPOSE]
@@ -129,11 +126,50 @@ Output:
 4. The quality bar — what evidence would be &#x27;good enough&#x27; to decide, and what would still be too thin
 5. Likely biases or blind spots
 6. A first search or outreach list, written as queries, people, or [SOURCE NEEDED] items — not as made-up titles
-7. A suggested delivery shape (short brief, table, memo) and a stop rule so the work does not sprawl</pre>
-        </div>
-        <div class="tpl-actions">
-          <a class="btn" href="../download.html">Get Promptly</a>
-          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+7. A suggested delivery shape (short brief, table, memo) and a stop rule so the work does not sprawl</textarea>
+              <textarea id="tpl-prompt-original" hidden>You are a critical reviewer helping to scope a research task before anyone spends much time on it. Tighten the question and make the method honest. Do not pretend a desk search is a study, and do not invent sources.
+
+Working question: [QUESTION]
+Why we need this, and by when: [PURPOSE]
+Time and access we actually have: [CONSTRAINTS]
+What we already know or have: [BACKGROUND]
+
+Output:
+1. A sharper question, plus the sub-questions that would answer it
+2. What is in scope and out of scope
+3. A method that fits the constraints (for example: source review, interviews, data pull). List steps, and mark what this method cannot claim
+4. The quality bar — what evidence would be &#x27;good enough&#x27; to decide, and what would still be too thin
+5. Likely biases or blind spots
+6. A first search or outreach list, written as queries, people, or [SOURCE NEEDED] items — not as made-up titles
+7. A suggested delivery shape (short brief, table, memo) and a stop rule so the work does not sprawl</textarea>
+            </div>
+            <div class="tpl-actions">
+              <button type="button" class="btn" id="tpl-open-promptly">Open in Promptly</button>
+              <a class="btn btn-ghost" href="../download.html">Get Promptly</a>
+              <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+            </div>
+            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="../download.html">download the Mac app</a> and try again once it is installed.</p>
+          </div>
+          <aside class="tpl-analyze-panel" aria-label="Prompt quality">
+            <h2>Quality</h2>
+            <div id="tpl-quality"></div>
+            <ul class="pq-suggestions" id="tpl-suggestions"></ul>
+            <p class="pq-empty" id="tpl-suggestions-empty" hidden></p>
+            <dl class="tpl-panel-meta">
+              <div>
+                <dt>Persona</dt>
+                <dd>Critical Reviewer</dd>
+              </div>
+              <div>
+                <dt>Level</dt>
+                <dd>Detailed</dd>
+              </div>
+              <div>
+                <dt>Output format</dt>
+                <dd>Brief with scope, method options, and quality bar</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
         
         <section class="tpl-related" aria-labelledby="related-heading">
@@ -220,6 +256,7 @@ Output:
   <script src="../config.js"></script>
   <script src="../waitlist.js" defer></script>
   <script src="../consent.js?v=20261113-uses5" defer></script>
-  <script src="../templates.js?v=20261116-templates" defer></script>
+  <script src="../templates.js?v=20261116-templates-v4" defer></script>
+
 </body>
 </html>

@@ -28,10 +28,13 @@
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
-  <link rel="stylesheet" href="../templates.css?v=20261116-templates">
+  <link rel="stylesheet" href="../templates.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../members.css?v=20261116-templates-v4">
+  <script src="../prompt-quality.js?v=20261116-templates-v4" defer></script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
-<body>
+<body data-template-slug="campaign-brief" data-template-title="Campaign brief builder" data-template-category="Marketing" data-template-persona="Collaborative Partner" data-template-level="Expert" data-template-format="Brief with open questions called out in brackets">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header header-page">
     <div class="wrap-wide header-inner">
@@ -83,42 +86,33 @@
     <div class="page-hero">
       <div class="wrap">
         <p class="tpl-crumb"><a href="../templates.html">Templates</a> / Marketing</p>
-        <h1>Campaign brief builder</h1>
-        <p class="lede tpl-detail-lede">Turn scattered notes into a clear campaign brief, and list the questions still unanswered.</p>
-        <div class="tpl-detail-meta">
-          <span class="tpl-tag tpl-tag-cat">Marketing</span>
-          <span class="tpl-tag">Collaborative Partner</span>
-          <span class="tpl-tag">Expert</span>
+        <div class="tpl-detail-head">
+          <div>
+            <h1>Campaign brief builder</h1>
+            <p class="lede tpl-detail-lede">Turn scattered notes into a clear campaign brief, and list the questions still unanswered.</p>
+            <div class="tpl-detail-meta">
+              <span class="tpl-tag tpl-tag-cat">Marketing</span>
+              <span class="tpl-tag">Collaborative Partner</span>
+              <span class="tpl-tag">Expert</span>
+            </div>
+          </div>
         </div>
-        <p class="tpl-format"><strong>Output format.</strong> Brief with open questions called out in brackets</p>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap">
-        <div class="tpl-prompt-head">
-          <h2>Prompt</h2>
-          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
-        </div>
-        <div class="tpl-prompt">
-          <pre class="tpl-prompt-body" id="tpl-prompt-display">You are a collaborative partner helping to write a campaign brief. Use only the notes below. If something important is missing, put a <span class="tpl-var">[QUESTION]</span> in place — do not invent a target, budget, metric, or promise.
-
-Campaign working title: <span class="tpl-var">[TITLE]</span>
-Notes:
-<span class="tpl-var">[NOTES]</span>
-
-Write a brief with these sections:
-1. Context — what is changing and why this campaign exists now
-2. Audience — who we are speaking to, and who we are not
-3. Job to be done — the action we want, in one sentence
-4. Message — the single idea the work should leave behind
-5. Offers and constraints — what we can say, show, or give; what we must not
-6. Channels and assets — a practical list, marked as confirmed or <span class="tpl-var">[TO CONFIRM]</span>
-7. Success — how we will know it worked, only if the notes include a measure; otherwise list <span class="tpl-var">[QUESTION]</span>s
-8. Risks and dependencies
-9. Open questions — a numbered list for the team
-
-Keep the language plain enough that a designer, a media buyer, and a lawyer could all use the same document.</pre>
-          <pre id="tpl-prompt-raw" hidden>You are a collaborative partner helping to write a campaign brief. Use only the notes below. If something important is missing, put a [QUESTION] in place — do not invent a target, budget, metric, or promise.
+        <div class="tpl-workspace">
+          <div class="tpl-workspace-main">
+            <div class="tpl-prompt-head">
+              <h2>Prompt</h2>
+              <div class="tpl-prompt-tools">
+                <button type="button" class="tpl-reset" id="tpl-prompt-reset" hidden>Reset</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-copy-prompt>Copy</button>
+              </div>
+            </div>
+            <div class="tpl-prompt">
+              <label class="visually-hidden" for="tpl-prompt-editor">Prompt text</label>
+              <textarea class="tpl-prompt-body" id="tpl-prompt-editor" spellcheck="true">You are a collaborative partner helping to write a campaign brief. Use only the notes below. If something important is missing, put a [QUESTION] in place — do not invent a target, budget, metric, or promise.
 
 Campaign working title: [TITLE]
 Notes:
@@ -135,11 +129,53 @@ Write a brief with these sections:
 8. Risks and dependencies
 9. Open questions — a numbered list for the team
 
-Keep the language plain enough that a designer, a media buyer, and a lawyer could all use the same document.</pre>
-        </div>
-        <div class="tpl-actions">
-          <a class="btn" href="../download.html">Get Promptly</a>
-          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+Keep the language plain enough that a designer, a media buyer, and a lawyer could all use the same document.</textarea>
+              <textarea id="tpl-prompt-original" hidden>You are a collaborative partner helping to write a campaign brief. Use only the notes below. If something important is missing, put a [QUESTION] in place — do not invent a target, budget, metric, or promise.
+
+Campaign working title: [TITLE]
+Notes:
+[NOTES]
+
+Write a brief with these sections:
+1. Context — what is changing and why this campaign exists now
+2. Audience — who we are speaking to, and who we are not
+3. Job to be done — the action we want, in one sentence
+4. Message — the single idea the work should leave behind
+5. Offers and constraints — what we can say, show, or give; what we must not
+6. Channels and assets — a practical list, marked as confirmed or [TO CONFIRM]
+7. Success — how we will know it worked, only if the notes include a measure; otherwise list [QUESTION]s
+8. Risks and dependencies
+9. Open questions — a numbered list for the team
+
+Keep the language plain enough that a designer, a media buyer, and a lawyer could all use the same document.</textarea>
+            </div>
+            <div class="tpl-actions">
+              <button type="button" class="btn" id="tpl-open-promptly">Open in Promptly</button>
+              <a class="btn btn-ghost" href="../download.html">Get Promptly</a>
+              <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+            </div>
+            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="../download.html">download the Mac app</a> and try again once it is installed.</p>
+          </div>
+          <aside class="tpl-analyze-panel" aria-label="Prompt quality">
+            <h2>Quality</h2>
+            <div id="tpl-quality"></div>
+            <ul class="pq-suggestions" id="tpl-suggestions"></ul>
+            <p class="pq-empty" id="tpl-suggestions-empty" hidden></p>
+            <dl class="tpl-panel-meta">
+              <div>
+                <dt>Persona</dt>
+                <dd>Collaborative Partner</dd>
+              </div>
+              <div>
+                <dt>Level</dt>
+                <dd>Expert</dd>
+              </div>
+              <div>
+                <dt>Output format</dt>
+                <dd>Brief with open questions called out in brackets</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
         
         <section class="tpl-related" aria-labelledby="related-heading">
@@ -226,6 +262,7 @@ Keep the language plain enough that a designer, a media buyer, and a lawyer coul
   <script src="../config.js"></script>
   <script src="../waitlist.js" defer></script>
   <script src="../consent.js?v=20261113-uses5" defer></script>
-  <script src="../templates.js?v=20261116-templates" defer></script>
+  <script src="../templates.js?v=20261116-templates-v4" defer></script>
+
 </body>
 </html>

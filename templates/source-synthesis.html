@@ -28,10 +28,13 @@
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
-  <link rel="stylesheet" href="../templates.css?v=20261116-templates">
+  <link rel="stylesheet" href="../templates.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../prompt-quality.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="../members.css?v=20261116-templates-v4">
+  <script src="../prompt-quality.js?v=20261116-templates-v4" defer></script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
-<body>
+<body data-template-slug="source-synthesis" data-template-title="Source synthesis" data-template-category="Research" data-template-persona="Subject Expert" data-template-level="Expert" data-template-format="Synthesis with citations to the supplied sources only">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header header-page">
     <div class="wrap-wide header-inner">
@@ -83,40 +86,33 @@
     <div class="page-hero">
       <div class="wrap">
         <p class="tpl-crumb"><a href="../templates.html">Templates</a> / Research</p>
-        <h1>Source synthesis</h1>
-        <p class="lede tpl-detail-lede">Compare sources you paste in, separate agreement from dispute, and keep every claim tied to a source.</p>
-        <div class="tpl-detail-meta">
-          <span class="tpl-tag tpl-tag-cat">Research</span>
-          <span class="tpl-tag">Subject Expert</span>
-          <span class="tpl-tag">Expert</span>
+        <div class="tpl-detail-head">
+          <div>
+            <h1>Source synthesis</h1>
+            <p class="lede tpl-detail-lede">Compare sources you paste in, separate agreement from dispute, and keep every claim tied to a source.</p>
+            <div class="tpl-detail-meta">
+              <span class="tpl-tag tpl-tag-cat">Research</span>
+              <span class="tpl-tag">Subject Expert</span>
+              <span class="tpl-tag">Expert</span>
+            </div>
+          </div>
         </div>
-        <p class="tpl-format"><strong>Output format.</strong> Synthesis with citations to the supplied sources only</p>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap">
-        <div class="tpl-prompt-head">
-          <h2>Prompt</h2>
-          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
-        </div>
-        <div class="tpl-prompt">
-          <pre class="tpl-prompt-body" id="tpl-prompt-display">You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write <span class="tpl-var">[NOT IN SOURCES]</span> instead of filling the gap.
-
-Question: <span class="tpl-var">[QUESTION]</span>
-Scope or time period, if any: <span class="tpl-var">[SCOPE]</span>
-
-Sources (keep the labels I use, such as A, B, C):
-<span class="tpl-var">[SOURCES]</span>
-
-Output:
-1. A short answer to the question, with source labels in parentheses
-2. Where the sources agree
-3. Where they disagree, including what would resolve the disagreement
-4. How strong the evidence is, and any obvious limits (date, sample, conflict of interest) that are visible in the text
-5. A list of claims I might be tempted to make that these sources do not actually support
-
-Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</pre>
-          <pre id="tpl-prompt-raw" hidden>You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write [NOT IN SOURCES] instead of filling the gap.
+        <div class="tpl-workspace">
+          <div class="tpl-workspace-main">
+            <div class="tpl-prompt-head">
+              <h2>Prompt</h2>
+              <div class="tpl-prompt-tools">
+                <button type="button" class="tpl-reset" id="tpl-prompt-reset" hidden>Reset</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-copy-prompt>Copy</button>
+              </div>
+            </div>
+            <div class="tpl-prompt">
+              <label class="visually-hidden" for="tpl-prompt-editor">Prompt text</label>
+              <textarea class="tpl-prompt-body" id="tpl-prompt-editor" spellcheck="true">You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write [NOT IN SOURCES] instead of filling the gap.
 
 Question: [QUESTION]
 Scope or time period, if any: [SCOPE]
@@ -131,11 +127,51 @@ Output:
 4. How strong the evidence is, and any obvious limits (date, sample, conflict of interest) that are visible in the text
 5. A list of claims I might be tempted to make that these sources do not actually support
 
-Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</pre>
-        </div>
-        <div class="tpl-actions">
-          <a class="btn" href="../download.html">Get Promptly</a>
-          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</textarea>
+              <textarea id="tpl-prompt-original" hidden>You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write [NOT IN SOURCES] instead of filling the gap.
+
+Question: [QUESTION]
+Scope or time period, if any: [SCOPE]
+
+Sources (keep the labels I use, such as A, B, C):
+[SOURCES]
+
+Output:
+1. A short answer to the question, with source labels in parentheses
+2. Where the sources agree
+3. Where they disagree, including what would resolve the disagreement
+4. How strong the evidence is, and any obvious limits (date, sample, conflict of interest) that are visible in the text
+5. A list of claims I might be tempted to make that these sources do not actually support
+
+Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</textarea>
+            </div>
+            <div class="tpl-actions">
+              <button type="button" class="btn" id="tpl-open-promptly">Open in Promptly</button>
+              <a class="btn btn-ghost" href="../download.html">Get Promptly</a>
+              <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+            </div>
+            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="../download.html">download the Mac app</a> and try again once it is installed.</p>
+          </div>
+          <aside class="tpl-analyze-panel" aria-label="Prompt quality">
+            <h2>Quality</h2>
+            <div id="tpl-quality"></div>
+            <ul class="pq-suggestions" id="tpl-suggestions"></ul>
+            <p class="pq-empty" id="tpl-suggestions-empty" hidden></p>
+            <dl class="tpl-panel-meta">
+              <div>
+                <dt>Persona</dt>
+                <dd>Subject Expert</dd>
+              </div>
+              <div>
+                <dt>Level</dt>
+                <dd>Expert</dd>
+              </div>
+              <div>
+                <dt>Output format</dt>
+                <dd>Synthesis with citations to the supplied sources only</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
         
         <section class="tpl-related" aria-labelledby="related-heading">
@@ -222,6 +258,7 @@ Quote sparingly, and only when the wording matters. Do not add publications that
   <script src="../config.js"></script>
   <script src="../waitlist.js" defer></script>
   <script src="../consent.js?v=20261113-uses5" defer></script>
-  <script src="../templates.js?v=20261116-templates" defer></script>
+  <script src="../templates.js?v=20261116-templates-v4" defer></script>
+
 </body>
 </html>

@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://wearefaces.github.io/promptly-site"
-CSS_V = "20261116-templates"
+CSS_V = "20261116-templates-v4"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -102,7 +102,7 @@ def header(prefix: str, current: str) -> str:
   </header>"""
 
 
-def footer(prefix: str, form_id: str) -> str:
+def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
     return f"""  <footer class="site-footer">
     <div class="footer-bg" aria-hidden="true"></div>
     <div class="wrap-wide footer-cta">
@@ -140,10 +140,23 @@ def footer(prefix: str, form_id: str) -> str:
   <script src="{prefix}config.js"></script>
   <script src="{prefix}waitlist.js" defer></script>
   <script src="{prefix}consent.js?v=20261113-uses5" defer></script>
-  <script src="{prefix}templates.js?v={CSS_V}" defer></script>"""
+  <script src="{prefix}templates.js?v={CSS_V}" defer></script>
+{extra_js}"""
 
 
-def head(title: str, description: str, canonical: str) -> str:
+def firebase_scripts(prefix: str) -> str:
+    fb = "https://www.gstatic.com/firebasejs/11.4.0"
+    return (
+        f'  <script src="{fb}/firebase-app-compat.js" defer></script>\n'
+        f'  <script src="{fb}/firebase-auth-compat.js" defer></script>\n'
+        f'  <script src="{fb}/firebase-firestore-compat.js" defer></script>\n'
+        f'  <script src="{prefix}firebase-config.js" defer></script>\n'
+        f'  <script src="{prefix}auth.js?v={CSS_V}" defer></script>\n'
+        f'  <script src="{prefix}members.js?v={CSS_V}" defer></script>'
+    )
+
+
+def head(title: str, description: str, canonical: str, extra_css: str = "") -> str:
     if "/templates/" in canonical and not canonical.endswith("/templates.html"):
         prefix = "../"
     else:
@@ -179,6 +192,7 @@ def head(title: str, description: str, canonical: str) -> str:
   <link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="{prefix}styles.css?v=20261115-listshadow">
   <link rel="stylesheet" href="{prefix}templates.css?v={CSS_V}">
+{extra_css}
   <script>document.documentElement.classList.add("js");</script>
 </head>"""
 
@@ -220,7 +234,11 @@ def write_index(data: dict) -> None:
     title = "Templates — Promptly for Mac"
     desc = "Original AI prompt templates for writing, marketing, coding, business, email, research, and learning. Copy a prompt and use it in Promptly or any AI you already use."
     canonical = f"{BASE}/templates.html"
-    page = f"""{head(title, desc, canonical)}
+    extra_css = (
+        f'  <link rel="stylesheet" href="prompt-quality.css?v={CSS_V}">\n'
+        f'  <link rel="stylesheet" href="members.css?v={CSS_V}">'
+    )
+    page = f"""{head(title, desc, canonical, extra_css)}
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 {header("", "templates.html")}
@@ -228,12 +246,16 @@ def write_index(data: dict) -> None:
     <div class="page-hero">
       <div class="wrap">
         <h1>Templates</h1>
-        <p class="lede">Ready-to-use prompts you can copy into Promptly, or into the AI you already use. Each one has a persona, a level, and an output format.</p>
+        <p class="lede">Ready-to-use prompts you can copy into Promptly, or into the AI you already use. Each one has a persona, a level, and an output format. Sign in to unlock the members library.</p>
+        <div class="tpl-hero-actions">
+          <a class="btn btn-ghost" href="analyze.html">Analyze a prompt</a>
+        </div>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap">
         <div class="tpl-toolbar">
+          <div class="tpl-toolbar-row">
           <div class="tpl-search-wrap">
             <svg class="tpl-search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
               <circle cx="7" cy="7" r="4.25"/>
@@ -241,6 +263,14 @@ def write_index(data: dict) -> None:
             </svg>
             <label class="visually-hidden" for="tpl-search">Search templates</label>
             <input id="tpl-search" class="tpl-search" type="search" placeholder="Search templates" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="auth-bar">
+            <button type="button" class="btn btn-sm" data-auth-open>Sign in</button>
+            <span data-auth-signed-in hidden>
+              <span class="auth-user" data-auth-email></span>
+              <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+            </span>
+          </div>
           </div>
           <div class="tpl-filters" role="group" aria-label="Filter by category">
 {chr(10).join(chips)}
@@ -254,7 +284,7 @@ def write_index(data: dict) -> None:
       </div>
     </div>
   </main>
-{footer("", "email-templates-footer")}
+{footer("", "email-templates-footer", firebase_scripts(""))}
 </body>
 </html>
 """
@@ -281,43 +311,82 @@ def write_detail(t: dict, by_slug: dict) -> None:
     highlighted = highlight(t["prompt"])
     raw = html.escape(t["prompt"])
     form_id = "email-tpl-" + t["slug"] + "-footer"
-    page = f"""{head(title, desc, canonical)}
-<body>
+    extra_css = (
+        f'  <link rel="stylesheet" href="{prefix}prompt-quality.css?v={CSS_V}">\n'
+        f'  <link rel="stylesheet" href="{prefix}members.css?v={CSS_V}">\n'
+        f'  <script src="{prefix}prompt-quality.js?v={CSS_V}" defer></script>'
+    )
+    extra_js = ""
+    page = f"""{head(title, desc, canonical, extra_css)}
+<body data-template-slug="{html.escape(t['slug'])}" data-template-title="{html.escape(t['title'])}" data-template-category="{html.escape(t['category'])}" data-template-persona="{html.escape(t['persona'])}" data-template-level="{html.escape(t['level'])}" data-template-format="{html.escape(t['format'])}">
   <a class="skip-link" href="#main">Skip to content</a>
 {header(prefix, "templates.html")}
   <main id="main">
     <div class="page-hero">
       <div class="wrap">
         <p class="tpl-crumb"><a href="../templates.html">Templates</a> / {html.escape(t['category'])}</p>
-        <h1>{html.escape(t['title'])}</h1>
-        <p class="lede tpl-detail-lede">{html.escape(t['description'])}</p>
-        <div class="tpl-detail-meta">
-          <span class="tpl-tag tpl-tag-cat">{html.escape(t['category'])}</span>
-          <span class="tpl-tag">{html.escape(t['persona'])}</span>
-          <span class="tpl-tag">{html.escape(t['level'])}</span>
+        <div class="tpl-detail-head">
+          <div>
+            <h1>{html.escape(t['title'])}</h1>
+            <p class="lede tpl-detail-lede">{html.escape(t['description'])}</p>
+            <div class="tpl-detail-meta">
+              <span class="tpl-tag tpl-tag-cat">{html.escape(t['category'])}</span>
+              <span class="tpl-tag">{html.escape(t['persona'])}</span>
+              <span class="tpl-tag">{html.escape(t['level'])}</span>
+            </div>
+          </div>
         </div>
-        <p class="tpl-format"><strong>Output format.</strong> {html.escape(t['format'])}</p>
       </div>
     </div>
     <div class="page-section">
       <div class="wrap">
-        <div class="tpl-prompt-head">
-          <h2>Prompt</h2>
-          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
-        </div>
-        <div class="tpl-prompt">
-          <pre class="tpl-prompt-body" id="tpl-prompt-display">{highlighted}</pre>
-          <pre id="tpl-prompt-raw" hidden>{raw}</pre>
-        </div>
-        <div class="tpl-actions">
-          <a class="btn" href="../download.html">Get Promptly</a>
-          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+        <div class="tpl-workspace">
+          <div class="tpl-workspace-main">
+            <div class="tpl-prompt-head">
+              <h2>Prompt</h2>
+              <div class="tpl-prompt-tools">
+                <button type="button" class="tpl-reset" id="tpl-prompt-reset" hidden>Reset</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-copy-prompt>Copy</button>
+              </div>
+            </div>
+            <div class="tpl-prompt">
+              <label class="visually-hidden" for="tpl-prompt-editor">Prompt text</label>
+              <textarea class="tpl-prompt-body" id="tpl-prompt-editor" spellcheck="true">{raw}</textarea>
+              <textarea id="tpl-prompt-original" hidden>{raw}</textarea>
+            </div>
+            <div class="tpl-actions">
+              <button type="button" class="btn" id="tpl-open-promptly">Open in Promptly</button>
+              <a class="btn btn-ghost" href="../download.html">Get Promptly</a>
+              <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+            </div>
+            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="../download.html">download the Mac app</a> and try again once it is installed.</p>
+          </div>
+          <aside class="tpl-analyze-panel" aria-label="Prompt quality">
+            <h2>Quality</h2>
+            <div id="tpl-quality"></div>
+            <ul class="pq-suggestions" id="tpl-suggestions"></ul>
+            <p class="pq-empty" id="tpl-suggestions-empty" hidden></p>
+            <dl class="tpl-panel-meta">
+              <div>
+                <dt>Persona</dt>
+                <dd>{html.escape(t['persona'])}</dd>
+              </div>
+              <div>
+                <dt>Level</dt>
+                <dd>{html.escape(t['level'])}</dd>
+              </div>
+              <div>
+                <dt>Output format</dt>
+                <dd>{html.escape(t['format'])}</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
         {related_html}
       </div>
     </div>
   </main>
-{footer(prefix, form_id)}
+{footer(prefix, form_id, extra_js)}
 </body>
 </html>
 """

@@ -1,0 +1,62 @@
+/* /analyze.html layout. Uses Promptly tokens. */
+
+.az-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.az-editor label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.az-editor textarea {
+  width: 100%;
+  min-height: 280px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.az-editor textarea:focus {
+  outline: 2px solid var(--fg-primary);
+  outline-offset: 3px;
+}
+
+.az-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.az-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.az-cta { margin: 20px 0 0; }
+
+.az-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  .az-layout { grid-template-columns: 1fr; }
+  .az-editor textarea { min-height: 220px; }
+}

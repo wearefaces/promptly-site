@@ -275,3 +275,106 @@
   .tpl-prompt { padding: 20px; }
   .tpl-prompt-head { align-items: flex-start; flex-direction: column; }
 }
+
+/* Detail workspace: prompt + sticky analysis panel */
+
+.tpl-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.tpl-analyze-panel {
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.tpl-analyze-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.tpl-panel-meta {
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 12px;
+}
+
+.tpl-panel-meta div { min-width: 0; }
+.tpl-panel-meta dt {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+.tpl-panel-meta dd {
+  margin: 4px 0 0;
+  font-size: var(--text-sm);
+  color: var(--text);
+}
+
+.tpl-prompt-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tpl-reset {
+  background: none;
+  border: 0;
+  padding: 0 8px;
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--secondary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tpl-reset:hover { color: var(--text); opacity: 1; }
+
+.tpl-prompt textarea.tpl-prompt-body,
+#tpl-prompt-editor {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  resize: vertical;
+  overflow: auto;
+  field-sizing: content;
+}
+#tpl-prompt-editor:focus {
+  outline: none;
+}
+.tpl-prompt:focus-within {
+  outline: 2px solid var(--fg-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .tpl-workspace {
+    grid-template-columns: 1fr;
+  }
+  .tpl-analyze-panel {
+    position: static;
+  }
+  #tpl-prompt-editor { min-height: 240px; }
+}

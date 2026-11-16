@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyze a prompt — Promptly</title>
+  <meta name="description" content="Check a prompt&#x27;s quality. Get a 0–100 score and suggestions tagged Critical, High, or Mid — computed in your browser, with nothing sent away.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/analyze.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Analyze a prompt — Promptly">
+  <meta property="og:description" content="Check a prompt&#x27;s quality. Get a 0–100 score and suggestions tagged Critical, High, or Mid — computed in your browser, with nothing sent away.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/analyze.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analyze a prompt — Promptly">
+  <meta name="twitter:description" content="Check a prompt&#x27;s quality. Get a 0–100 score and suggestions tagged Critical, High, or Mid — computed in your browser, with nothing sent away.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="templates.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="prompt-quality.css?v=20261116-templates-v4">
+  <link rel="stylesheet" href="analyze.css?v=20261116-templates-v4">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+          <a href="features.html">Features</a>
+          <a href="templates.html" aria-current="page">Templates</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <a href="blog.html">Blog</a>
+          <a href="download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm" href="index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+          <a href="features.html">Features</a>
+          <a href="templates.html" aria-current="page">Templates</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <a href="blog.html">Blog</a>
+          <a href="download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <p class="tpl-crumb"><a href="templates.html">Templates</a> / Analyze</p>
+        <h1>Analyze a prompt</h1>
+        <p class="lede">Paste a prompt and get a score from 0 to 100, plus suggestions for what to add. The score is computed here in your browser. Nothing is sent away.</p>
+        <div class="az-hero-actions">
+          <a class="btn btn-ghost" href="templates.html">Browse templates</a>
+        </div>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap az-layout">
+        <div class="az-editor">
+          <label for="az-input">Your prompt</label>
+          <textarea id="az-input" spellcheck="true" placeholder="Paste or write a prompt…"></textarea>
+        </div>
+        <aside class="az-panel" aria-live="polite">
+          <h2>Quality</h2>
+          <div id="az-badge"></div>
+          <ul class="pq-suggestions" id="az-suggestions"></ul>
+          <p class="pq-empty" id="az-empty">Paste a prompt to see suggestions.</p>
+          <div class="az-cta">
+            <a class="btn" href="download.html">Get live scoring inside Promptly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-analyze-footer" class="visually-hidden">Email</label>
+              <input id="email-analyze-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="blog.html">Blog</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="terms.html#contact" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="waitlist.js" defer></script>
+  <script src="consent.js?v=20261113-uses5" defer></script>
+  <script src="templates.js?v=20261116-templates-v4" defer></script>
+  <script src="prompt-quality.js?v=20261116-templates-v4" defer></script>
+  <script src="analyze.js?v=20261116-templates-v4" defer></script>
+</body>
+</html>
