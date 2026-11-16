@@ -268,9 +268,13 @@
       showThanks(form);
     }).catch(function (err) {
       var code = (err && err.code) || "";
-      if (code === "permission-denied" || /already exists|already-exists/i.test((err && err.message) || "")) {
-        showNote(form, "You're already on the Windows waitlist.");
+      if (code === "already-exists" || /already exists|already-exists/i.test((err && err.message) || "")) {
         showThanks(form);
+        showNote(form, "You're already on the Windows waitlist.");
+      } else if (code === "permission-denied") {
+        // Create-only rules refuse both duplicates and writes made before the
+        // waitlist rules are deployed, so don't claim success here.
+        showNote(form, "You're already on the Windows waitlist, or sign-up isn't open yet.", { isError: true });
       } else {
         showNote(form, "Something went wrong. Please try again.", { isError: true });
       }
