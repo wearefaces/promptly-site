@@ -231,6 +231,178 @@
     return result;
   }
 
+
+  var hist = [];
+  var histIdx = -1;
+  var histTimer = null;
+  var applyingHist = false;
+
+  function countLabel(text) {
+    var trimmed = (text || "").trim();
+    var words = trimmed ? trimmed.split(/\s+/).length : 0;
+    var chars = (text || "").length;
+    return (words === 1 ? "1 word" : words + " words") +
+      " · " + (chars === 1 ? "1 character" : chars + " characters");
+  }
+
+  function updateCount() {
+    var el = document.getElementById("tpl-ed-count");
+    if (el) el.textContent = countLabel(getPromptText());
+  }
+
+  function editorEl() {
+    return document.getElementById("tpl-prompt-editor");
+  }
+
+  function snapOf(editor) {
+    return { v: editor.value, s: editor.selectionStart, e: editor.selectionEnd };
+  }
+
+  function pushSnap(editor) {
+    if (!editor) return;
+    var snap = snapOf(editor);
+    if (histIdx >= 0 && hist[histIdx].v === snap.v) {
+      hist[histIdx] = snap;
+      return;
+    }
+    hist = hist.slice(0, histIdx + 1);
+    hist.push(snap);
+    if (hist.length > 80) hist.shift();
+    histIdx = hist.length - 1;
+    updateUndoState();
+  }
+
+  function commitPending(editor) {
+    clearTimeout(histTimer);
+    pushSnap(editor);
+  }
+
+  function applySnap(editor, snap) {
+    applyingHist = true;
+    editor.value = snap.v;
+    editor.setSelectionRange(snap.s, snap.e);
+    applyingHist = false;
+    editor.dispatchEvent(new Event("input", { bubbles: true }));
+    updateCount();
+    updateUndoState();
+  }
+
+  function updateUndoState() {
+    var undo = document.querySelector('[data-ed="undo"]');
+    var redo = document.querySelector('[data-ed="redo"]');
+    if (undo) undo.disabled = histIdx <= 0;
+    if (redo) redo.disabled = histIdx >= hist.length - 1;
+  }
+
+  function undoEdit() {
+    var editor = editorEl();
+    if (!editor) return;
+    commitPending(editor);
+    if (histIdx <= 0) return;
+    histIdx -= 1;
+    applySnap(editor, hist[histIdx]);
+  }
+
+  function redoEdit() {
+    var editor = editorEl();
+    if (!editor || histIdx >= hist.length - 1) return;
+    clearTimeout(histTimer);
+    histIdx += 1;
+    applySnap(editor, hist[histIdx]);
+  }
+
+  function setEditorValue(editor, value, selStart, selEnd) {
+    commitPending(editor);
+    editor.value = value;
+    editor.focus();
+    editor.setSelectionRange(selStart, selEnd);
+    pushSnap(editor);
+    editor.dispatchEvent(new Event("input", { bubbles: true }));
+    updateCount();
+  }
+
+  function insertVariable() {
+    var editor = editorEl();
+    if (!editor) return;
+    var start = editor.selectionStart;
+    var end = editor.selectionEnd;
+    var token = "{{variable}}";
+    var next = editor.value.slice(0, start) + token + editor.value.slice(end);
+    setEditorValue(editor, next, start + 2, start + 10);
+  }
+
+  function prefixLines(prefix) {
+    var editor = editorEl();
+    if (!editor) return;
+    var v = editor.value;
+    var selStart = editor.selectionStart;
+    var selEnd = editor.selectionEnd;
+    var a = v.lastIndexOf("\n", selStart - 1) + 1;
+    var b = v.indexOf("\n", selEnd);
+    if (b === -1) b = v.length;
+    var block = v.slice(a, b);
+    var lines = block.split("\n");
+    var nextBlock = lines.map(function (line) {
+      return line.indexOf(prefix) === 0 ? line : prefix + line;
+    }).join("\n");
+    var next = v.slice(0, a) + nextBlock + v.slice(b);
+    var shift = prefix.length;
+    if (selStart === selEnd) {
+      var already = lines[0].indexOf(prefix) === 0;
+      var pos = selStart + (already ? 0 : shift);
+      setEditorValue(editor, next, pos, pos);
+    } else {
+      setEditorValue(editor, next, a, a + nextBlock.length);
+    }
+  }
+
+  function bindEditor() {
+    var editor = editorEl();
+    var bar = document.querySelector(".tpl-editor-toolbar");
+    if (!editor || !bar || bar.getAttribute("data-bound") === "1") return;
+    bar.setAttribute("data-bound", "1");
+    hist = [];
+    histIdx = -1;
+    pushSnap(editor);
+    updateCount();
+    bar.addEventListener("mousedown", function (e) {
+      if (e.target.closest(".tpl-ed-btn")) e.preventDefault();
+    });
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest(".tpl-ed-btn");
+      if (!btn || btn.disabled) return;
+      var act = btn.getAttribute("data-ed");
+      if (act === "undo") undoEdit();
+      else if (act === "redo") redoEdit();
+      else if (act === "variable") insertVariable();
+      else if (act === "heading") prefixLines("## ");
+      else if (act === "bullet") prefixLines("- ");
+    });
+    editor.addEventListener("input", function () {
+      updateCount();
+      if (applyingHist) return;
+      clearTimeout(histTimer);
+      histTimer = setTimeout(function () { pushSnap(editor); }, 400);
+    });
+    editor.addEventListener("keydown", function (e) {
+      if (!(e.metaKey || e.ctrlKey)) return;
+      if (e.key !== "z" && e.key !== "Z") return;
+      e.preventDefault();
+      if (e.shiftKey) redoEdit();
+      else undoEdit();
+    });
+    var reset = document.getElementById("tpl-prompt-reset");
+    if (reset) {
+      reset.addEventListener("click", function () {
+        commitPending(editor);
+      }, true);
+      reset.addEventListener("click", function () {
+        pushSnap(editor);
+        updateCount();
+      });
+    }
+  }
+
   var panelTimer = null;
   function bindAnalyzePanel() {
     var editor = document.getElementById("tpl-prompt-editor");
@@ -252,7 +424,9 @@
     }
     bindCopy();
     bindOpen();
+    bindEditor();
     renderPanel();
+    updateCount();
   }
   bindAnalyzePanel();
 

@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://wearefaces.github.io/promptly-site"
-CSS_V = "20261116-templates-v4"
+CSS_V = "20261116-templates-v5"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -350,6 +350,17 @@ def write_detail(t: dict, by_slug: dict) -> None:
               </div>
             </div>
             <div class="tpl-prompt">
+              <div class="tpl-editor-toolbar" role="toolbar" aria-label="Prompt editor">
+                <div class="tpl-editor-tools">
+                  <button type="button" class="tpl-ed-btn" data-ed="undo" title="Undo (Ctrl/⌘+Z)" aria-label="Undo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 6.5H11a3 3 0 1 1 0 6H9.5"/><path d="M6.5 4.5 4 6.5l2.5 2"/></svg></button>
+                  <button type="button" class="tpl-ed-btn" data-ed="redo" title="Redo (Ctrl/⌘+Shift+Z)" aria-label="Redo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 6.5H5a3 3 0 1 0 0 6h1.5"/><path d="M9.5 4.5 12 6.5l-2.5 2"/></svg></button>
+                  <span class="tpl-ed-sep" aria-hidden="true"></span>
+                  <button type="button" class="tpl-ed-btn" data-ed="variable" title="Insert variable" aria-label="Insert variable"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5c-1.5 0-2 1.2-2 2.5 0 1-.6 1.5-1.5 1.5 1 0 1.5.5 1.5 1.5 0 1.3.5 2.5 2 2.5"/><path d="M10 3.5c1.5 0 2 1.2 2 2.5 0 1 .6 1.5 1.5 1.5-1 0-1.5.5-1.5 1.5 0 1.3-.5 2.5-2 2.5"/></svg></button>
+                  <button type="button" class="tpl-ed-btn" data-ed="heading" title="Heading" aria-label="Heading"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 3.5v9M11 3.5v9M5 8h6"/></svg></button>
+                  <button type="button" class="tpl-ed-btn" data-ed="bullet" title="Bullet list" aria-label="Bullet list"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="3.5" cy="4.5" r="0.8" fill="currentColor" stroke="none"/><circle cx="3.5" cy="8" r="0.8" fill="currentColor" stroke="none"/><circle cx="3.5" cy="11.5" r="0.8" fill="currentColor" stroke="none"/><path d="M6.5 4.5h6.5M6.5 8h6.5M6.5 11.5h6.5"/></svg></button>
+                </div>
+                <p class="tpl-ed-count" id="tpl-ed-count" aria-live="polite"></p>
+              </div>
               <label class="visually-hidden" for="tpl-prompt-editor">Prompt text</label>
               <textarea class="tpl-prompt-body" id="tpl-prompt-editor" spellcheck="true">{raw}</textarea>
               <textarea id="tpl-prompt-original" hidden>{raw}</textarea>

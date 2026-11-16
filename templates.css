@@ -344,6 +344,53 @@
 }
 .tpl-reset:hover { color: var(--text); opacity: 1; }
 
+
+.tpl-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin: 0 0 12px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--border);
+}
+.tpl-editor-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+.tpl-ed-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.tpl-ed-btn:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.tpl-ed-btn:disabled { opacity: 0.35; cursor: default; background: transparent; }
+.tpl-ed-btn svg { width: 16px; height: 16px; display: block; }
+.tpl-ed-sep {
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+  background: var(--border-strong);
+}
+.tpl-ed-count {
+  margin: 0 0 0 auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
 .tpl-prompt textarea.tpl-prompt-body,
 #tpl-prompt-editor {
   display: block;
