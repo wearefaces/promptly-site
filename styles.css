@@ -3239,6 +3239,37 @@ html.is-preview .uses-ticker-track {
   }
 }
 
+.page-hero--download .hero-waitlist {
+  margin: 24px 0 0;
+  width: min(100%, 560px);
+  align-items: flex-start;
+}
+.page-hero--download .hero-waitlist .frost {
+  width: 100%;
+}
+.page-hero--download .hero-waitlist .frost .btn {
+  height: 44px;
+  border: 0;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: #141414;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.page-hero--download .hero-waitlist .frost .btn:hover {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  opacity: 0.85;
+}
+.page-hero--download .hero-waitlist .frost-thanks {
+  margin: 0;
+  width: 100%;
+  color: #141414;
+  -webkit-text-fill-color: #141414;
+}
+
 
 /* Blog article and listing — reuse prose / group-card; only what those pages need. */
 .prose a { color: var(--text); }

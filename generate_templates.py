@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://wearefaces.github.io/promptly-site"
-CSS_V = "20261116-signup-v7"
+CSS_V = "20261117-signup-v8"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -64,7 +64,7 @@ def nav_links(prefix: str, current: str) -> str:
         ("pricing.html", "Pricing"),
         ("enterprise.html", "Enterprise"),
         ("blog.html", "Blog"),
-        ("download.html", "Download"),
+        ("download.html", "Get Promptly"),
     ]
     lines = []
     for href, label in items:

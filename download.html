@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Promptly for Mac</title>
-  <meta name="description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
+  <title>Get Promptly</title>
+  <meta name="description" content="Join the Promptly waitlist for Mac and Windows. We'll email you when it's ready. See the Mac requirements and Accessibility steps.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
@@ -13,16 +13,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Promptly">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Download Promptly for Mac">
-  <meta property="og:description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
+  <meta property="og:title" content="Get Promptly">
+  <meta property="og:description" content="Join the Promptly waitlist for Mac and Windows. We'll email you when it's ready. See the Mac requirements and Accessibility steps.">
   <meta property="og:url" content="https://wearefaces.github.io/promptly-site/download.html">
   <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Download Promptly for Mac">
-  <meta name="twitter:description" content="Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. Join the waitlist, then grant Accessibility access in three steps.">
+  <meta name="twitter:title" content="Get Promptly">
+  <meta name="twitter:description" content="Join the Promptly waitlist for Mac and Windows. We'll email you when it's ready. See the Mac requirements and Accessibility steps.">
   <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261116-signup-v7">
+  <link rel="stylesheet" href="styles.css?v=20261117-signup-v8">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -91,7 +91,7 @@
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
           <a href="blog.html">Blog</a>
-          <a href="download.html" aria-current="page">Download</a>
+          <a href="download.html" aria-current="page">Get Promptly</a>
       </nav>
       <div class="header-actions">
         <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
@@ -113,7 +113,7 @@
           <a href="pricing.html">Pricing</a>
           <a href="enterprise.html">Enterprise</a>
           <a href="blog.html">Blog</a>
-          <a href="download.html" aria-current="page">Download</a>
+          <a href="download.html" aria-current="page">Get Promptly</a>
           </nav>
         </details>
       </div>
@@ -123,12 +123,31 @@
     <div class="page-hero page-hero--photo page-hero--download">
       <div class="page-hero-bg" aria-hidden="true"></div>
       <div class="wrap">
-        <h1>Download</h1>
-                <p class="lede" data-when="no-download">The download isn't available yet. Join the waitlist, and use these steps when you have Promptly on your Mac.</p>
-        <p class="lede" data-when="download" hidden>Download Promptly for Mac, then use these steps to grant Accessibility access.</p>
-        <p style="margin:20px 0 0">
-          <a class="btn" href="#waitlist" data-cta="download">Join waitlist</a>
-        </p>
+        <h1>Get Promptly</h1>
+        <div data-when="no-download">
+          <p class="lede">Mac and Windows. Join the waitlist and we'll email you when it's ready.</p>
+          <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
+            <div class="frost">
+              <div class="waitlist-fields">
+                <label for="email-download" class="visually-hidden">Email</label>
+                <input id="email-download" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+                <button type="submit" class="btn">Join the waitlist</button>
+              </div>
+            </div>
+            <div class="waitlist-platforms" role="group" aria-label="Platform">
+              <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+              <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+              <button type="button" data-platform="both" aria-pressed="true">Both</button>
+            </div>
+            <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
+          </form>
+        </div>
+        <div data-when="download" hidden>
+          <p class="lede">Download Promptly for Mac, then use these steps to grant Accessibility access.</p>
+          <p style="margin:20px 0 0">
+            <a class="btn" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
+          </p>
+        </div>
       </div>
     </div>
     <div class="page-section">
@@ -147,23 +166,6 @@
           <li><span class="n">2</span><span>Turn on Promptly.</span></li>
           <li><span class="n">3</span><span>If Promptly is missing from the list, click + and choose Promptly.</span></li>
         </ol>
-        <section class="on-canvas" id="waitlist">
-          <h2 class="display-md" style="font-size:2rem">Join the Promptly waitlist</h2>
-          <p class="lede" style="margin-bottom:20px">Mac and Windows. We'll email you when it's ready.</p>
-          <form class="waitlist" action="#" method="post">
-          <div class="waitlist-platforms" role="group" aria-label="Platform">
-            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
-            <button type="button" data-platform="both" aria-pressed="true">Both</button>
-          </div>
-            <div class="waitlist-fields">
-              <label for="email-download" class="visually-hidden">Email</label>
-              <input id="email-download" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-              <button class="btn" type="submit">Join the waitlist</button>
-            </div>
-            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-          </form>
-        </section>
 
       </div>
     </div>
@@ -218,8 +220,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
-  <script src="auth.js?v=20261116-signup-v7" defer></script>
-  <script src="waitlist.js?v=20261116-signup-v7" defer></script>
+  <script src="auth.js?v=20261117-signup-v8" defer></script>
+  <script src="waitlist.js?v=20261117-signup-v8" defer></script>
   <script src="consent.js?v=20261113-uses5" defer></script>
 </body>
 </html>
