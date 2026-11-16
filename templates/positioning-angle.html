@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Positioning angle — Prompt template — Promptly</title>
+  <meta name="description" content="A subject-expert prompt that drafts a positioning angle from supplied facts, without invented competitive claims.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/templates/positioning-angle.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Positioning angle — Prompt template — Promptly">
+  <meta property="og:description" content="A subject-expert prompt that drafts a positioning angle from supplied facts, without invented competitive claims.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/templates/positioning-angle.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Positioning angle — Prompt template — Promptly">
+  <meta name="twitter:description" content="A subject-expert prompt that drafts a positioning angle from supplied facts, without invented competitive claims.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="../templates.css?v=20261116-templates">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="../index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+          <a href="../features.html">Features</a>
+          <a href="../templates.html" aria-current="page">Templates</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm" href="../index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+          <a href="../features.html">Features</a>
+          <a href="../templates.html" aria-current="page">Templates</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <p class="tpl-crumb"><a href="../templates.html">Templates</a> / Marketing</p>
+        <h1>Positioning angle</h1>
+        <p class="lede tpl-detail-lede">Map how an offer should be described against alternatives, using only the facts you provide.</p>
+        <div class="tpl-detail-meta">
+          <span class="tpl-tag tpl-tag-cat">Marketing</span>
+          <span class="tpl-tag">Subject Expert</span>
+          <span class="tpl-tag">Detailed</span>
+        </div>
+        <p class="tpl-format"><strong>Output format.</strong> Positioning statement, comparison table, and phrases to avoid</p>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap">
+        <div class="tpl-prompt-head">
+          <h2>Prompt</h2>
+          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
+        </div>
+        <div class="tpl-prompt">
+          <pre class="tpl-prompt-body" id="tpl-prompt-display">You are a subject-matter expert in product marketing. Draft a positioning angle from the facts supplied. Do not invent competitor weaknesses, market share, or customer results.
+
+Offer: <span class="tpl-var">[PRODUCT]</span>
+Who it is for: <span class="tpl-var">[AUDIENCE]</span>
+The job they are hiring it for: <span class="tpl-var">[JOB]</span>
+How it actually works: <span class="tpl-var">[MECHANISM]</span>
+Known alternatives (include &#x27;do nothing&#x27; if relevant): <span class="tpl-var">[ALTERNATIVES]</span>
+Hard constraints (legal, brand, or technical): <span class="tpl-var">[CONSTRAINTS]</span>
+
+Output:
+1. A one-sentence positioning statement in the form: For [audience] who [job], [product] is [category] that [difference], unlike [alternative].
+2. A table with columns: Theme, What we can honestly say, What we should not say, Why.
+3. Three short proof points, each tied to a fact above. If a proof point needs a missing fact, write it as a <span class="tpl-var">[FACT NEEDED]</span> line instead.
+4. A paragraph on the risk of this angle — where it could confuse or over-promise.</pre>
+          <pre id="tpl-prompt-raw" hidden>You are a subject-matter expert in product marketing. Draft a positioning angle from the facts supplied. Do not invent competitor weaknesses, market share, or customer results.
+
+Offer: [PRODUCT]
+Who it is for: [AUDIENCE]
+The job they are hiring it for: [JOB]
+How it actually works: [MECHANISM]
+Known alternatives (include &#x27;do nothing&#x27; if relevant): [ALTERNATIVES]
+Hard constraints (legal, brand, or technical): [CONSTRAINTS]
+
+Output:
+1. A one-sentence positioning statement in the form: For [audience] who [job], [product] is [category] that [difference], unlike [alternative].
+2. A table with columns: Theme, What we can honestly say, What we should not say, Why.
+3. Three short proof points, each tied to a fact above. If a proof point needs a missing fact, write it as a [FACT NEEDED] line instead.
+4. A paragraph on the risk of this angle — where it could confuse or over-promise.</pre>
+        </div>
+        <div class="tpl-actions">
+          <a class="btn" href="../download.html">Get Promptly</a>
+          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+        </div>
+        
+        <section class="tpl-related" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related templates</h2>
+          <div class="tpl-related-grid">
+        <article class="tpl-card-wrap" data-tpl-card data-category="Marketing" data-search="campaign brief builder turn scattered notes into a clear campaign brief, and list the questions still unanswered. marketing collaborative partner expert brief with open questions called out in brackets">
+          <a class="tpl-card" href="campaign-brief.html">
+            <h2>Campaign brief builder</h2>
+            <p>Turn scattered notes into a clear campaign brief, and list the questions still unanswered.</p>
+            <div class="tpl-meta">
+              <span class="tpl-tag tpl-tag-cat">Marketing</span>
+              <span class="tpl-tag">Collaborative Partner</span>
+              <span class="tpl-tag">Expert</span>
+            </div>
+          </a>
+        </article>
+        <article class="tpl-card-wrap" data-tpl-card data-category="Marketing" data-search="landing-page headline set generate headline, subhead, and proof-line options for a landing page, with a rationale for each set. marketing collaborative partner detailed several named options, each with headline, subhead, proof line, and rationale">
+          <a class="tpl-card" href="landing-headlines.html">
+            <h2>Landing-page headline set</h2>
+            <p>Generate headline, subhead, and proof-line options for a landing page, with a rationale for each set.</p>
+            <div class="tpl-meta">
+              <span class="tpl-tag tpl-tag-cat">Marketing</span>
+              <span class="tpl-tag">Collaborative Partner</span>
+              <span class="tpl-tag">Detailed</span>
+            </div>
+          </a>
+        </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-tpl-positioning-angle-footer" class="visually-hidden">Email</label>
+              <input id="email-tpl-positioning-angle-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="../terms.html#contact" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="../config.js"></script>
+  <script src="../waitlist.js" defer></script>
+  <script src="../consent.js?v=20261113-uses5" defer></script>
+  <script src="../templates.js?v=20261116-templates" defer></script>
+</body>
+</html>

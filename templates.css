@@ -1,0 +1,277 @@
+/* Templates section. Uses existing Promptly tokens only. */
+
+.tpl-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 28px;
+}
+
+.tpl-search-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.tpl-search {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px 0 40px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+}
+
+.tpl-search::placeholder { color: var(--muted); }
+.tpl-search:focus {
+  outline: 2px solid var(--fg-primary);
+  outline-offset: 3px;
+}
+
+.tpl-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.tpl-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tpl-chip {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--duration-slow) var(--ease), color var(--duration-slow) var(--ease), border-color var(--duration-slow) var(--ease);
+}
+
+.tpl-chip:hover {
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.tpl-chip[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: transparent;
+}
+
+.tpl-chip[aria-pressed="true"]:hover {
+  opacity: 0.86;
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.tpl-count {
+  margin: 0 0 16px;
+  font-size: var(--text-sm);
+  color: var(--secondary);
+}
+
+.tpl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tpl-card-wrap {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+}
+
+.tpl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  width: 100%;
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  text-decoration: none;
+  color: inherit;
+  min-height: 100%;
+  transition: border-color var(--duration-slow) var(--ease), background var(--duration-slow) var(--ease);
+}
+
+.tpl-card:hover {
+  opacity: 1;
+  border-color: var(--border-strong);
+  background: color-mix(in srgb, var(--group) 55%, var(--surface));
+}
+
+.tpl-card h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.tpl-card p {
+  color: var(--secondary);
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.tpl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tpl-tag {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--group);
+  color: var(--secondary);
+}
+
+.tpl-tag-cat {
+  color: var(--text);
+}
+
+.tpl-empty {
+  color: var(--secondary);
+  padding: 48px 0 24px;
+  margin: 0;
+}
+
+.tpl-crumb {
+  margin: 0 0 16px;
+  font-size: var(--text-sm);
+  color: var(--secondary);
+}
+
+.tpl-crumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tpl-crumb a:hover { text-decoration: underline; opacity: 1; }
+
+.tpl-detail-lede {
+  max-width: 40rem;
+}
+
+.tpl-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tpl-format {
+  margin: 20px 0 0;
+  font-size: var(--text-sm);
+  color: var(--secondary);
+  max-width: 40rem;
+}
+
+.tpl-format strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.tpl-prompt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.tpl-prompt-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.tpl-prompt {
+  background: var(--group);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  overflow-x: auto;
+}
+
+.tpl-prompt pre,
+.tpl-prompt-body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: var(--text);
+}
+
+.tpl-var {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--text);
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.tpl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 0;
+}
+
+.tpl-related {
+  margin-top: 56px;
+}
+
+.tpl-related h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.tpl-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 960px) {
+  .tpl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .tpl-grid,
+  .tpl-related-grid { grid-template-columns: 1fr; }
+  .tpl-card,
+  .tpl-prompt { padding: 20px; }
+  .tpl-prompt-head { align-items: flex-start; flex-direction: column; }
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source synthesis — Prompt template — Promptly</title>
+  <meta name="description" content="An expert prompt that synthesizes pasted sources, marks disagreements, and refuses unsourced claims.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/templates/source-synthesis.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Source synthesis — Prompt template — Promptly">
+  <meta property="og:description" content="An expert prompt that synthesizes pasted sources, marks disagreements, and refuses unsourced claims.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/templates/source-synthesis.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Source synthesis — Prompt template — Promptly">
+  <meta name="twitter:description" content="An expert prompt that synthesizes pasted sources, marks disagreements, and refuses unsourced claims.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="../styles.css?v=20261115-listshadow">
+  <link rel="stylesheet" href="../templates.css?v=20261116-templates">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="../index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+          <a href="../features.html">Features</a>
+          <a href="../templates.html" aria-current="page">Templates</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../download.html">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-sm" href="../index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+          <a href="../features.html">Features</a>
+          <a href="../templates.html" aria-current="page">Templates</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../download.html">Download</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <p class="tpl-crumb"><a href="../templates.html">Templates</a> / Research</p>
+        <h1>Source synthesis</h1>
+        <p class="lede tpl-detail-lede">Compare sources you paste in, separate agreement from dispute, and keep every claim tied to a source.</p>
+        <div class="tpl-detail-meta">
+          <span class="tpl-tag tpl-tag-cat">Research</span>
+          <span class="tpl-tag">Subject Expert</span>
+          <span class="tpl-tag">Expert</span>
+        </div>
+        <p class="tpl-format"><strong>Output format.</strong> Synthesis with citations to the supplied sources only</p>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap">
+        <div class="tpl-prompt-head">
+          <h2>Prompt</h2>
+          <button type="button" class="btn btn-sm btn-ghost" data-copy-target="tpl-prompt-raw">Copy</button>
+        </div>
+        <div class="tpl-prompt">
+          <pre class="tpl-prompt-body" id="tpl-prompt-display">You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write <span class="tpl-var">[NOT IN SOURCES]</span> instead of filling the gap.
+
+Question: <span class="tpl-var">[QUESTION]</span>
+Scope or time period, if any: <span class="tpl-var">[SCOPE]</span>
+
+Sources (keep the labels I use, such as A, B, C):
+<span class="tpl-var">[SOURCES]</span>
+
+Output:
+1. A short answer to the question, with source labels in parentheses
+2. Where the sources agree
+3. Where they disagree, including what would resolve the disagreement
+4. How strong the evidence is, and any obvious limits (date, sample, conflict of interest) that are visible in the text
+5. A list of claims I might be tempted to make that these sources do not actually support
+
+Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</pre>
+          <pre id="tpl-prompt-raw" hidden>You are a subject expert synthesizing sources the user provides. Use only these sources. If you need a fact that is not in them, write [NOT IN SOURCES] instead of filling the gap.
+
+Question: [QUESTION]
+Scope or time period, if any: [SCOPE]
+
+Sources (keep the labels I use, such as A, B, C):
+[SOURCES]
+
+Output:
+1. A short answer to the question, with source labels in parentheses
+2. Where the sources agree
+3. Where they disagree, including what would resolve the disagreement
+4. How strong the evidence is, and any obvious limits (date, sample, conflict of interest) that are visible in the text
+5. A list of claims I might be tempted to make that these sources do not actually support
+
+Quote sparingly, and only when the wording matters. Do not add publications that were not pasted in.</pre>
+        </div>
+        <div class="tpl-actions">
+          <a class="btn" href="../download.html">Get Promptly</a>
+          <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+        </div>
+        
+        <section class="tpl-related" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related templates</h2>
+          <div class="tpl-related-grid">
+        <article class="tpl-card-wrap" data-tpl-card data-category="Research" data-search="research brief shape a loose question into a research brief with scope, method, and what would count as enough. research critical reviewer detailed brief with scope, method options, and quality bar">
+          <a class="tpl-card" href="research-brief.html">
+            <h2>Research brief</h2>
+            <p>Shape a loose question into a research brief with scope, method, and what would count as enough.</p>
+            <div class="tpl-meta">
+              <span class="tpl-tag tpl-tag-cat">Research</span>
+              <span class="tpl-tag">Critical Reviewer</span>
+              <span class="tpl-tag">Detailed</span>
+            </div>
+          </a>
+        </article>
+        <article class="tpl-card-wrap" data-tpl-card data-category="Research" data-search="interview guide build a research or stakeholder interview guide with open questions and careful probes. research collaborative partner detailed interview guide with timing, questions, and probes">
+          <a class="tpl-card" href="interview-guide.html">
+            <h2>Interview guide</h2>
+            <p>Build a research or stakeholder interview guide with open questions and careful probes.</p>
+            <div class="tpl-meta">
+              <span class="tpl-tag tpl-tag-cat">Research</span>
+              <span class="tpl-tag">Collaborative Partner</span>
+              <span class="tpl-tag">Detailed</span>
+            </div>
+          </a>
+        </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="display">Join the waitlist.</h2>
+        <p class="lede">Leave your email and we'll write when Promptly is ready to download.</p>
+          <form class="waitlist" action="#" method="post">
+            <div class="waitlist-fields">
+              <label for="email-tpl-source-synthesis-footer" class="visually-hidden">Email</label>
+              <input id="email-tpl-source-synthesis-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>Thanks — we'll write when Promptly is ready to download.</p>
+          </form>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="../enterprise.html">Enterprise</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="../terms.html#contact" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="../config.js"></script>
+  <script src="../waitlist.js" defer></script>
+  <script src="../consent.js?v=20261113-uses5" defer></script>
+  <script src="../templates.js?v=20261116-templates" defer></script>
+</body>
+</html>
