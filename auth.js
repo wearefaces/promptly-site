@@ -129,7 +129,22 @@
     return (s.charAt(0) || "?").toUpperCase();
   }
 
+  // The header avatar opens the profile page (profile.html). Header markup stays a <span> in every page;
+  // it is swapped for a link here so the static pages don't all need editing.
+  function linkAvatars() {
+    document.querySelectorAll("span[data-auth-avatar]").forEach(function (el) {
+      var a = document.createElement("a");
+      a.href = "profile.html";
+      a.className = el.className;
+      a.setAttribute("data-auth-avatar", "");
+      a.setAttribute("aria-label", "Your profile");
+      a.title = "Your profile";
+      el.replaceWith(a);
+    });
+  }
+
   function renderAvatars() {
+    linkAvatars();
     document.querySelectorAll("[data-auth-avatar]").forEach(function (el) {
       el.replaceChildren();
       if (!user) return;

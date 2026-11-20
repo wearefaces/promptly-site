@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile — Promptly</title>
+  <meta name="description" content="Your Promptly account and the prompts you sync between the website and the Promptly app.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://wearefaces.github.io/promptly-site/profile.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Promptly">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Profile — Promptly">
+  <meta property="og:description" content="Your Promptly account and the prompts you sync between the website and the Promptly app.">
+  <meta property="og:url" content="https://wearefaces.github.io/promptly-site/profile.html">
+  <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Profile — Promptly">
+  <meta name="twitter:description" content="Your Promptly account and the prompts you sync between the website and the Promptly app.">
+  <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="styles.css?v=20261120-profile-v1">
+  <link rel="stylesheet" href="profile.css?v=20261120-profile-v1">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header header-page">
+    <div class="wrap-wide header-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#000"/>
+        <g fill="#fff">
+          <circle cx="10" cy="10" r="2.05"/>
+          <circle cx="16" cy="10" r="2.05"/>
+          <circle cx="22" cy="16" r="2.05"/>
+          <circle cx="10" cy="22" r="2.05"/>
+          <circle cx="16" cy="22" r="2.05"/>
+          <circle cx="10" cy="28" r="2.05"/>
+          <circle cx="16" cy="28" r="2.05"/>
+          <circle cx="22" cy="28" r="2.05"/>
+        </g>
+      </svg>
+        <span>Promptly</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="features.html">Features</a>
+          <a href="templates.html">Templates</a>
+        <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <a href="blog.html">Blog</a>
+          <a href="download.html">Get Promptly</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn btn-sm btn-ghost header-signin" data-auth-open>Sign in</button>
+        <span class="header-account" data-auth-signed-in hidden>
+          <span class="header-avatar" data-auth-avatar aria-hidden="true"></span>
+          <span class="header-email" data-auth-email></span>
+          <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+        </span>
+        <a class="btn btn-sm" href="index.html#waitlist" data-cta="primary">Join waitlist</a>
+        <details class="nav-toggle">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
+            </svg>
+          </summary>
+          <nav class="nav-panel" aria-label="Primary">
+            <a href="features.html">Features</a>
+          <a href="templates.html">Templates</a>
+            <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <a href="blog.html">Blog</a>
+          <a href="download.html">Get Promptly</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Profile</h1>
+        <p class="lede">Your Promptly account and the prompts you sync with the app.</p>
+      </div>
+    </div>
+    <div class="page-section">
+      <div class="wrap">
+      <div class="profile">
+        <p class="profile-note" data-profile-loading>Loading your account…</p>
+
+        <section class="profile-signed-out" data-profile-signed-out hidden>
+          <h2>Sign in to see your profile</h2>
+          <p class="lede">Use the same Google, Apple, or email sign-in as the Promptly app.</p>
+          <p><button type="button" class="btn" data-auth-open>Sign in</button></p>
+        </section>
+
+        <div data-profile-signed-in hidden>
+          <section class="profile-card" aria-labelledby="profile-account-title">
+            <div class="profile-account">
+              <span class="profile-avatar" data-profile-avatar aria-hidden="true"></span>
+              <div class="profile-account-text">
+                <h2 id="profile-account-title" data-profile-name></h2>
+                <p data-profile-email></p>
+              </div>
+              <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
+            </div>
+            <dl class="profile-facts">
+              <div><dt>Signed in with</dt><dd data-profile-provider></dd></div>
+              <div><dt>Account created</dt><dd data-profile-created></dd></div>
+              <div><dt>Free trial</dt><dd data-profile-trial></dd></div>
+            </dl>
+          </section>
+
+          <section class="profile-prompts" aria-labelledby="profile-prompts-title">
+            <div class="profile-prompts-head">
+              <h2 id="profile-prompts-title">My prompts</h2>
+              <button type="button" class="btn btn-sm" data-prompt-new>New prompt</button>
+            </div>
+            <p class="auth-error" data-prompts-error hidden></p>
+
+            <form class="profile-editor" data-prompt-editor hidden>
+              <h3 data-editor-title>New prompt</h3>
+              <label for="prompt-title">Title</label>
+              <input id="prompt-title" name="title" type="text" maxlength="500" required>
+              <label for="prompt-text">Prompt</label>
+              <textarea id="prompt-text" name="text" rows="6" maxlength="100000" required></textarea>
+              <div class="profile-editor-row">
+                <div>
+                  <label for="prompt-category">Category</label>
+                  <select id="prompt-category" name="category"></select>
+                </div>
+                <label class="profile-check"><input type="checkbox" name="isFavorite"> Favorite</label>
+              </div>
+              <div class="profile-editor-actions">
+                <button type="submit" class="btn btn-sm">Save</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-editor-cancel>Cancel</button>
+              </div>
+            </form>
+
+            <ul class="profile-list" data-prompts-list></ul>
+            <div class="profile-empty" data-prompts-empty hidden>
+              <p><strong>No prompts here yet.</strong></p>
+              <p>Prompts you save in the Promptly app show up here when sync is on in the app’s Settings. You can also add one here with New prompt.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"></div>
+    <div class="wrap-wide footer-cta">
+      <div class="footer-mark">
+        <svg class="footer-logo" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <mask id="promptly-holes">
+              <rect width="40" height="40" rx="10" fill="#fff"/>
+              <g fill="#000">
+                <circle cx="10" cy="10" r="2.05"/>
+                <circle cx="16" cy="10" r="2.05"/>
+                <circle cx="22" cy="16" r="2.05"/>
+                <circle cx="10" cy="22" r="2.05"/>
+                <circle cx="16" cy="22" r="2.05"/>
+                <circle cx="10" cy="28" r="2.05"/>
+                <circle cx="16" cy="28" r="2.05"/>
+                <circle cx="22" cy="28" r="2.05"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
+        </svg>
+      </div>
+      <div>
+        <div data-when="no-download">
+          <h2 class="display">Join the Promptly waitlist.</h2>
+          <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
+          <form class="waitlist" action="#" method="post" >
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="true">Both</button>
+          </div>
+
+            <div class="waitlist-fields">
+              <label for="email-pricing-footer" class="visually-hidden">Email</label>
+              <input id="email-success-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+              <button class="btn btn-light" type="submit">Join waitlist</button>
+            </div>
+            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
+          </form>
+        </div>
+        <div data-when="download" hidden>
+          <h2 class="display">Download for Mac.</h2>
+          <p class="lede">Requires macOS 26 or later, Apple silicon.</p>
+          <a class="btn btn-light" href="#" data-cta="download">Download for Mac</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap-wide footer-bar-inner">
+        <p>© Promptly</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="blog.html">Blog</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="enterprise.html">Enterprise</a>
+          <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
+          <a href="terms.html#contact" data-contact>Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <script src="config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="auth.js?v=20261120-profile-v1" defer></script>
+  <script src="waitlist.js?v=20261120-profile-v1" defer></script>
+  <script src="profile.js?v=20261120-profile-v1" defer></script>
+  <script src="consent.js?v=20261113-uses5" defer></script>
+</body>
+</html>
