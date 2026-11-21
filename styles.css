@@ -3511,6 +3511,13 @@ a.header-avatar:hover { opacity: 0.85; color: #fff; }
   margin-top: 8px;
 }
 .auth-error { color: #DC2D28; font-size: var(--text-sm); margin: 0 0 8px; }
+.auth-error.auth-ok { color: var(--secondary); }
+.auth-forgot-wrap {
+  margin: 8px 0 0;
+  font-size: var(--text-sm);
+  text-align: center;
+}
+.auth-forgot-wrap[hidden] { display: none; }
 .auth-close {
   position: absolute;
   top: 12px;

@@ -38,6 +38,7 @@
           '<input id="auth-password" type="password" name="password" autocomplete="current-password" required minlength="6">' +
           '<button type="submit" class="btn" id="auth-submit">Sign in</button>' +
         '</form>' +
+        '<p class="auth-forgot-wrap" id="auth-forgot-wrap"><button type="button" id="auth-forgot" class="auth-switch-btn">Forgot password?</button></p>' +
         '<p class="auth-switch" id="auth-switch-wrap">No account? <button type="button" id="auth-switch" class="auth-switch-btn">Create account</button></p>' +
       '</div>';
     document.body.appendChild(wrap);
@@ -53,6 +54,7 @@
     $("auth-switch").addEventListener("click", function () {
       setMode(authMode === "signup" ? "signin" : "signup");
     });
+    $("auth-forgot").addEventListener("click", sendPasswordReset);
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !$("auth-modal").hidden) closeModal();
     });
@@ -80,14 +82,18 @@
       wrap.firstChild.textContent = isSignup ? "Already have an account? " : "No account? ";
     }
     if (password) password.setAttribute("autocomplete", isSignup ? "new-password" : "current-password");
+    var forgotWrap = $("auth-forgot-wrap");
+    if (forgotWrap) forgotWrap.hidden = isSignup;
     showError("");
   }
 
-  function showError(msg) {
+  function showError(msg, tone) {
     var el = $("auth-error");
     if (!el) return;
+    el.classList.remove("auth-ok");
     if (!msg) { el.hidden = true; el.textContent = ""; return; }
     el.hidden = false;
+    if (tone === "ok") el.classList.add("auth-ok");
     el.textContent = msg;
   }
 
@@ -102,7 +108,7 @@
     if (code === "auth/popup-blocked") return "The sign-in popup was blocked. Allow popups, or try again.";
     if (code === "auth/popup-closed-by-user") return "Sign-in was cancelled.";
     if (code === "auth/wrong-password" || code === "auth/invalid-credential" || code === "auth/user-not-found") {
-      return "That email or password did not match.";
+      return "That email or password did not match. If you signed up with Google or Apple, use that button instead.";
     }
     if (code === "auth/email-already-in-use") return "An account with this email already exists. Try signing in.";
     if (code === "auth/weak-password") return "Use a password of at least 6 characters.";
@@ -288,6 +294,26 @@
     } catch (err) {
       showError(friendlyError(err));
     }
+  }
+
+  function sendPasswordReset() {
+    showError("");
+    var email = $("auth-email") && $("auth-email").value && $("auth-email").value.trim();
+    if (!email) {
+      showError("Enter your email first, then click Forgot password.");
+      var field = $("auth-email");
+      if (field) field.focus();
+      return;
+    }
+    if (!root.firebase) {
+      showError("Sign-in is not configured in this build.");
+      return;
+    }
+    firebase.auth().sendPasswordResetEmail(email).then(function () {
+      showError("If an account with a password exists for that email, we sent a reset link.", "ok");
+    }).catch(function (err) {
+      showError(friendlyError(err));
+    });
   }
 
   function signInEmail(isSignUp) {
