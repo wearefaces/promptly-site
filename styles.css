@@ -3375,6 +3375,73 @@ a.header-avatar:hover { opacity: 0.85; color: #fff; }
   display: block;
 }
 
+.header-account-menu { position: relative; }
+.header-account-menu > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  min-width: 0;
+  max-width: 18rem;
+}
+.header-account-menu > summary::-webkit-details-marker,
+.header-account-menu > summary::marker { display: none; content: ""; }
+.header-account-chevron {
+  display: inline-flex;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+.header-account-menu[open] > summary .header-account-chevron { transform: rotate(180deg); }
+.header-account-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 51;
+  min-width: 180px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.header-account-panel a,
+.header-account-panel [data-auth-signout] {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  height: auto;
+  min-height: 0;
+}
+.header-account-panel a:hover,
+.header-account-panel [data-auth-signout]:hover {
+  background: var(--group);
+  color: var(--text);
+  opacity: 1;
+}
+@media (max-width: 720px) {
+  .header-actions .header-account-menu { display: block; }
+  .header-actions .header-account-menu > summary {
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    max-width: none;
+  }
+}
+
 .auth-modal[hidden] { display: none !important; }
 .auth-modal {
   position: fixed;

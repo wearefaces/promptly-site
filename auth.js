@@ -112,6 +112,7 @@
 
   function openModal(mode) {
     ensureModal();
+    rememberProfileReturn();
     setMode(mode === "signup" ? "signup" : "signin");
     showError(initError);
     $("auth-modal").hidden = false;
@@ -129,17 +130,86 @@
     return (s.charAt(0) || "?").toUpperCase();
   }
 
+  function profileHref() {
+    var script = document.querySelector("script[src*='auth.js']");
+    var src = (script && script.getAttribute("src")) || "auth.js";
+    return src.indexOf("../") === 0 ? "../profile.html" : "profile.html";
+  }
+
+  function isProfilePage() {
+    var path = ((location.pathname || "").split("/").pop() || "");
+    return path === "profile.html" || path === "profile";
+  }
+
+  function rememberProfileReturn() {
+    if (!isProfilePage()) return;
+    try { sessionStorage.setItem("promptly-auth-return", "profile.html"); } catch (e) {}
+  }
+
+  function maybeRedirectToProfile() {
+    if (!user) return;
+    var ret = null;
+    try { ret = sessionStorage.getItem("promptly-auth-return"); } catch (e) {}
+    if (ret !== "profile.html") return;
+    try { sessionStorage.removeItem("promptly-auth-return"); } catch (e) {}
+    if (!isProfilePage()) location.assign(profileHref());
+  }
+
+  var profileSignInOpened = false;
+  function maybePromptProfileSignIn() {
+    if (user || !isProfilePage()) return;
+    rememberProfileReturn();
+    var modal = $("auth-modal");
+    if (modal && !modal.hidden) return;
+    if (profileSignInOpened) return;
+    profileSignInOpened = true;
+    openModal("signin");
+  }
+
   // The header avatar opens the profile page (profile.html). Header markup stays a <span> in every page;
   // it is swapped for a link here so the static pages don't all need editing.
   function linkAvatars() {
     document.querySelectorAll("span[data-auth-avatar]").forEach(function (el) {
       var a = document.createElement("a");
-      a.href = "profile.html";
+      a.href = profileHref();
       a.className = el.className;
       a.setAttribute("data-auth-avatar", "");
       a.setAttribute("aria-label", "Your profile");
       a.title = "Your profile";
       el.replaceWith(a);
+    });
+  }
+
+  // There is no account menu in the static header. Build a minimal one here (Profile + Sign out)
+  // in the existing header style, so every page gets it without markup changes.
+  function ensureAccountMenu() {
+    var href = profileHref();
+    document.querySelectorAll(".header-account[data-auth-signed-in]").forEach(function (account) {
+      if (account.querySelector(".header-account-menu")) return;
+      var signout = account.querySelector("[data-auth-signout]");
+      if (!signout) return;
+      var email = account.querySelector("[data-auth-email]");
+      var menu = document.createElement("details");
+      menu.className = "header-account-menu";
+      var summary = document.createElement("summary");
+      summary.setAttribute("aria-label", "Account menu");
+      if (email) summary.appendChild(email);
+      var chev = document.createElement("span");
+      chev.className = "header-account-chevron";
+      chev.setAttribute("aria-hidden", "true");
+      chev.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8 9.5 4.5"/></svg>';
+      summary.appendChild(chev);
+      var panel = document.createElement("div");
+      panel.className = "header-account-panel";
+      panel.setAttribute("role", "menu");
+      var profile = document.createElement("a");
+      profile.href = href;
+      profile.textContent = "Profile";
+      profile.setAttribute("role", "menuitem");
+      signout.setAttribute("role", "menuitem");
+      panel.append(profile, signout);
+      menu.append(summary, panel);
+      account.appendChild(menu);
     });
   }
 
@@ -177,6 +247,9 @@
       el.textContent = user && (user.email || user.displayName || "Signed in");
     });
     renderAvatars();
+    ensureAccountMenu();
+    maybeRedirectToProfile();
+    maybePromptProfileSignIn();
   }
 
   function app() {
@@ -245,6 +318,9 @@
       }
       var out = e.target.closest && e.target.closest("[data-auth-signout]");
       if (out) { e.preventDefault(); signOut(); }
+      document.querySelectorAll(".header-account-menu[open]").forEach(function (d) {
+        if (!d.contains(e.target)) d.removeAttribute("open");
+      });
     });
     try {
       var q = new URLSearchParams(location.search).get("auth");
