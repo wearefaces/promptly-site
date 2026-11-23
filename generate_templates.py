@@ -190,7 +190,7 @@ def head(title: str, description: str, canonical: str, extra_css: str = "") -> s
   <meta property="og:image" content="{BASE}/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta property="og:image:alt" content="Promptly for Mac and Windows — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{html.escape(title)}">
   <meta name="twitter:description" content="{html.escape(description)}">
@@ -239,7 +239,7 @@ def write_index(data: dict) -> None:
         )
     cards = "\n".join(card_html(t, f"templates/{t['slug']}.html") for t in templates)
     n = len(templates)
-    title = "Templates — Promptly for Mac"
+    title = "Templates — Promptly for Mac and Windows"
     desc = "Original AI prompt templates for writing, marketing, coding, business, email, research, and learning. Copy a prompt and use it in Promptly or any AI you already use."
     canonical = f"{BASE}/templates.html"
     extra_css = (

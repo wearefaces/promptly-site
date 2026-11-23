@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Promptly — AI prompts next to your cursor (Mac)</title>
-  <meta name="description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
+  <title>Promptly — AI prompts next to your cursor (Mac and Windows)</title>
+  <meta name="description" content="Promptly is a prompt library for Mac and Windows that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
@@ -13,16 +13,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Promptly">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Promptly — AI prompts next to your cursor (Mac)">
-  <meta property="og:description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
+  <meta property="og:title" content="Promptly — AI prompts next to your cursor (Mac and Windows)">
+  <meta property="og:description" content="Promptly is a prompt library for Mac and Windows that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
   <meta property="og:url" content="https://wearefaces.github.io/promptly-site/">
   <meta property="og:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Promptly for Mac — Select text. Ask any AI.">
+  <meta property="og:image:alt" content="Promptly for Mac and Windows — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Promptly — AI prompts next to your cursor (Mac)">
-  <meta name="twitter:description" content="Promptly is a Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
+  <meta name="twitter:title" content="Promptly — AI prompts next to your cursor (Mac and Windows)">
+  <meta name="twitter:description" content="Promptly is a prompt library for Mac and Windows that turns any text you select into a ready-to-send AI prompt for ChatGPT, Claude, and the AI you already use.">
   <meta name="twitter:image" content="https://wearefaces.github.io/promptly-site/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -33,8 +33,8 @@
   "@type": "SoftwareApplication",
   "name": "Promptly",
   "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "macOS",
-  "description": "A Mac menu bar prompt library that turns any text you select into a ready-to-send AI prompt, with your own library one click away.",
+  "operatingSystem": "macOS, Windows",
+  "description": "A prompt library for Mac and Windows that turns any text you select into a ready-to-send AI prompt, with your own library one click away.",
   "url": "https://wearefaces.github.io/promptly-site/",
   "image": "https://wearefaces.github.io/promptly-site/og.png",
   "offers": [
@@ -124,7 +124,7 @@
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow">A menu bar app for Mac</p>
+        <p class="eyebrow">For Mac and Windows</p>
         <h1 class="display">Select text.<br>Ask any AI.</h1>
         <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
           <div class="frost">
@@ -143,12 +143,12 @@
           </div>
         </form>
         <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-        <p class="lede">Promptly turns any text you select on your Mac into a ready-to-send AI prompt — with your own prompt library one click away.</p>
+        <p class="lede">Promptly turns any text you select on your Mac or Windows PC into a ready-to-send AI prompt — with your own prompt library one click away.</p>
         <div class="hero-actions">
           <a class="btn" href="#waitlist" data-cta="primary">Join waitlist</a>
           <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
         </div>
-        <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. Requires macOS 26 or later, Apple silicon.</p>
+        <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. On Mac: requires macOS 26 or later, Apple silicon.</p>
         <p class="hero-pricing">Planned prices: <strong>Free</strong>, Pro <strong>$7/month</strong> or <strong>$59/year</strong>, Lifetime <strong>$149</strong> for the first 300 buyers. <a href="pricing.html">See plans</a></p>
       </div>
       <figure class="product-stage">
@@ -177,7 +177,7 @@
       <div class="wrap">
         <div class="section-head center" data-reveal>
           <h2 class="display-md">How it works</h2>
-          <p class="lede">Three steps, from any app on your Mac.</p>
+          <p class="lede">Three steps, from any app on your Mac or Windows PC.</p>
         </div>
         <div class="card-row" data-reveal>
           <article>
@@ -564,11 +564,11 @@
           <details><summary>Does it work in every app?</summary><p>It works wherever you can select text. Most apps expose the selection directly; in others Promptly briefly uses copy to read it.</p></details>
           <details><summary>Which AI does it use?</summary><p>The one you choose: ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Copilot, or your own URL.</p></details>
           <details><summary>Do I need an API key?</summary><p>No. Promptly opens the AI service you already use.</p></details>
-          <details><summary>Where are my prompts stored?</summary><p>On your Mac, in a local file you can back up or share.</p></details>
+          <details><summary>Where are my prompts stored?</summary><p>On your Mac or Windows PC, in a local file you can back up or share.</p></details>
           <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
           <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
           <details><summary>What happens after the trial?</summary><p>You keep using Promptly. Nothing is locked and you're never charged automatically.</p></details>
-          <details><summary>Is there a Windows version?</summary><p>An earlier Windows version exists; the new design is Mac-first. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>Yes. Promptly is for Mac and Windows. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
         </div>
       </div>
     </section>
