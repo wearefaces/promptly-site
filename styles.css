@@ -215,6 +215,21 @@ body {
 
 img, svg { display: block; max-width: 100%; }
 [hidden] { display: none !important; }
+
+/* Small platform label for Mac-only features on a Mac + Windows page. */
+.on-mac {
+  display: inline-block;
+  margin-left: 0.35em;
+  padding: 0.1em 0.45em;
+  border-radius: 999px;
+  font-size: 0.62em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { opacity: 0.7; }
 :focus-visible { outline: 2px solid var(--fg-primary); outline-offset: 3px; }

@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261121-profile-v3">
+  <link rel="stylesheet" href="styles.css?v=20261127-leaks1">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -150,6 +150,7 @@
         </div>
         <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. On Mac: requires macOS 26 or later, Apple silicon.</p>
         <p class="hero-pricing">Planned prices: <strong>Free</strong>, Pro <strong>$7/month</strong> or <strong>$59/year</strong>, Lifetime <strong>$149</strong> for the first 300 buyers. <a href="pricing.html">See plans</a></p>
+        <p class="hero-pricing">Beta: the first 50 people on the waitlist get Pro free for a year, in exchange for 15 minutes of feedback.</p>
       </div>
       <figure class="product-stage">
         <div class="mac-window">
@@ -317,22 +318,22 @@
     <section class="section" id="built-for">
       <div class="wrap">
         <div class="split" data-reveal>
-          <h2 class="display-md">Built for the Mac you already use.</h2>
+          <h2 class="display-md">Private by design.</h2>
           <div>
-            <p class="lede cred-intro">Promptly is a menu bar app — no Dock icon. Your library stays on your Mac.</p>
+            <p class="lede cred-intro">Your library stays on your computer. On Mac, Promptly is a menu bar app — no Dock icon.</p>
             <ul class="cred">
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.2 3.2 4.8 6.6l-.8 2.4 2.4-.8 3.4-3.4A1.2 1.2 0 0 0 8.2 3.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
                 <div>
                   <h3>Stored locally</h3>
-                  <p>Your library is stored on your Mac, in a local file you can back up or share.</p>
+                  <p>Your library is stored on your computer, in a local file you can back up or share.</p>
                 </div>
               </li>
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="2.2"/><path d="M5 15c0-2.2 2.2-3.5 5-3.5s5 1.3 5 3.5"/></svg></span>
                 <div>
                   <h3>Sign-in, library stays local</h3>
-                  <p>You sign in with email, Google, or Apple. Your prompts stay on your Mac — we don’t upload your library.</p>
+                  <p>You sign in with email, Google, or Apple. Your prompts stay on your computer — we don’t upload your library.</p>
                 </div>
               </li>
               <li>
@@ -345,14 +346,14 @@
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="9" width="9" height="6.5" rx="1.2"/><path d="M7.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/></svg></span>
                 <div>
-                  <h3>Tokens stay in Keychain</h3>
+                  <h3>Tokens stay in Keychain <span class="on-mac">On Mac</span></h3>
                   <p>Workspace tokens for Slack and Microsoft 365 are kept in the macOS Keychain.</p>
                 </div>
               </li>
               <li>
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M10 2.5v2.5M10 15v2.5M2.5 10H5M15 10h2.5"/></svg></span>
                 <div>
-                  <h3>On-device quality checks</h3>
+                  <h3>On-device quality checks <span class="on-mac">On Mac</span></h3>
                   <p>AI quality checks can run fully on-device with Apple Intelligence.</p>
                 </div>
               </li>
@@ -403,7 +404,7 @@
             </div>
             <div class="card-caption">
               <h3>Prompt quality score</h3>
-              <p>An instant 0–100 score with a colour indicator, plus Check and Improve with AI. Runs on-device when Apple Intelligence is on. The instant score currently understands English prompts best.</p>
+              <p>An instant 0–100 score with a colour indicator, plus Check and Improve with AI. On Mac, this can run on-device when Apple Intelligence is on. The instant score currently understands English prompts best.</p>
             </div>
           </article>
           <article>
@@ -427,7 +428,7 @@
             </div>
             <div class="card-caption">
               <h3>Team sources</h3>
-              <p>Connect a shared JSON or CSV URL, Slack, or Microsoft 365. Tokens are stored in the macOS Keychain.</p>
+              <p>Connect a shared JSON or CSV URL, Slack, or Microsoft 365. On Mac, tokens are stored in the macOS Keychain.</p>
             </div>
           </article>
         </div>
@@ -453,7 +454,8 @@
       </div>
     </section>
 
-    <section class="section" id="testimonials">
+    <!-- Hidden until real quotes replace the placeholders; remove `hidden` to show. -->
+    <section class="section" id="testimonials" hidden>
       <div class="wrap">
         <div class="section-head center" data-reveal>
           <h2 class="display-md">What people say</h2>
@@ -568,7 +570,7 @@
           <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
           <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
           <details><summary>What happens after the trial?</summary><p>You keep using Promptly. Nothing is locked and you're never charged automatically.</p></details>
-          <details><summary>Is there a Windows version?</summary><p>Yes. Promptly is for Mac and Windows. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>Windows is coming. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
         </div>
       </div>
     </section>
@@ -598,7 +600,7 @@
       </div>
       <div>
         <h2 class="display">Join the Promptly waitlist.</h2>
-        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
+        <p class="lede">Mac and Windows. We'll email you when it's ready. The first 50 get Pro free for a year as beta testers.</p>
           <a class="btn btn-light" href="#waitlist">Join the waitlist</a>
       </div>
     </div>
@@ -623,8 +625,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261121-profile-v3" defer></script>
-  <script src="waitlist.js?v=20261120-profile-v1" defer></script>
+  <script src="waitlist.js?v=20261127-leaks1" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
-  <script src="consent.js?v=20261113-uses5" defer></script>
+  <script src="consent.js?v=20261127-leaks1" defer></script>
 </body>
 </html>

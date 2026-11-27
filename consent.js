@@ -14,7 +14,12 @@
   function set(v) {
     try { localStorage.setItem(KEY, v); } catch (e) {}
   }
-  window.promptlyConsent = { get: get };
+  function track(name, params) {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", name, params || {});
+  }
+  window.promptlyTrack = track;
+  window.promptlyConsent = { get: get, track: track };
 
   function gtag() {
     window.dataLayer = window.dataLayer || [];

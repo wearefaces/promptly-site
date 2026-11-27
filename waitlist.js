@@ -226,6 +226,31 @@
   }
 
   var EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  var ATTR_KEY = "promptly-waitlist-attr";
+
+  function clip(value, max) {
+    return String(value || "").trim().slice(0, max);
+  }
+
+  function firstTouchAttr() {
+    var stored = null;
+    try { stored = JSON.parse(localStorage.getItem(ATTR_KEY) || "null"); } catch (e) {}
+    if (stored && typeof stored === "object" && stored.landingPath) return stored;
+    var params = {};
+    try { params = Object.fromEntries(new URLSearchParams(location.search)); } catch (e) {}
+    var landingPath = (location.pathname || "/") + (location.search || "") + (location.hash || "");
+    var attr = {
+      utm_source: clip(params.utm_source, 199),
+      utm_medium: clip(params.utm_medium, 199),
+      utm_campaign: clip(params.utm_campaign, 199),
+      referrer: clip(document.referrer, 999),
+      landingPath: clip(landingPath, 499) || "/"
+    };
+    try { localStorage.setItem(ATTR_KEY, JSON.stringify(attr)); } catch (e) {}
+    return attr;
+  }
+
+  firstTouchAttr();
 
   function sourcePage() {
     var path = (location.pathname || "").split("/").pop() || "index.html";
@@ -283,9 +308,19 @@
       source: sourcePage()
     };
     if (user && user.uid) data.uid = user.uid;
+    var attr = firstTouchAttr();
+    ["utm_source", "utm_medium", "utm_campaign", "referrer", "landingPath"].forEach(function (key) {
+      if (attr[key]) data[key] = attr[key];
+    });
     if (submit) submit.disabled = true;
     firebase.firestore().collection("waitlist").doc(email).set(data).then(function () {
       showThanks(form);
+      if (typeof window.promptlyTrack === "function") {
+        window.promptlyTrack("waitlist_signup", {
+          source: data.source,
+          utm_source: data.utm_source || "(direct)"
+        });
+      }
     }).catch(function (err) {
       var code = (err && err.code) || "";
       if (code === "already-exists" || /already exists|already-exists/i.test((err && err.message) || "")) {
