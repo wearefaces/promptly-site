@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BASE = "https://wearefaces.github.io/promptly-site"
+BASE = "https://getpromptly.io"
 CSS_V = "20261120-profile-v1"
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 

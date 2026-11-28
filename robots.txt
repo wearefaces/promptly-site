@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wearefaces.github.io/promptly-site/sitemap.xml
+Sitemap: https://getpromptly.io/sitemap.xml

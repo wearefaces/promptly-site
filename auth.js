@@ -100,7 +100,7 @@
   function friendlyError(err) {
     var code = (err && err.code) || "";
     if (code === "auth/unauthorized-domain") {
-      return "This domain is not yet authorised in Firebase Auth. Add wearefaces.github.io (and localhost for previews) in the promptly-bfad6 console.";
+      return "This domain is not yet authorised in Firebase Auth. Add getpromptly.io (and localhost for previews) in the promptly-bfad6 console.";
     }
     if (code === "auth/operation-not-allowed") {
       return "This sign-in method is not enabled yet in the promptly-bfad6 Auth console.";
