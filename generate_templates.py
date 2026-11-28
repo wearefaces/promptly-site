@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://getpromptly.io"
-CSS_V = '20261128-onebtn'
+CSS_V = '20261128-ft1'
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -116,21 +116,12 @@ def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
 {FOOTER_LOGO}
       </div>
       <div>
-        <h2 class="display">Join the Promptly waitlist.</h2>
-        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
-          <form class="waitlist" action="#" method="post">
-          <div class="waitlist-platforms" role="group" aria-label="Platform">
-            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
-            <button type="button" data-platform="both" aria-pressed="true">Both</button>
-          </div>
-            <div class="waitlist-fields">
-              <label for="{form_id}" class="visually-hidden">Email</label>
-              <input id="{form_id}" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-              <button class="btn btn-light" type="submit">Join the waitlist</button>
-            </div>
-            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-          </form>
+        <h2 class="display">Get Promptly.</h2>
+        <p class="lede">Download for Mac, or join the Windows waitlist.</p>
+        <div class="footer-ctas">
+          <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
+          <a class="btn btn-ghost-light" href="/download#windows" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+        </div>
       </div>
     </div>
     <div class="footer-bar">

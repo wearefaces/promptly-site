@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261128-onebtn">
+  <link rel="stylesheet" href="styles.css?v=20261128-ft1">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -553,7 +553,7 @@
           <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
           <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
           <details><summary>What happens after the trial?</summary><p>The trial never charges you. When it ends, Promptly continues on the Free plan. If you subscribe, Monthly and Yearly plans renew until cancelled. Lifetime is a one-time purchase. Payments are not live yet.</p></details>
-          <details><summary>Is there a Windows version?</summary><p>Windows is coming. <a href="/download#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>Windows is coming. <a href="/download#windows">Join the waitlist</a> to hear when it is ready.</p></details>
         </div>
       </div>
     </section>
@@ -581,10 +581,13 @@
           <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
         </svg>
       </div>
-      <div>
+            <div>
         <h2 class="display">Get Promptly.</h2>
         <p class="lede">Download for Mac, or join the Windows waitlist.</p>
-        <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
+        <div class="footer-ctas">
+          <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
+          <a class="btn btn-ghost-light" href="/download#windows" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+        </div>
       </div>
     </div>
     <div class="footer-bar">
@@ -608,8 +611,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-onebtn" defer></script>
+  <script src="waitlist.js?v=20261128-ft1" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
-  <script src="consent.js?v=20261128-onebtn" defer></script>
+  <script src="consent.js?v=20261128-ft1" defer></script>
 </body>
 </html>

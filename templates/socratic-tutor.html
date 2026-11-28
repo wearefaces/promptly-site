@@ -27,7 +27,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="../styles.css?v=20261128-onebtn">
+  <link rel="stylesheet" href="../styles.css?v=20261128-ft1">
   <link rel="stylesheet" href="../templates.css?v=20261120-profile-v1">
   <link rel="stylesheet" href="../prompt-quality.css?v=20261120-profile-v1">
   <link rel="stylesheet" href="../members.css?v=20261120-profile-v1">
@@ -240,22 +240,13 @@ Start with a single question that checks what I already understand about [TOPIC]
           <rect width="40" height="40" rx="10" fill="#fff" mask="url(#promptly-holes)"/>
         </svg>
       </div>
-      <div>
-        <h2 class="display">Join the Promptly waitlist.</h2>
-        <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
-          <form class="waitlist" action="#" method="post">
-          <div class="waitlist-platforms" role="group" aria-label="Platform">
-            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
-            <button type="button" data-platform="both" aria-pressed="true">Both</button>
-          </div>
-            <div class="waitlist-fields">
-              <label for="email-tpl-socratic-tutor-footer" class="visually-hidden">Email</label>
-              <input id="email-tpl-socratic-tutor-footer" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-              <button class="btn btn-light" type="submit">Join the waitlist</button>
-            </div>
-            <p class="waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-          </form>
+            <div>
+        <h2 class="display">Get Promptly.</h2>
+        <p class="lede">Download for Mac, or join the Windows waitlist.</p>
+        <div class="footer-ctas">
+          <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
+          <a class="btn btn-ghost-light" href="/download#windows" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+        </div>
       </div>
     </div>
     <div class="footer-bar">
@@ -279,8 +270,8 @@ Start with a single question that checks what I already understand about [TOPIC]
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="../firebase-config.js" defer></script>
   <script src="../auth.js?v=20261128-dl1" defer></script>
-  <script src="../waitlist.js?v=20261128-onebtn" defer></script>
-  <script src="../consent.js?v=20261128-onebtn" defer></script>
+  <script src="../waitlist.js?v=20261128-ft1" defer></script>
+  <script src="../consent.js?v=20261128-ft1" defer></script>
   <script src="../templates.js?v=20261120-profile-v1" defer></script>
 
 </body>

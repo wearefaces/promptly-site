@@ -29,8 +29,9 @@
   }
 
   function waitlistHref() {
-    if (document.getElementById("waitlist")) return "#waitlist";
-    return "/#waitlist";
+    var local = document.getElementById("windows") || document.getElementById("waitlist");
+    if (local && local.id) return "#" + local.id;
+    return "/download#windows";
   }
 
   function contactHref() {
