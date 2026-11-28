@@ -2,7 +2,7 @@
    CHECKOUT links below are Stripe TEST-mode payment links.
    Swap them for live payment links before a real launch.
    Leave a value empty to keep the "Join waitlist" fallback.
-   DOWNLOAD_URL and CONTACT_EMAIL stay empty until provided.
+   DOWNLOAD_URL points at the current Mac beta. CONTACT_EMAIL stays empty until provided.
    WAITLIST_ENDPOINT is unused: waitlist sign-ups go to Firestore in promptly-bfad6.
    This file only stores URLs — it does not create Stripe objects or accounts. */
 var CHECKOUT = {
@@ -10,7 +10,7 @@ var CHECKOUT = {
   yearly: "https://buy.stripe.com/test_00wcMZ6Wg7HY9uV9KDfbq01",
   lifetime: "https://buy.stripe.com/test_8x24gtcgAgeu5eF1e7fbq02"
 };
-var DOWNLOAD_URL = "";
+var DOWNLOAD_URL = "https://github.com/wearefaces/promptly-site/releases/download/beta-1.0-2/Promptly-beta-1.0-2.dmg";
 var CONTACT_EMAIL = "";
 var WAITLIST_ENDPOINT = "";
 

@@ -85,7 +85,7 @@
   if (get() === "declined") return;
 
   function build() {
-    var privacy = "privacy.html";
+    var privacy = "/privacy";
     var box = document.createElement("section");
     box.className = "consent";
     box.setAttribute("role", "region");

@@ -46,7 +46,7 @@
       item.title, item.description || "", item.category,
       item.persona || "", item.level || "", item.format || ""
     ].join(" ").toLowerCase();
-    var href = prefix + "template.html?id=" + encodeURIComponent(item.slug);
+    var href = "/template?id=" + encodeURIComponent(item.slug);
     var el = document.createElement("article");
     el.className = "tpl-card-wrap";
     el.setAttribute("data-tpl-card", "");

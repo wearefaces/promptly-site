@@ -30,12 +30,12 @@
 
   function waitlistHref() {
     if (document.getElementById("waitlist")) return "#waitlist";
-    return "index.html#waitlist";
+    return "/#waitlist";
   }
 
   function contactHref() {
     if (document.getElementById("contact")) return "#contact";
-    return "terms.html#contact";
+    return "/terms#contact";
   }
 
   function billingPeriod() {
@@ -147,8 +147,12 @@
           el.href = c.download.trim();
           el.textContent = el.getAttribute("data-label") || "Download for Mac";
         } else {
-          el.href = waitlistHref();
-          el.textContent = "Join waitlist";
+          var existing = el.getAttribute("href") || "";
+          var hasFile = /^https?:/i.test(existing) && existing.indexOf("waitlist") === -1;
+          if (!hasFile) {
+            el.href = waitlistHref();
+            el.textContent = "Join waitlist";
+          }
         }
       } else if (kind === "primary") {
         if (filled(c.download)) {
@@ -156,7 +160,7 @@
           el.textContent = "Download for Mac";
         } else if (checkoutLive) {
           var primaryUrl = c.checkout[billing] || c.checkout.yearly || c.checkout.monthly || c.checkout.lifetime;
-          el.href = filled(primaryUrl) ? primaryUrl.trim() : "pricing.html";
+          el.href = filled(primaryUrl) ? primaryUrl.trim() : "/pricing";
           el.textContent = "Start free trial";
         } else {
           el.href = waitlistHref();
@@ -253,8 +257,10 @@
   firstTouchAttr();
 
   function sourcePage() {
-    var path = (location.pathname || "").split("/").pop() || "index.html";
-    return path || "index.html";
+    var path = location.pathname || "/";
+    if (path === "/" || path === "/index" || path === "/index.html") return "index";
+    if (path.slice(-5) === ".html") path = path.slice(0, -5);
+    return path.replace(/^\//, "") || "index";
   }
 
   function platformsOf(form) {

@@ -1,4 +1,4 @@
-/* Client-rendered members template page: /template.html?id=<slug> */
+/* Client-rendered members template page: /template?id=<slug> */
 (function (root) {
   "use strict";
 
@@ -39,7 +39,7 @@
     if (qs("tpl-gate-crumb")) qs("tpl-gate-crumb").hidden = true;
     qs("tpl-member-head").hidden = false;
     qs("tpl-member-body").hidden = false;
-    qs("tpl-member-crumb").innerHTML = '<a href="templates.html">Templates</a> / ' + escapeHtml(t.category || "Members");
+    qs("tpl-member-crumb").innerHTML = '<a href="/templates">Templates</a> / ' + escapeHtml(t.category || "Members");
     qs("tpl-member-title").textContent = t.title;
     qs("tpl-member-desc").textContent = t.description || "";
     qs("tpl-member-meta").innerHTML =
@@ -81,7 +81,7 @@
       .then(function (data) {
         var pub = (data.templates || []).some(function (t) { return t.slug === slug; });
         if (pub) {
-          location.replace("templates/" + encodeURIComponent(slug) + ".html");
+          location.replace("/templates/" + encodeURIComponent(slug));
           return;
         }
         loadMember(slug);

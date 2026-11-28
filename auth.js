@@ -137,9 +137,7 @@
   }
 
   function profileHref() {
-    var script = document.querySelector("script[src*='auth.js']");
-    var src = (script && script.getAttribute("src")) || "auth.js";
-    return src.indexOf("../") === 0 ? "../profile.html" : "profile.html";
+    return "/profile";
   }
 
   function isProfilePage() {
@@ -149,14 +147,14 @@
 
   function rememberProfileReturn() {
     if (!isProfilePage()) return;
-    try { sessionStorage.setItem("promptly-auth-return", "profile.html"); } catch (e) {}
+    try { sessionStorage.setItem("promptly-auth-return", "/profile"); } catch (e) {}
   }
 
   function maybeRedirectToProfile() {
     if (!user) return;
     var ret = null;
     try { ret = sessionStorage.getItem("promptly-auth-return"); } catch (e) {}
-    if (ret !== "profile.html") return;
+    if (ret !== "/profile" && ret !== "profile.html") return;
     try { sessionStorage.removeItem("promptly-auth-return"); } catch (e) {}
     if (!isProfilePage()) location.assign(profileHref());
   }

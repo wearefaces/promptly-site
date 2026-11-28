@@ -59,26 +59,26 @@ def highlight(prompt: str) -> str:
 
 def nav_links(prefix: str, current: str) -> str:
     items = [
-        ("features.html", "Features"),
-        ("templates.html", "Templates"),
-        ("pricing.html", "Pricing"),
-        ("enterprise.html", "Enterprise"),
-        ("blog.html", "Blog"),
-        ("download.html", "Get Promptly"),
+        ("/features", "Features"),
+        ("/templates", "Templates"),
+        ("/pricing", "Pricing"),
+        ("/enterprise", "Enterprise"),
+        ("/blog", "Blog"),
+        ("/download", "Get Promptly"),
     ]
     lines = []
     for href, label in items:
         cur = ' aria-current="page"' if href == current else ""
-        lines.append(f'          <a href="{prefix}{href}"{cur}>{label}</a>')
+        lines.append(f'          <a href="{href}"{cur}>{label}</a>')
     return "\n".join(lines)
 
 
 def header(prefix: str, current: str) -> str:
     links = nav_links(prefix, current)
-    waitlist = f"{prefix}index.html#waitlist"
+    waitlist = "/#waitlist"
     return f"""  <header class="site-header header-page">
     <div class="wrap-wide header-inner">
-      <a class="brand" href="{prefix}index.html">
+      <a class="brand" href="/">
 {LOGO}
         <span>Promptly</span>
       </a>
@@ -137,13 +137,13 @@ def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
       <div class="wrap-wide footer-bar-inner">
         <p>© Promptly</p>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="{prefix}privacy.html">Privacy</a>
-          <a href="{prefix}terms.html">Terms</a>
-          <a href="{prefix}blog.html">Blog</a>
-          <a href="{prefix}pricing.html">Pricing</a>
-          <a href="{prefix}enterprise.html">Enterprise</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/blog">Blog</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/enterprise">Enterprise</a>
           <!-- Contact: set CONTACT_EMAIL in config.js to turn this into a mailto link. -->
-          <a href="{prefix}terms.html#contact" data-contact>Contact</a>
+          <a href="/terms#contact" data-contact>Contact</a>
         </nav>
       </div>
     </div>
@@ -165,7 +165,7 @@ def firebase_scripts(prefix: str) -> str:
 
 
 def head(title: str, description: str, canonical: str, extra_css: str = "") -> str:
-    if "/templates/" in canonical and not canonical.endswith("/templates.html"):
+    if "/templates/" in canonical and not canonical.rstrip("/").endswith("/templates"):
         prefix = "../"
     else:
         prefix = ""
@@ -237,11 +237,11 @@ def write_index(data: dict) -> None:
         chips.append(
             f'          <button type="button" class="tpl-chip" data-tpl-filter="{html.escape(c)}" aria-pressed="false">{html.escape(c)}</button>'
         )
-    cards = "\n".join(card_html(t, f"templates/{t['slug']}.html") for t in templates)
+    cards = "\n".join(card_html(t, f"/templates/{t['slug']}") for t in templates)
     n = len(templates)
     title = "Templates — Promptly for Mac and Windows"
     desc = "Original AI prompt templates for writing, marketing, coding, business, email, research, and learning. Copy a prompt and use it in Promptly or any AI you already use."
-    canonical = f"{BASE}/templates.html"
+    canonical = f"{BASE}/templates"
     extra_css = (
         f'  <link rel="stylesheet" href="prompt-quality.css?v={CSS_V}">\n'
         f'  <link rel="stylesheet" href="members.css?v={CSS_V}">'
@@ -249,14 +249,14 @@ def write_index(data: dict) -> None:
     page = f"""{head(title, desc, canonical, extra_css)}
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-{header("", "templates.html")}
+{header("", "/templates")}
   <main id="main">
     <div class="page-hero">
       <div class="wrap">
         <h1>Templates</h1>
         <p class="lede">Ready-to-use prompts you can copy into Promptly, or into the AI you already use. Each one has a persona, a level, and an output format. Sign in to unlock the members library.</p>
         <div class="tpl-hero-actions">
-          <a class="btn btn-ghost" href="analyze.html">Analyze a prompt</a>
+          <a class="btn btn-ghost" href="/analyze">Analyze a prompt</a>
         </div>
       </div>
     </div>
@@ -304,11 +304,11 @@ def write_detail(t: dict, by_slug: dict) -> None:
     prefix = "../"
     title = t["seoTitle"]
     desc = t["seoDescription"]
-    canonical = f"{BASE}/templates/{t['slug']}.html"
+    canonical = f"{BASE}/templates/{t['slug']}"
     related = [by_slug[s] for s in t.get("related", []) if s in by_slug]
     related_html = ""
     if related:
-        cards = "\n".join(card_html(r, f"{r['slug']}.html") for r in related)
+        cards = "\n".join(card_html(r, f"/templates/{r['slug']}") for r in related)
         related_html = f"""
         <section class="tpl-related" aria-labelledby="related-heading">
           <h2 id="related-heading">Related templates</h2>
@@ -328,11 +328,11 @@ def write_detail(t: dict, by_slug: dict) -> None:
     page = f"""{head(title, desc, canonical, extra_css)}
 <body data-template-slug="{html.escape(t['slug'])}" data-template-title="{html.escape(t['title'])}" data-template-category="{html.escape(t['category'])}" data-template-persona="{html.escape(t['persona'])}" data-template-level="{html.escape(t['level'])}" data-template-format="{html.escape(t['format'])}">
   <a class="skip-link" href="#main">Skip to content</a>
-{header(prefix, "templates.html")}
+{header(prefix, "/templates")}
   <main id="main">
     <div class="page-hero">
       <div class="wrap">
-        <p class="tpl-crumb"><a href="../templates.html">Templates</a> / {html.escape(t['category'])}</p>
+        <p class="tpl-crumb"><a href="/templates">Templates</a> / {html.escape(t['category'])}</p>
         <div class="tpl-detail-head">
           <div>
             <h1>{html.escape(t['title'])}</h1>
@@ -375,10 +375,10 @@ def write_detail(t: dict, by_slug: dict) -> None:
             </div>
             <div class="tpl-actions">
               <button type="button" class="btn" id="tpl-open-promptly">Open in Promptly</button>
-              <a class="btn btn-ghost" href="../download.html">Get Promptly</a>
-              <a class="btn btn-ghost" href="../pricing.html">See pricing</a>
+              <a class="btn btn-ghost" href="/download">Get Promptly</a>
+              <a class="btn btn-ghost" href="/pricing">See pricing</a>
             </div>
-            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="../download.html">download the Mac app</a> and try again once it is installed.</p>
+            <p class="tpl-open-note" id="tpl-open-note" hidden>If Promptly did not open, <a href="/download">download the Mac app</a> and try again once it is installed.</p>
           </div>
           <aside class="tpl-analyze-panel" aria-label="Prompt quality">
             <h2>Quality</h2>
