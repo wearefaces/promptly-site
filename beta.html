@@ -27,7 +27,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="styles.css?v=20261128-align1">
+  <link rel="stylesheet" href="styles.css?v=20261128-onebtn">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -65,10 +65,7 @@
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <div class="header-ctas">
-          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          <a class="btn btn-sm btn-header-waitlist" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
-        </div>
+        <a class="btn btn-sm" href="/download" data-cta="cta_download">Download</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -82,7 +79,6 @@
           <a href="/enterprise">Enterprise</a>
           <a href="/blog">Blog</a>
           <a href="/download">Get Promptly</a>
-            <a href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>
@@ -94,26 +90,28 @@
       <div class="wrap">
         <h1>Promptly Mac beta</h1>
         <p class="lede">Version 1.0 (2) for testers. Requires macOS 26 or later on Apple silicon. The app is signed with Developer ID and notarized by Apple.</p>
-        <div class="page-hero-cta">
-          <a class="btn" href="https://github.com/wearefaces/promptly-site/releases/download/beta-1.0-2/Promptly-beta-1.0-2.dmg" data-cta="download" data-label="Download the Mac beta">Download the Mac beta</a>
-          <p class="page-hero-file">Promptly-beta-1.0-2.dmg · about 9.3 MB</p>
-        </div>
-        <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
-          <p class="page-hero-sub">Windows — Join waitlist</p>
-          <div class="frost">
-            <div class="waitlist-fields">
-              <label for="email-beta" class="visually-hidden">Email</label>
-              <input id="email-beta" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-              <button type="submit" class="btn">Join the waitlist</button>
+        <div class="download-options">
+          <section class="download-option" id="mac">
+            <h2 class="download-option-label">Mac</h2>
+            <div class="page-hero-cta">
+              <a class="btn" href="https://github.com/wearefaces/promptly-site/releases/download/beta-1.0-2/Promptly-beta-1.0-2.dmg" data-cta="download" data-label="Download the Mac beta">Download the Mac beta</a>
+              <p class="page-hero-file">Promptly-beta-1.0-2.dmg · about 9.3 MB</p>
             </div>
-          </div>
-          <div class="waitlist-platforms" role="group" aria-label="Platform">
-            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-            <button type="button" data-platform="windows" aria-pressed="true">Windows</button>
-            <button type="button" data-platform="both" aria-pressed="false">Both</button>
-          </div>
-          <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-        </form>
+          </section>
+          <section class="download-option" id="waitlist">
+            <h2 class="download-option-label">Windows</h2>
+            <form class="waitlist hero-waitlist" action="#" method="post" data-platform-default="windows">
+              <div class="frost">
+                <div class="waitlist-fields">
+                  <label for="email-beta" class="visually-hidden">Email</label>
+                  <input id="email-beta" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+                  <button type="submit" class="btn">Join the waitlist</button>
+                </div>
+              </div>
+              <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
+            </form>
+          </section>
+        </div>
       </div>
     </div>
     <div class="page-section">
@@ -165,9 +163,9 @@
         </svg>
       </div>
       <div>
-        <h2 class="display">Join the Promptly waitlist.</h2>
-        <p class="lede">Mac and Windows. We'll email you when it's ready. The first 50 get Pro free for a year as beta testers.</p>
-          <a class="btn btn-light" href="/#waitlist">Join the waitlist</a>
+        <h2 class="display">Get Promptly.</h2>
+        <p class="lede">Download for Mac, or join the Windows waitlist.</p>
+        <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
       </div>
     </div>
     <div class="footer-bar">
@@ -191,7 +189,7 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-align1" defer></script>
-  <script src="consent.js?v=20261128-dl1" defer></script>
+  <script src="waitlist.js?v=20261128-onebtn" defer></script>
+  <script src="consent.js?v=20261128-onebtn" defer></script>
 </body>
 </html>

@@ -54,6 +54,7 @@
   function eventName(el) {
     var cta = el.getAttribute("data-cta") || "";
     if (cta === "download") return "download_click";
+    if (cta === "cta_download") return "cta_download";
     if (cta === "trial") return "start_trial_click";
     if (cta === "buy") return "begin_checkout_click";
     return null;

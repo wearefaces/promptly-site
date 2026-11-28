@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261128-align1">
+  <link rel="stylesheet" href="styles.css?v=20261128-onebtn">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -100,10 +100,7 @@
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <div class="header-ctas">
-          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          <a class="btn btn-sm btn-header-waitlist" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
-        </div>
+        <a class="btn btn-sm" href="/download" data-cta="cta_download">Download</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -117,7 +114,6 @@
           <a href="/enterprise">Enterprise</a>
           <a href="/blog">Blog</a>
           <a href="/download">Get Promptly</a>
-            <a href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>
@@ -367,7 +363,7 @@
             </details>
             <details>
               <summary>Is there a Windows version?</summary>
-              <p>Windows is coming. <a href="/#waitlist">Join the waitlist</a> to hear when it is ready.</p>
+              <p>Windows is coming. <a href="/download#waitlist">Join the waitlist</a> to hear when it is ready.</p>
             </details>
           </div>
         </div>
@@ -398,16 +394,9 @@
         </svg>
       </div>
       <div>
-        <div data-when="no-download">
-          <h2 class="display">Join the Promptly waitlist.</h2>
-          <p class="lede">Mac and Windows. We'll email you when it's ready.</p>
-          <a class="btn btn-light" href="#waitlist">Join the waitlist</a>
-        </div>
-        <div data-when="download" hidden>
-          <h2 class="display">Download for Mac.</h2>
-          <p class="lede">Requires macOS 26 or later, Apple silicon.</p>
-          <a class="btn btn-light" href="#" data-cta="download">Download for Mac</a>
-        </div>
+        <h2 class="display">Get Promptly.</h2>
+        <p class="lede">Download for Mac, or join the Windows waitlist.</p>
+        <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
       </div>
     </div>
     <div class="footer-bar">
@@ -431,7 +420,7 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-align1" defer></script>
-  <script src="consent.js?v=20261128-dl1" defer></script>
+  <script src="waitlist.js?v=20261128-onebtn" defer></script>
+  <script src="consent.js?v=20261128-onebtn" defer></script>
 </body>
 </html>

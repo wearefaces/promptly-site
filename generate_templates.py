@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://getpromptly.io"
-CSS_V = "20261120-profile-v1"
+CSS_V = '20261128-onebtn'
 VAR_RE = re.compile(r"\[[A-Z][A-Z0-9_ ]*\]")
 
 LOGO = """        <svg class="logo" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
@@ -92,10 +92,7 @@ def header(prefix: str, current: str) -> str:
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <div class="header-ctas">
-          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          <a class="btn btn-sm btn-header-waitlist" href="{waitlist}" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
-        </div>
+        <a class="btn btn-sm" href="/download" data-cta="cta_download">Download</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -104,7 +101,6 @@ def header(prefix: str, current: str) -> str:
           </summary>
           <nav class="nav-panel" aria-label="Primary">
 {links}
-            <a href="{waitlist}" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>

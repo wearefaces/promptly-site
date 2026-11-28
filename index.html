@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261128-align1">
+  <link rel="stylesheet" href="styles.css?v=20261128-onebtn">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -101,10 +101,7 @@
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <div class="header-ctas">
-          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          <a class="btn btn-sm btn-header-waitlist" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
-        </div>
+        <a class="btn btn-sm" href="/download" data-cta="cta_download">Download</a>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -118,7 +115,6 @@
           <a href="/enterprise">Enterprise</a>
           <a href="/blog">Blog</a>
           <a href="/download">Get Promptly</a>
-            <a href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>
@@ -130,27 +126,9 @@
       <div class="hero-copy">
         <p class="eyebrow">For Mac and Windows</p>
         <h1 class="display">Select text.<br>Ask any AI.</h1>
-        <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
-          <div class="frost">
-          <div class="waitlist-fields">
-            <label for="email-hero" class="visually-hidden">Email</label>
-            <input id="email-hero" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-            <button type="submit" class="frost-go" aria-label="Join the waitlist">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5V3.5M3.5 8 8 3.5 12.5 8"/></svg>
-            </button>
-          </div>
-          </div>
-          <div class="waitlist-platforms" role="group" aria-label="Platform">
-            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-            <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
-            <button type="button" data-platform="both" aria-pressed="true">Both</button>
-          </div>
-        </form>
-        <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
         <p class="lede">Promptly turns any text you select on your Mac or Windows PC into a ready-to-send AI prompt — with your own prompt library one click away.</p>
         <div class="hero-actions">
-          <a class="btn" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          <a class="btn btn-ghost" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+          <a class="btn" href="/download" data-cta="cta_download">Download</a>
           <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
         </div>
         <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. On Mac: requires macOS 26 or later, Apple silicon.</p>
@@ -575,7 +553,7 @@
           <details><summary>Can my team share prompts?</summary><p>Yes — via a shared JSON/CSV link, Slack or Microsoft 365.</p></details>
           <details><summary>Why does it need Accessibility access?</summary><p>To read the text you select and paste prompts into desktop AI apps.</p></details>
           <details><summary>What happens after the trial?</summary><p>The trial never charges you. When it ends, Promptly continues on the Free plan. If you subscribe, Monthly and Yearly plans renew until cancelled. Lifetime is a one-time purchase. Payments are not live yet.</p></details>
-          <details><summary>Is there a Windows version?</summary><p>Windows is coming. <a href="#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
+          <details><summary>Is there a Windows version?</summary><p>Windows is coming. <a href="/download#waitlist">Join the waitlist</a> to hear when it is ready.</p></details>
         </div>
       </div>
     </section>
@@ -604,9 +582,9 @@
         </svg>
       </div>
       <div>
-        <h2 class="display">Join the Promptly waitlist.</h2>
-        <p class="lede">Mac and Windows. We'll email you when it's ready. The first 50 get Pro free for a year as beta testers.</p>
-          <a class="btn btn-light" href="#waitlist">Join the waitlist</a>
+        <h2 class="display">Get Promptly.</h2>
+        <p class="lede">Download for Mac, or join the Windows waitlist.</p>
+        <a class="btn btn-light" href="/download" data-cta="cta_download">Download</a>
       </div>
     </div>
     <div class="footer-bar">
@@ -630,8 +608,8 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-align1" defer></script>
+  <script src="waitlist.js?v=20261128-onebtn" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
-  <script src="consent.js?v=20261128-dl1" defer></script>
+  <script src="consent.js?v=20261128-onebtn" defer></script>
 </body>
 </html>

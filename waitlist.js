@@ -263,7 +263,7 @@
 
   function platformsOf(form) {
     var btn = form.querySelector(".waitlist-platforms button[aria-pressed='true']");
-    var key = (btn && btn.getAttribute("data-platform")) || "both";
+    var key = (btn && btn.getAttribute("data-platform")) || form.getAttribute("data-platform-default") || "both";
     if (key === "mac") return ["mac"];
     if (key === "windows") return ["windows"];
     return ["mac", "windows"];

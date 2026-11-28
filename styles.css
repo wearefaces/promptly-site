@@ -3291,8 +3291,32 @@ html.is-preview .uses-ticker-track {
   flex-shrink: 1;
   min-width: 0;
 }
-@media (max-width: 960px) {
-  .header-ctas .btn-header-waitlist { display: none; }
+.download-options {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px 72px;
+  max-width: 52rem;
+}
+.download-option {
+  flex: 1 1 16rem;
+  min-width: 0;
+  max-width: 28rem;
+}
+.download-option-label {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+.download-option .page-hero-cta { margin-top: 0; }
+.download-option .hero-waitlist {
+  margin: 0;
+  width: 100%;
+  align-items: flex-start;
 }
 .page-hero--download .hero-waitlist .frost {
   width: 100%;
