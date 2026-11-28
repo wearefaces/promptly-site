@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thanks — Promptly</title>
-  <meta name="description" content="Thank you for buying Promptly. Download and license details will appear here when they are finalized.">
+  <meta name="description" content="Thanks for buying Promptly. Check your email for your license key, then enter it in Settings.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F4F5F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="Promptly">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Thanks — Promptly">
-  <meta property="og:description" content="Thank you for buying Promptly. Download and license details will appear here when they are finalized.">
+  <meta property="og:description" content="Thanks for buying Promptly. Check your email for your license key, then enter it in Settings.">
   <meta property="og:url" content="https://getpromptly.io/success">
   <meta property="og:image" content="https://getpromptly.io/og.png">
   <meta property="og:image:width" content="1200">
@@ -22,13 +22,26 @@
   <meta property="og:image:alt" content="Promptly for Mac and Windows — Select text. Ask any AI.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thanks — Promptly">
-  <meta name="twitter:description" content="Thank you for buying Promptly. Download and license details will appear here when they are finalized.">
+  <meta name="twitter:description" content="Thanks for buying Promptly. Check your email for your license key, then enter it in Settings.">
   <meta name="twitter:image" content="https://getpromptly.io/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="styles.css?v=20261128-ft1">
+  <link rel="stylesheet" href="styles.css?v=20261128-success1">
   <script>document.documentElement.classList.add("js");</script>
+  <style>
+    .license-resend { margin: 0 0 1.25rem; }
+    .license-resend-fields { display: flex; gap: 8px; width: min(100%, 440px); flex-wrap: wrap; }
+    .license-resend input[type="email"] {
+      appearance: none; -webkit-appearance: none; flex: 1; min-width: 180px; height: 44px;
+      padding: 0 16px; border-radius: var(--radius-pill); border: 1px solid var(--border-strong);
+      background: var(--surface); color: var(--text); -webkit-text-fill-color: var(--text);
+      font: inherit; font-size: 16px;
+    }
+    .license-resend input[type="email"]::placeholder { color: #5c5c5c; -webkit-text-fill-color: #5c5c5c; opacity: 1; }
+    .license-resend-status { margin: 10px 0 0; font-size: 15px; color: var(--fg-secondary, var(--text)); }
+    .license-resend-status[hidden] { display: none !important; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,17 +103,25 @@
         <h1>Thanks</h1>
       </div>
     </div>
-    <div class="page-section">
+    <div class="page-section on-canvas">
       <div class="wrap prose">
-        <p class="lede" style="margin-top:0">Thanks for buying Promptly.</p>
-        <p>If you arrived here after checkout, keep this page or the receipt from your payment provider. This site cannot confirm a payment on its own.</p>
+        <p class="lede" style="margin-top:0">Thanks! Check your email for your Promptly license key (from licenses@getpromptly.io).</p>
+        <p>Open Promptly → Settings… → License → Enter license key, then paste the key. One key works on up to 3 Macs.</p>
         <p>
-          <a class="btn" href="/download#windows" data-cta="download">Join waitlist</a>
+          <a class="btn" href="/download" data-cta="download" data-label="Download for Mac">Download for Mac</a>
         </p>
-        <h2>License and activation</h2>
-        <!-- TODO: replace this placeholder once licensing and activation are finalized. Do not treat the text below as a live process. -->
-        <p><strong>Placeholder — not a live process.</strong> Promptly does not yet document a license-key or activation flow on this page. If your payment provider emailed a receipt, check the inbox you used to pay. Activation steps will be written here when they are ready. This text makes no claim that a license has already been issued or emailed.</p>
-        <p>Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. After you have a build, grant Accessibility access in System Settings so the popup can read selected text and paste into desktop AI apps. See <a href="/download">Get Promptly</a> for the three setup steps.</p>
+        <h2>Didn’t get the email?</h2>
+        <p>Check your spam folder, then enter the address you used at checkout and we’ll send the key again.</p>
+        <form class="license-resend" method="post" action="https://promptly-license.promptly-license.workers.dev/license/resend">
+          <div class="license-resend-fields">
+            <label for="email-resend" class="visually-hidden">Email</label>
+            <input id="email-resend" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+            <button class="btn" type="submit">Email my key</button>
+          </div>
+          <p class="license-resend-status" role="status" hidden></p>
+        </form>
+        <p>Need help? Email <a href="mailto:appsinsights@gmail.com">appsinsights@gmail.com</a>.</p>
+        <p>Promptly is a macOS menu bar app for Apple silicon, requiring macOS 26 or later. After you install it, grant Accessibility access in System Settings so the popup can read selected text and paste into desktop AI apps. See <a href="/download">Get Promptly</a> for the setup steps.</p>
         <p><a href="/">Back to the homepage</a></p>
       </div>
     </div>
@@ -160,5 +181,40 @@
   <script src="auth.js?v=20261128-dl1" defer></script>
   <script src="waitlist.js?v=20261128-pr1" defer></script>
   <script src="consent.js?v=20261128-ft1" defer></script>
+  <script>
+    (function () {
+      var form = document.querySelector("form.license-resend");
+      if (!form) return;
+      var status = form.querySelector(".license-resend-status");
+      var endpoint = "https://promptly-license.promptly-license.workers.dev/license/resend";
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = (form.email.value || "").trim();
+        var btn = form.querySelector('button[type="submit"]');
+        status.hidden = false;
+        status.textContent = "Sending…";
+        btn.disabled = true;
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email })
+        }).then(function (res) {
+          return res.json().then(function (data) { return { ok: res.ok, data: data }; }, function () { return { ok: res.ok, data: {} }; });
+        }).then(function (r) {
+          if (r.ok) {
+            status.textContent = (r.data && r.data.message) || "If a Promptly license exists for that email, we’ve sent it there. Check your inbox and spam folder.";
+          } else if (r.data && r.data.error === "rate_limited") {
+            status.textContent = "Please wait a moment and try again.";
+          } else if (r.data && r.data.error === "invalid_email") {
+            status.textContent = "Please enter a valid email address.";
+          } else {
+            status.textContent = "We couldn’t send that just now. Email appsinsights@gmail.com and we’ll help.";
+          }
+        }).catch(function () {
+          status.textContent = "We couldn’t send that just now. Email appsinsights@gmail.com and we’ll help.";
+        }).then(function () { btn.disabled = false; });
+      });
+    })();
+  </script>
 </body>
 </html>
