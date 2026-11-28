@@ -1,16 +1,15 @@
 /* Promptly site config.
-   CHECKOUT is intentionally empty: payments are not live yet, so Buy/Trial buttons fall back to "Join waitlist".
+   CHECKOUT holds the LIVE Stripe payment links (verified end-to-end with the live license worker on 2026-11-28).
    Do NOT paste Stripe TEST links here (visitors would land on a test checkout).
-   Fill in LIVE payment links only after the live license worker is deployed and verified end-to-end.
-   DOWNLOAD_URL points at the current Mac beta. CONTACT_EMAIL stays empty until provided.
+   DOWNLOAD_URL points at the current Mac beta (1.0 (3), which can activate license keys). CONTACT_EMAIL stays empty until provided.
    WAITLIST_ENDPOINT is unused: waitlist sign-ups go to Firestore in promptly-bfad6.
    This file only stores URLs — it does not create Stripe objects or accounts. */
 var CHECKOUT = {
-  monthly: "",
-  yearly: "",
-  lifetime: ""
+  monthly: "https://buy.stripe.com/00wcMZ6Wg7HY9uV9KDfbq01",
+  yearly: "https://buy.stripe.com/8x24gtcgAgeu5eF1e7fbq02",
+  lifetime: "https://buy.stripe.com/6oU7sF5Sc3rI6iJ3mffbq00"
 };
-var DOWNLOAD_URL = "https://github.com/wearefaces/promptly-site/releases/download/beta-1.0-2/Promptly-beta-1.0-2.dmg";
+var DOWNLOAD_URL = "https://github.com/wearefaces/promptly-site/releases/download/beta-1.0-3/Promptly-beta-1.0-3.dmg";
 var CONTACT_EMAIL = "";
 var WAITLIST_ENDPOINT = "";
 

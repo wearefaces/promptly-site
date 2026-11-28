@@ -138,7 +138,7 @@
         var trialUrl = c.checkout[trialPlan] || c.checkout.yearly || c.checkout.monthly || "";
         if (filled(trialUrl)) {
           el.href = trialUrl.trim();
-          el.textContent = "Start free trial";
+          el.textContent = "Buy";
         } else {
           el.href = waitlistHref();
           el.textContent = "Join waitlist";
@@ -161,7 +161,7 @@
         if (checkoutLive) {
           var primaryUrl = c.checkout[billing] || c.checkout.yearly || c.checkout.monthly || c.checkout.lifetime;
           el.href = filled(primaryUrl) ? primaryUrl.trim() : "/pricing";
-          el.textContent = "Start free trial";
+          el.textContent = "Buy";
         } else {
           el.href = waitlistHref();
         }
