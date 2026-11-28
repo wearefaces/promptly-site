@@ -3238,6 +3238,31 @@ html.is-preview .uses-ticker-track {
   color: #fff;
   opacity: 0.96;
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.45), 0 0 2px rgba(0, 0, 0, 0.4);
+  max-width: 34rem;
+}
+.page-hero-cta {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 34rem;
+}
+.page-hero-cta .btn { margin: 0; }
+.page-hero-file {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #fff;
+  opacity: 0.9;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+.page-hero-sub {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 .page-hero--photo .btn:not(.btn-ghost) {
   background: #fff;
@@ -3255,9 +3280,19 @@ html.is-preview .uses-ticker-track {
 }
 
 .page-hero--download .hero-waitlist {
-  margin: 24px 0 0;
+  margin: 28px 0 0;
   width: min(100%, 560px);
   align-items: flex-start;
+}
+.header-ctas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+@media (max-width: 960px) {
+  .header-ctas .btn-header-waitlist { display: none; }
 }
 .page-hero--download .hero-waitlist .frost {
   width: 100%;

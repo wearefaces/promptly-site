@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261127-leaks1">
+  <link rel="stylesheet" href="styles.css?v=20261128-align1">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -101,7 +101,10 @@
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <a class="btn btn-sm" href="#waitlist" data-cta="primary">Join waitlist</a>
+        <div class="header-ctas">
+          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
+          <a class="btn btn-sm btn-header-waitlist" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+        </div>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -115,6 +118,7 @@
           <a href="/enterprise">Enterprise</a>
           <a href="/blog">Blog</a>
           <a href="/download">Get Promptly</a>
+            <a href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>
@@ -145,7 +149,8 @@
         <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
         <p class="lede">Promptly turns any text you select on your Mac or Windows PC into a ready-to-send AI prompt — with your own prompt library one click away.</p>
         <div class="hero-actions">
-          <a class="btn" href="#waitlist" data-cta="primary">Join waitlist</a>
+          <a class="btn" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
+          <a class="btn btn-ghost" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
         </div>
         <p class="hero-services">Works with ChatGPT, Claude, Gemini, Grok, DeepSeek, Mistral, Perplexity, Microsoft Copilot, or a custom URL. On Mac: requires macOS 26 or later, Apple silicon.</p>
@@ -625,7 +630,7 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-dl1" defer></script>
+  <script src="waitlist.js?v=20261128-align1" defer></script>
   <script src="impact.js?v=20261113-uses9" defer></script>
   <script src="consent.js?v=20261128-dl1" defer></script>
 </body>

@@ -62,7 +62,7 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261127-leaks1">
+  <link rel="stylesheet" href="styles.css?v=20261128-align1">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -100,7 +100,10 @@
           <span class="header-email" data-auth-email></span>
           <button type="button" class="btn btn-sm btn-ghost" data-auth-signout>Sign out</button>
         </span>
-        <a class="btn btn-sm" href="#waitlist" data-cta="primary">Join waitlist</a>
+        <div class="header-ctas">
+          <a class="btn btn-sm" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
+          <a class="btn btn-sm btn-header-waitlist" href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
+        </div>
         <details class="nav-toggle">
           <summary aria-label="Open menu">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -114,6 +117,7 @@
           <a href="/enterprise">Enterprise</a>
           <a href="/blog">Blog</a>
           <a href="/download" aria-current="page">Get Promptly</a>
+            <a href="#waitlist" data-cta="waitlist" data-waitlist-platform="windows">Windows — Join waitlist</a>
           </nav>
         </details>
       </div>
@@ -124,30 +128,27 @@
       <div class="page-hero-bg" aria-hidden="true"></div>
       <div class="wrap">
         <h1>Get Promptly</h1>
-        <div data-when="no-download">
-          <p class="lede">Mac and Windows. Join the waitlist and we'll email you when it's ready.</p>
-          <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
-            <div class="frost">
-              <div class="waitlist-fields">
-                <label for="email-download" class="visually-hidden">Email</label>
-                <input id="email-download" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
-                <button type="submit" class="btn">Join the waitlist</button>
-              </div>
-            </div>
-            <div class="waitlist-platforms" role="group" aria-label="Platform">
-              <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
-              <button type="button" data-platform="windows" aria-pressed="false">Windows</button>
-              <button type="button" data-platform="both" aria-pressed="true">Both</button>
-            </div>
-            <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
-          </form>
+        <p class="lede">Download Promptly for Mac, then use these steps to grant Accessibility access. Windows is coming — join the waitlist and we'll email you when it's ready.</p>
+        <div class="page-hero-cta">
+          <a class="btn" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
+          <p class="page-hero-file">Promptly-beta-1.0-2.dmg · about 9.3 MB</p>
         </div>
-        <div data-when="download" hidden>
-          <p class="lede">Download Promptly for Mac, then use these steps to grant Accessibility access.</p>
-          <p style="margin:20px 0 0">
-            <a class="btn" href="#" data-cta="download" data-label="Download for Mac">Download for Mac</a>
-          </p>
-        </div>
+        <form class="waitlist hero-waitlist" action="#" method="post" id="waitlist">
+          <p class="page-hero-sub">Windows — Join waitlist</p>
+          <div class="frost">
+            <div class="waitlist-fields">
+              <label for="email-download" class="visually-hidden">Email</label>
+              <input id="email-download" type="email" name="email" required autocomplete="email" placeholder="you@company.com" spellcheck="false" maxlength="199">
+              <button type="submit" class="btn">Join the waitlist</button>
+            </div>
+          </div>
+          <div class="waitlist-platforms" role="group" aria-label="Platform">
+            <button type="button" data-platform="mac" aria-pressed="false">Mac</button>
+            <button type="button" data-platform="windows" aria-pressed="true">Windows</button>
+            <button type="button" data-platform="both" aria-pressed="false">Both</button>
+          </div>
+          <p class="frost-thanks waitlist-thanks" hidden>You're on the waitlist. We'll write when it's ready.</p>
+        </form>
       </div>
     </div>
     <div class="page-section">
@@ -221,7 +222,7 @@
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="firebase-config.js" defer></script>
   <script src="auth.js?v=20261128-dl1" defer></script>
-  <script src="waitlist.js?v=20261128-dl1" defer></script>
+  <script src="waitlist.js?v=20261128-align1" defer></script>
   <script src="consent.js?v=20261128-dl1" defer></script>
 </body>
 </html>

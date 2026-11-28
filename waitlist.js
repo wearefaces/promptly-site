@@ -154,17 +154,15 @@
             el.textContent = "Join waitlist";
           }
         }
+      } else if (kind === "waitlist") {
+        el.href = waitlistHref();
       } else if (kind === "primary") {
-        if (filled(c.download)) {
-          el.href = c.download.trim();
-          el.textContent = "Download for Mac";
-        } else if (checkoutLive) {
+        if (checkoutLive) {
           var primaryUrl = c.checkout[billing] || c.checkout.yearly || c.checkout.monthly || c.checkout.lifetime;
           el.href = filled(primaryUrl) ? primaryUrl.trim() : "/pricing";
           el.textContent = "Start free trial";
         } else {
           el.href = waitlistHref();
-          el.textContent = "Join waitlist";
         }
       }
     });
@@ -350,6 +348,25 @@
     var form = btn.closest("form.waitlist");
     if (form) setPlatform(form, btn.getAttribute("data-platform"));
   });
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest && e.target.closest("[data-waitlist-platform]");
+    if (!link) return;
+    var key = link.getAttribute("data-waitlist-platform") || "windows";
+    try { sessionStorage.setItem("promptly-waitlist-platform", key); } catch (err) {}
+    document.querySelectorAll("form.waitlist").forEach(function (form) {
+      setPlatform(form, key);
+    });
+  });
+
+  (function applyStoredPlatform() {
+    var key = null;
+    try { key = sessionStorage.getItem("promptly-waitlist-platform"); } catch (err) {}
+    if (!key) return;
+    document.querySelectorAll("form.waitlist").forEach(function (form) {
+      setPlatform(form, key);
+    });
+  })();
 
   if (window.PromptlyAuth && PromptlyAuth.onChange) {
     PromptlyAuth.onChange(prefillWaitlistEmail);
