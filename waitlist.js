@@ -2,15 +2,15 @@
   var BILLING_COPY = {
     monthly: {
       name: "Pro Monthly",
-      price: "$7",
+      price: "$4.99",
       period: "/ month",
       note: "Cancel any time"
     },
     yearly: {
       name: "Pro Yearly",
-      price: "$59",
+      price: "$29.99",
       period: "/ year",
-      note: "$4.92/mo · Save $25"
+      note: "$2.50/mo · Save $29.89"
     }
   };
 

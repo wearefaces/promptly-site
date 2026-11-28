@@ -139,13 +139,13 @@ def footer(prefix: str, form_id: str, extra_js: str = "") -> str:
       </div>
     </div>
   </footer>
-  <script src="{prefix}config.js"></script>
+  <script src="{prefix}config.js?v=20261128-pr1"></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js" defer></script>
   <script src="{prefix}firebase-config.js" defer></script>
   <script src="{prefix}auth.js?v={CSS_V}" defer></script>
-  <script src="{prefix}waitlist.js?v={CSS_V}" defer></script>
+  <script src="{prefix}waitlist.js?v=20261128-pr1" defer></script>
   <script src="{prefix}consent.js?v=20261113-uses5" defer></script>
   <script src="{prefix}templates.js?v={CSS_V}" defer></script>
 {extra_js}"""
